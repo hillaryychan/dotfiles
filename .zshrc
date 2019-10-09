@@ -116,4 +116,4 @@ alias tn='tmux new-session'
 alias tl='tmux list-session'
 alias tk='tmux kill-session'
 
-alias gitc='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias dit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
