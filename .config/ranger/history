@@ -1,0 +1,13 @@
+set colorscheme snow
+set colorscheme default
+set colorscheme jungle
+set colorscheme solarized
+find as
+fasd
+linemode 
+set preview_image
+set preview_images=true
+rename 19t2_mark.ods 19t3_mark.ods
+rename 19t3_mark.ods
+rename 19t3_schdeule.ods
+rename 19t3_schdeule.odt
