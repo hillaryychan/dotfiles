@@ -47,6 +47,16 @@ git
 
 ## Desktop Setup
 
+### Themes
+
+|               | Theme                                     |
+| ---           | ---                                       |
+| Applications  | Arc-Sun-Darker                            |
+| Cursor        | DMZ-White                                 |
+| Icons         | [Pop](https://github.com/pop-os/gtk-theme)|
+| Shell         | Arc-Sun                                   |
+Arc-Sun is the [Arc Theme](https://github.com/horst3180/arc-theme) with accent colours modified to #FBB41A using [Arc-Theme-Colora](https://github.com/erikdubois/Arc-Theme-Colora)
+
 ### Keyboard Shortcuts
 
 Some keyboard shortcuts I often use:
