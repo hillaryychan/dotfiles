@@ -17,7 +17,7 @@ Dotfiles are stored/installed following this [guide](https://www.atlassian.com/g
 
 ### tmux
 
-\#TODO
+* Customising tmux [guide](https://hackernoon.com/customizing-tmux-b3d2a5050207)
 
 ### Text Editors
 
