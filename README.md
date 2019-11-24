@@ -64,12 +64,13 @@ Some keyboard shortcuts I often use:
 
 Launchers
 
-| Shortcut Keys | Description           |
-| :---:         | ---                   |
-| `ctrl-alt-t`  | Open terminal         |
-| `ctrl-alt-b`  | Open Chrome browser   |
-| `ctrl-alt-s`  | Open settings         |
-| `super-e`     | Open file explorer    |
+| Shortcut Keys | Description               |
+| :---:         | ---                       |
+| `ctrl-alt-t`  | Open terminal             |
+| `ctrl-alt-b`  | Open default web browser  |
+| `ctrl-alt-v`  | Open vscode               |
+| `ctrl-alt-s`  | Open settings             |
+| `super-e`     | Open file explorer        |
 
 Navigation
 
