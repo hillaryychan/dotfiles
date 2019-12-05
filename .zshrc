@@ -119,3 +119,6 @@ alias tk='tmux kill-session'
 alias objdump='objdump -M intel'
 
 alias dit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# allow ctrl-u to delete from cursor to beginning of line instead of clearing whole line
+bindkey \^U backward-kill-line
