@@ -113,6 +113,7 @@ alias mc='make clean'
 
 # tmux aliases
 alias tn='tmux new-session'
+alias ta='tmux attach-session'
 alias tl='tmux list-session'
 alias tk='tmux kill-session'
 
