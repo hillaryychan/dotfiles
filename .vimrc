@@ -91,15 +91,15 @@ set showmatch       " highlight matching parenthesis
 set showcmd         " display incomplete commands
 set cursorline      " highlight the cursor line
 set colorcolumn=80  " color the 80th column
-set laststatus=2
-set list
-set listchars=tab:│\ ,trail:·,nbsp:⎵   " display white space as chars
+set laststatus=2    " always display status line
+set list            " display hidden characters in vim
+set listchars=tab:│\ ,trail:·,nbsp:⎵    " display white space as chars
 
 " Searching
 set hlsearch        " highlight searches
 set incsearch       " show partial matches for a search
 set ignorecase      " use case insensitve search except when using capital letters
-set smartcase       " an uppercase letter wil enable case sensitivity   
+set smartcase       " an uppercase letter will enable case sensitivity
 
 set scrolloff=3
 set matchpairs+=<:> " use % to jump between pairs
