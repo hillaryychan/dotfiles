@@ -78,6 +78,7 @@ Navigation
 | :---:         | ---                   |
 | `super-a`     | Open app menu         |
 | `super-d`     | Hide all windows      |
+| `super-l`     | Lock scren            |
 | `super-space` | Switch keyboard       |
 | `super-tab`   | Switch applications   |
 | `alt-tab`     | Switch windows        |
