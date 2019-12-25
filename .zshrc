@@ -101,25 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias :q='exit'
-alias ra='ranger'
-alias vs='code'
-alias v.='vim .'
-alias chrome='google-chrome'
-
-alias m='make'
-alias mc='make clean'
-
-# tmux aliases
-alias tn='tmux new-session'
-alias ta='tmux attach-session'
-alias tl='tmux list-session'
-alias tk='tmux kill-session'
-
-alias objdump='objdump -M intel'
-
-alias dit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+source ~/.shell_aliases
 
 # allow ctrl-u to delete from cursor to beginning of line instead of clearing whole line
 bindkey \^U backward-kill-line

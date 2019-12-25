@@ -1,0 +1,19 @@
+alias dit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+alias :q='exit'
+alias ra='ranger'
+alias vs='code'
+alias v.='vim .'
+alias chrome='google-chrome'
+
+alias m='make'
+alias mc='make clean'
+
+# tmux aliases
+alias tn='tmux new-session'
+alias ta='tmux attach-session'
+alias tl='tmux list-session'
+alias tk='tmux kill-session'
+
+alias objdump='objdump -M intel'
+
