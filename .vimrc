@@ -1,7 +1,6 @@
-set nocompatible            " ensure config is not used with Vi
-filetype off
-
 " General
+set nocompatible    " ensure config is not used with Vi
+filetype off
 set hidden          " reuse same window and switch from an unsaved buffer 
                     " without saving it first. Also keep undo history for 
                     " multiple files
@@ -23,6 +22,10 @@ if (has("termguicolors"))
 endif
 set t_Co=256
 colorscheme OceanicNext
+
+" Enable undercurl
+let &t_Cs = "\e[4:3m"
+let &t_Ce = "\e[4:0m"
 
 " Indentation
 set expandtab       " tab expands to spaces

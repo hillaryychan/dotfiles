@@ -13,7 +13,7 @@ Dotfiles are stored/installed following this [guide](https://www.atlassian.com/g
 * [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
 * [zsh-autosuggestion](https://github.com/zsh-users/zsh-autosuggestions) (fish style)
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) (fish style)
-* prompt: modifed [ys-theme](https://github.com/hillaryychan/dotfiles/blob/master/.oh-my-zsh/themes/ys.zsh-theme)
+* prompt: modified [ys-theme](https://github.com/hillaryychan/dotfiles/blob/master/.oh-my-zsh/themes/ys.zsh-theme)
 
 ### tmux
 
