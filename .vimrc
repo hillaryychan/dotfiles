@@ -12,6 +12,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'       " vim plugin handler
 Plugin 'mhartington/oceanic-next'   " colorscheme
 Plugin 'itchyny/lightline.vim'      " status line plugin
+Plugin 'itchyny/vim-gitbranch'      " status line git branch
 Plugin 'Yggdroot/indentLine'        " display vertical lines for indentation levels
 
 " All of your Plugins must be added before the following line
@@ -24,12 +25,11 @@ let g:lightline = {
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
     \ },
     \ 'component_function': {
-    \   'gitbranch': 'fugitive#head'
+    \   'gitbranch': 'gitbranch#name'
     \ },
     \ }
 
 " indentLine 
-let g:indentLine_setColors=0
 let g:indentLine_char = '│'
 
 " ==============================================================================
