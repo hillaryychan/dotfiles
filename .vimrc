@@ -1,24 +1,7 @@
 set nocompatible            " ensure config is not used with Vi
 filetype off
 
-" vundle =======================================================================
-" see :h vundle for more details or wiki for FAQ
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'       " vim plugin handler
-Plugin 'mhartington/oceanic-next'   " colorscheme
-Plugin 'itchyny/lightline.vim'      " status line plugin
-Plugin 'itchyny/vim-gitbranch'      " status line git branch
-Plugin 'Yggdroot/indentLine'        " display vertical lines for indentation levels
-
-" All of your Plugins must be added before the following line
-call vundle#end()                   " required
-
-" PLUGIN CONFIGURATIONS
+" lightline Status Bar
 let g:lightline = {
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
@@ -32,7 +15,10 @@ let g:lightline = {
 " indentLine 
 let g:indentLine_char = '│'
 
-" ==============================================================================
+" File Browsing with netrw
+let g:netrw_banner=0        " disable annoying banner
+let g:netrw_browse_split=4  " open in prior window
+let g:netrw_liststyle=3     " tree view
 
 " General
 set hidden          " reuse same window and switch from an unsaved buffer 
@@ -40,7 +26,7 @@ set hidden          " reuse same window and switch from an unsaved buffer
                     " multiple files
 set modelines=0     " security
 set visualbell      " use visual bell instead of beeping when there is an error
-set mouse=a         " enable mouse for all modes
+set mouse+=a         " enable mouse for all modes
 set clipboard^=unnamedplus " enable copy pasting between clipboard registers
 
 " Encoding
@@ -95,11 +81,6 @@ set matchpairs+=<:> " use % to jump between pairs
 " Splitting
 set splitright      " puts new vsplit windows to the right of the current 
 set splitbelow      " puts new split windows to bottom of current
-
-" File Browsing with netrw
-let g:netrw_banner=0        " disable annoying banner
-let g:netrw_browse_split=4  " open in prior window
-let g:netrw_liststyle=3     " tree view
 
 " Mappings
 inoremap jk <esc>
