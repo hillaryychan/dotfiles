@@ -23,9 +23,10 @@ Dotfiles are stored/installed following this [guide](https://www.atlassian.com/g
 
 Vim
 
-* [Command Cheat Sheet](https://vim.rtorr.com/)
+* [Command Cheat Sheet](https://devhints.io/vim)
 * [Keyboard Cheat Sheet](https://github.com/CallumHoward/cli-tools/blob/master/vimcheatsheet.pdf)
 * colorscheme: modified [Oceanic-Next](https://github.com/hillaryychan/dotfiles/blob/master/.vim/bundle/oceanic-next/colors/OceanicNext.vim)
+* plugin manager: vim built-in packages
 
 [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -44,6 +45,8 @@ Vim
 ### Source Control
 
 git
+
+* [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
 
 ## Desktop Setup
 
