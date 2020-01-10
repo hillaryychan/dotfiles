@@ -70,6 +70,9 @@ vnoremap JK <esc>
 
 nnoremap <space><space> :noh<return>
 
+noremap <F12> :setlocal spell! spelllang=en_au<cr>
+inoremap <F12> <c-\><c-o>:setlocal spell! spelllang=en_au<cr>
+
 :command WQ wq
 :command Wq wq
 :command W w
@@ -81,9 +84,6 @@ let g:netrw_browse_split=4  " open in prior window
 let g:netrw_liststyle=3     " tree view
 
 " PLUGIN CONFIGURATIONS
-" spell-underlining
-let g:spell_under='OceanicNext'
-
 " lightline status
 let g:lightline = {
     \ 'active': {
