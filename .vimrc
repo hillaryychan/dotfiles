@@ -78,12 +78,18 @@ inoremap <F12> <c-\><c-o>:setlocal spell! spelllang=en_au<cr>
 :command W w
 :command Q q
 
-" File Browsing with netrw
-let g:netrw_banner=0        " disable annoying banner
-let g:netrw_browse_split=4  " open in prior window
-let g:netrw_liststyle=3     " tree view
-
 " PLUGIN CONFIGURATIONS
+" File Browsing with netrw
+" Per default, netrw leaves unmodified buffers open. This autocommand
+" deletes netrw's buffer once it's hidden (using ':q', for example)
+autocmd FileType netrw setl bufhidden=delete
+
+let g:netrw_liststyle=3     " tree view
+let g:netrw_preview=1       " preview in vertical split
+let g:netrw_hide=1          " don't show hidden file (toggle with gh)
+let ghregex='\(^\|\s\s\)\zs\.\S\+,^\.\.'
+let g:netrw_list_hide=ghregex
+
 " lightline status
 let g:lightline = {
     \ 'active': {
