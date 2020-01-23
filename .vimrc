@@ -39,6 +39,7 @@ set noshowmode      " don't show working mode
 set ruler           " show file stats
 set number          " show line numbers
 set relativenumber  " show relative line numbers
+set nowrap          " don't wrap lines
 set path+=**        " provides recursive file path
 set wildmenu        " visual autocomplete for command-line
 set showmatch       " highlight matching parenthesis
@@ -47,7 +48,8 @@ set cursorline      " highlight the cursor line
 set colorcolumn=80  " colour the 80th column
 set laststatus=2    " always display status line
 set list            " display hidden characters in vim
-set listchars=tab:│\ ,trail:·,nbsp:⎵    " display white space as chars
+                    " display white space as chars
+set listchars=tab:→\ ,space:·,extends:›,precedes:‹,trail:·,nbsp:⎵
 
 " Searching
 set hlsearch        " highlight searches
