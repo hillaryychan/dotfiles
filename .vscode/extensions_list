@@ -1,12 +1,9 @@
 austin.code-gnu-global-0.2.2
 azemoh.one-monokai-0.4.6
 chunsen.bracket-select-2.0.1
-coenraads.bracket-pair-colorizer-2-0.0.29
-davidanson.vscode-markdownlint-0.33.0
-ms-python.python-2019.11.50794
-ms-python.python-2020.1.57204
-ms-vscode.cpptools-0.26.2
-shd101wyy.markdown-preview-enhanced-0.5.0
-shd101wyy.markdown-preview-enhanced-0.5.1
+coenraads.bracket-pair-colorizer-1.0.61
+davidanson.vscode-markdownlint-0.34.0
+ms-python.python-2020.2.63072
+ms-vscode.cpptools-0.26.3
+shd101wyy.markdown-preview-enhanced-0.5.2
 tomoki1207.selectline-statusbar-0.0.2
-yzhang.markdown-all-in-one-2.6.1
