@@ -23,6 +23,7 @@ Dotfiles are stored/installed following this [guide](https://www.atlassian.com/g
 
 Vim
 
+* using `vim-gnome` for `clipboard` support
 * [Command Cheat Sheet](https://devhints.io/vim)
 * [Keyboard Cheat Sheet](https://github.com/CallumHoward/cli-tools/blob/master/vimcheatsheet.pdf)
 * colorscheme: modified [Oceanic-Next](https://github.com/hillaryychan/dotfiles/blob/master/.vim/bundle/oceanic-next/colors/OceanicNext.vim)
