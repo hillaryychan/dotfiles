@@ -50,6 +50,10 @@ git
 
 ## Desktop Setup
 
+OS: Ubuntu 18.04.4 LTS
+Desktop Environment: GNOME3
+Window Manager: GNOME Shell
+
 ### Themes
 
 |               | Theme                                     |
