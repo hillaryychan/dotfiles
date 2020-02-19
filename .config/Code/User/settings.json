@@ -1,6 +1,7 @@
 {
     "workbench.colorTheme": "One Monokai",
-    "window.zoomLevel": 1.2,
+    "window.zoomLevel": 1,
     "editor.renderWhitespace": "all",
-    "files.eol": "\n"
+    "files.eol": "\n",
+    "workbench.startupEditor": "newUntitledFile"
 }

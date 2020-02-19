@@ -92,7 +92,7 @@ inoremap <F12> <c-\><c-o>:setlocal spell! spelllang=en_au<cr>
 " deletes netrw's buffer once it's hidden (using ':q', for example)
 autocmd FileType netrw setl bufhidden=delete
 
-let g:netrw_liststyle=3     " tree view
+"let g:netrw_liststyle=3     " tree view
 let g:netrw_preview=1       " preview in vertical split
 let g:netrw_hide=1          " don't show hidden file (toggle with gh)
 let ghregex='\(^\|\s\s\)\zs\.\S\+,^\.\.'
