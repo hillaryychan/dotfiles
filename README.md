@@ -40,14 +40,11 @@ Vim
 
 * syntax highlighting: [highlight](http://www.andre-simon.de/doku/highlight/en/highlight.php)
 * [image previews](https://github.com/ranger/ranger/wiki/Image-Previews)
-  * ~~w3m-img~~ - inline image previews not available on gnome-terminal so using ASCII art :(
-  * caca-utils - for ASCII art
+  * `w3m-img` for image previews
 
 ### Source Control
 
-git
-
-* [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
+git - [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
 
 ## Desktop Setup
 
