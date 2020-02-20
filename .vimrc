@@ -81,6 +81,14 @@ nnoremap <space><space> :noh<return>
 noremap <F12> :setlocal spell! spelllang=en_au<cr>
 inoremap <F12> <c-\><c-o>:setlocal spell! spelllang=en_au<cr>
 
+"   markdown mappings
+inoremap <c-b> ****<esc>hi
+inoremap <c-_> __<esc>i
+inoremap <c-u><c-l> - 
+inoremap <c-o><c-l> 0. 
+inoremap <c-l> []()<esc>2hi
+inoremap <c-i><c-l> ![]()<esc>2hi
+
 :command WQ wq
 :command Wq wq
 :command W w
@@ -111,4 +119,10 @@ let g:lightline = {
 
 " indentLine 
 let g:indentLine_char = '│'
-
+let g:indentLine_setConceal = 0
+" default ''.
+" n for Normal mode
+" v for Visual mode
+" i for Insert mode
+" c for Command line editing, for 'incsearch'
+let g:indentLine_concealcursor = ""
