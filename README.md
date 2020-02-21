@@ -48,9 +48,9 @@ git - [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
 
 ## Desktop Setup
 
-OS: Ubuntu 18.04.4 LTS
-Desktop Environment: GNOME3
-Window Manager: GNOME Shell
+OS: Ubuntu 18.04.4 LTS  
+Desktop Environment: GNOME3  
+Window Manager: GNOME Shell  
 Terminal: xfce4-terminal
 
 ### Themes
