@@ -18,16 +18,17 @@ Dotfiles are stored/installed following this [guide](https://www.atlassian.com/g
 ### tmux
 
 * Customising tmux [guide](https://hackernoon.com/customizing-tmux-b3d2a5050207)
+* Plugin Manager: [tpm](https://github.com/tmux-plugins/tpm)
 
 ### Text Editors
 
 Vim
 
-* using `vim-gnome` for `clipboard` support
+* Using `vim-gnome` for `clipboard` support
 * [Command Cheat Sheet](https://devhints.io/vim)
 * [Keyboard Cheat Sheet](https://github.com/CallumHoward/cli-tools/blob/master/vimcheatsheet.pdf)
-* colorscheme: modified [Oceanic-Next](https://github.com/hillaryychan/dotfiles/blob/master/.vim/bundle/oceanic-next/colors/OceanicNext.vim)
-* plugin manager: vim built-in packages
+* Colour scheme: modified [Oceanic-Next](https://github.com/hillaryychan/dotfiles/blob/master/.vim/bundle/oceanic-next/colors/OceanicNext.vim)
+* Plugin Manager: vim built-in packages
 
 [Visual Studio Code](https://code.visualstudio.com/)
 
