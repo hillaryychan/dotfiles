@@ -13,7 +13,7 @@ Dotfiles are stored/installed following this [guide](https://www.atlassian.com/g
 * [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
 * [zsh-autosuggestion](https://github.com/zsh-users/zsh-autosuggestions) (fish style)
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) (fish style)
-* prompt: modified [ys-theme](https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/ys.zsh-theme)
+* prompt: [ys-theme](https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/ys.zsh-theme)
 
 ### tmux
 
@@ -27,7 +27,7 @@ Vim
 * Using `vim-gnome` for `clipboard` support
 * [Command Cheat Sheet](https://devhints.io/vim)
 * [Keyboard Cheat Sheet](https://github.com/CallumHoward/cli-tools/blob/master/vimcheatsheet.pdf)
-* Colour scheme: modified [Oceanic-Next](https://github.com/hillaryychan/oceanic-next)
+* Colour scheme: [Oceanic-Next](https://github.com/hillaryychan/oceanic-next)
 * Plugin Manager: vim built-in packages
 
 [Visual Studio Code](https://code.visualstudio.com/)
