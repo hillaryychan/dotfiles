@@ -1,3 +1,12 @@
 [submodule ".vim/pack/plugins/start/oceanic-next"]
 	path = .vim/pack/plugins/start/oceanic-next
 	url = https://github.com/hillaryychan/oceanic-next
+[submodule ".vim/pack/plugins/start/indentLine"]
+	path = .vim/pack/plugins/start/indentLine
+	url = https://github.com/Yggdroot/indentLine
+[submodule ".vim/pack/plugins/start/lightline.vim"]
+	path = .vim/pack/plugins/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
+[submodule ".vim/pack/plugins/start/vim-gitbranch"]
+	path = .vim/pack/plugins/start/vim-gitbranch
+	url = https://github.com/itchyny/vim-gitbranch
