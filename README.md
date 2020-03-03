@@ -81,14 +81,18 @@ Launchers
 
 Navigation
 
-| Shortcut Keys | Description           |
-| :---:         | ---                   |
-| `super-a`     | Open app menu         |
-| `super-d`     | Hide all windows      |
-| `super-l`     | Lock screen           |
-| `super-space` | Switch keyboard       |
-| `super-tab`   | Switch applications   |
-| `alt-tab`     | Switch windows        |
+| Shortcut Keys     | Description                       |
+| :---:             | ---                               |
+| `super-a`         | Open app menu                     |
+| `super-d`         | Hide all windows                  |
+| `super-l`         | Lock screen                       |
+| `super-space`     | Switch keyboard                   |
+| `super-tab`       | Switch applications               |
+| `alt-tab`         | Switch windows                    |
+| `ctrl-alt-down`   | Move to workspace below           |
+| `ctrl-alt-up`     | Move to workspace above           |
+| `ctrl-alt-pgdn`   | Move window to workspace below    |
+| `ctrl-alt-pgup`   | Move window to workspace above    |
 
 Screenshots
 
