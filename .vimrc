@@ -119,7 +119,7 @@ let g:lightline = {
 
 " indentLine 
 let g:indentLine_char = '│'
-let g:indentLine_setConceal = 0
+let g:indentLine_setConceal = 2
 " default ''.
 " n for Normal mode
 " v for Visual mode
