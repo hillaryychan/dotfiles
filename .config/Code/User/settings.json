@@ -3,5 +3,6 @@
     "window.zoomLevel": 1,
     "editor.renderWhitespace": "all",
     "files.eol": "\n",
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "C_Cpp.updateChannel": "Insiders"
 }

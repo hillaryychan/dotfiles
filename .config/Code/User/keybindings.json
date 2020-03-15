@@ -7,5 +7,22 @@
     {
         "key": "ctrl+shift+tab",
         "command": "workbench.action.previousEditorInGroup"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus" },
+    {
+        "key": "ctrl+shift+j",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+alt+z",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    { 
+        "key": "ctrl+escape",
+        "command": "workbench.action.terminal.toggleTerminal"
     }
 ]
