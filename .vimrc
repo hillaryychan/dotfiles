@@ -84,6 +84,8 @@ inoremap <F12> <c-\><c-o>:setlocal spell! spelllang=en_au<cr>
 "   markdown mappings
 inoremap <c-b> ****<esc>hi
 inoremap <c-_> __<esc>i
+inoremap <c-t> ``<esc>i
+inoremap <c-t><c-b> ```<enter>```<esc>ka<space>
 inoremap <c-u><c-l> * 
 inoremap <c-o><c-l> 0. 
 inoremap <c-l> []()<esc>2hi
