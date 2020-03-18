@@ -6,7 +6,7 @@ set hidden          " reuse same window and switch from an unsaved buffer
                     " multiple files
 set modelines=0     " security
 set visualbell      " use visual bell instead of beeping when there is an error
-set mouse+=a         " enable mouse for all modes
+set mouse+=a        " enable mouse for all modes
 set clipboard^=unnamedplus " enable copy pasting between clipboard registers
 
 " Encoding
