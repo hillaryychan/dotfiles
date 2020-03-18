@@ -4,5 +4,10 @@
     "editor.renderWhitespace": "all",
     "files.eol": "\n",
     "workbench.startupEditor": "newUntitledFile",
-    "C_Cpp.updateChannel": "Insiders"
+    "C_Cpp.updateChannel": "Insiders",
+    "markdownlint.config": {
+        "default": true,
+        "MD007": { "indent": 4 },
+        "MD026": { "punctuation": ",;:。，；：！？" }
+    }
 }
