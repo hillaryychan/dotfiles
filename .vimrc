@@ -42,6 +42,7 @@ set relativenumber  " show relative line numbers
 "set nowrap          " don't wrap lines
 set path+=**        " provides recursive file path
 set wildmenu        " visual autocomplete for command-line
+set wildignorecase  " ignore case in commandline filename completion
 set showmatch       " highlight matching parenthesis
 set showcmd         " display incomplete commands
 set cursorline      " highlight the cursor line
@@ -71,32 +72,78 @@ autocmd BufWinEnter * silent! :%foldopen!   " have all folds open by default
 let g:markdown_folding=1    " enable folding for markdown filetype
 
 " Mappings
+" case-insensitive commands
 inoremap jk <esc>
 inoremap JK <esc>
 vnoremap jk <esc>
 vnoremap JK <esc>
-
-nnoremap <space><space> :noh<return>
-
-noremap <F12> :setlocal spell! spelllang=en_au<cr>
-inoremap <F12> <c-\><c-o>:setlocal spell! spelllang=en_au<cr>
 
 :command WQ wq
 :command Wq wq
 :command W w
 :command Q q
 
+nnoremap <space><space> :noh<return>
+
+" toggle spell check
+noremap <F12> :setlocal spell! spelllang=en_au<cr>
+inoremap <F12> <c-\><c-o>:setlocal spell! spelllang=en_au<cr>
+
+" quickfix mappings
+nnoremap <silent> <leader>q :cw<CR>
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> [Q :cfirst<CR>
+nnoremap <silent> ]Q :clast<CR>
+
+" location list mappings
+nnoremap <silent> <leader>l :cw<CR> :lw<CR>
+nnoremap <silent> [l :lprevious<CR>zmzv
+nnoremap <silent> ]l :lnext<CR>zmzv
+nnoremap <silent> [L :lfirst<CR>
+nnoremap <silent> ]L :llast<CR>
+
+" buffer mappings
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
 " PLUGIN CONFIGURATIONS
+
 " File Browsing with netrw
 " Per default, netrw leaves unmodified buffers open. This autocommand
 " deletes netrw's buffer once it's hidden (using ':q', for example)
 autocmd FileType netrw setl bufhidden=delete
 
-"let g:netrw_liststyle=3     " tree view
-let g:netrw_preview=1       " preview in vertical split
-let g:netrw_hide=1          " don't show hidden file (toggle with gh)
+let g:netrw_winsize = -28               " absolute width of netrw window
+let g:netrw_banner = 0                  " do not display banner
+let g:netrw_liststyle = 3               " tree view
+let g:netrw_sort_sequence = '[\/]$,*'   " sort directories on the top, files below
+"let g:netrw_browse_split = 4            " use the previous window to open file
+"let g:netrw_preview=1                  " preview in vertical split
+let g:netrw_altv = 1
+let g:netrw_hide=1                      " don't show hidden file (toggle with gh)
 let ghregex='\(^\|\s\s\)\zs\.\S\+,^\.\.'
 let g:netrw_list_hide=ghregex
+
+nnoremap <silent> <leader>\ :call ToggleNetrw()<CR> 
+let g:NetrwIsOpen=0
+function! ToggleNetrw()
+    if g:NetrwIsOpen
+        let i = bufnr("$")
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i 
+            endif
+            let i-=1
+        endwhile
+        let g:NetrwIsOpen=0
+    else
+        let g:NetrwIsOpen=1
+        silent Lexplore
+    endif
+endfunction
 
 " lightline status
 let g:lightline = {
