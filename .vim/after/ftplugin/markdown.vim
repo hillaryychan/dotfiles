@@ -2,7 +2,7 @@ setlocal spell spelllang=en_au
 
 " keybindings for bold, italics, code blocks, lists, [image] links
 inoremap <c-b> ****<esc>hi
-inoremap <c-_> __<esc>i
+inoremap <c-e> __<esc>i
 inoremap <c-t> ``<esc>i
 inoremap <c-t><c-b> ```<enter>```<esc>ka<space>
 inoremap <c-u><c-l> * 
