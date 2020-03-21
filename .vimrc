@@ -111,23 +111,20 @@ nnoremap <silent> ]B :blast<CR>
 
 " PLUGIN CONFIGURATIONS
 
-" File Browsing with netrw
+" netrw file browser
 " Per default, netrw leaves unmodified buffers open. This autocommand
 " deletes netrw's buffer once it's hidden (using ':q', for example)
 autocmd FileType netrw setl bufhidden=delete
 
 let g:netrw_winsize = -28               " absolute width of netrw window
 let g:netrw_banner = 0                  " do not display banner
-let g:netrw_liststyle = 3               " tree view
 let g:netrw_sort_sequence = '[\/]$,*'   " sort directories on the top, files below
-"let g:netrw_browse_split = 4            " use the previous window to open file
-"let g:netrw_preview=1                   " preview in vertical split
-let g:netrw_altv = 1
+let g:netrw_altv = 1                    " set vsplit to right
 let g:netrw_hide=1                      " don't show hidden file (toggle with gh)
 let ghregex='\(^\|\s\s\)\zs\.\S\+,^\.\.'
 let g:netrw_list_hide=ghregex
 
-nnoremap <silent> <leader>\ :call ToggleNetrw()<CR> 
+nnoremap <silent> <leader>\ :call ToggleNetrw()<CR>
 let g:NetrwIsOpen=0
 function! ToggleNetrw()
     if g:NetrwIsOpen

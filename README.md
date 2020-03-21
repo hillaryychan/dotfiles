@@ -43,10 +43,6 @@ Vim
 * [image previews](https://github.com/ranger/ranger/wiki/Image-Previews)
   * `w3m-img` for image previews
 
-### Source Control
-
-git - [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
-
 ## Desktop Setup
 
 OS: Ubuntu 18.04.4 LTS  
