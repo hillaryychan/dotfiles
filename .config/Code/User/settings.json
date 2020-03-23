@@ -2,6 +2,7 @@
     "workbench.colorTheme": "One Monokai",
     "window.zoomLevel": 1,
     "editor.renderWhitespace": "all",
+    "editor.rulers": [80],
     "files.eol": "\n",
     "workbench.startupEditor": "newUntitledFile",
     "C_Cpp.updateChannel": "Insiders",
