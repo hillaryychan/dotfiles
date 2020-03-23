@@ -4,6 +4,12 @@
 
 .markdown-preview.markdown-preview {
   &.prince {
+    @page {
+        size: A4;
+        @bottom {
+            content: "Page " counter(page) " of " counter(pages);
+        }
+    }
     p { font-size: 11pt; }
     ol, ul {
       margin-left: 10pt;
