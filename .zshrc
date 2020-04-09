@@ -100,5 +100,8 @@ export VISUAL=/usr/bin/vim
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.shell_aliases
 
-# allow ctrl-u to delete from cursor to beginning of line instead of clearing whole line
+# Allow ctrl-u to delete from cursor to beginning of line instead of clearing whole line
 bindkey \^U backward-kill-line
+
+# Format time to resemble bash
+TIMEFMT=$'\n%J\ncpu\t%P\nreal\t%*Es\nuser\t%*Us\nsys\t%*Ss'
