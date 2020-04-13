@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "Changing into ~/.tmux/resurrect"
+cd ~/.tmux/resurrect
+
+echo "last points to $(readlink last)"
+
+echo "Removing all other files aside from $(readlink last)"
+readlink last | xargs find . -type f -not -name | xargs rm 
