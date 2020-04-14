@@ -78,11 +78,6 @@ inoremap JK <esc>
 vnoremap jk <esc>
 vnoremap JK <esc>
 
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
-
 nnoremap <space><space> :noh<return>
 
 " toggle spell check
