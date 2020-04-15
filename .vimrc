@@ -99,6 +99,7 @@ nnoremap <silent> [L :lfirst<CR>
 nnoremap <silent> ]L :llast<CR>
 
 " buffer mappings
+nnoremap <silent> <leader>b :ls<CR>
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
