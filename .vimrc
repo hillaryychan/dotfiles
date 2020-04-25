@@ -84,6 +84,12 @@ nnoremap <space><space> :noh<return>
 noremap <F12> :setlocal spell! spelllang=en_au<cr>
 inoremap <F12> <c-\><c-o>:setlocal spell! spelllang=en_au<cr>
 
+" split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 " quickfix mappings
 nnoremap <silent> <leader>q :cw<CR>
 nnoremap <silent> [q :cprevious<CR>
