@@ -164,3 +164,4 @@ let g:indentLine_setConceal = 2
 " i for Insert mode
 " c for Command line editing, for 'incsearch'
 let g:indentLine_concealcursor = ""
+let g:indentLine_fileTypeExclude = ['json']
