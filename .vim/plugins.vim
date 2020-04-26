@@ -12,14 +12,15 @@ Plug 'hillaryychan/oceanic-next'                " colourscheme
 Plug 'itchyny/lightline.vim'                    " status line info
 Plug 'itchyny/vim-gitbranch'                    " status line branch info
 
-Plug 'Yggdroot/indentLine'
+Plug 'francoiscabrol/ranger.vim'                " file browsing
+Plug 'Yggdroot/indentLine'                      " display indentation levels
 Plug 'airblade/vim-gitgutter'                   " preview git changes
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
 
 call plug#end()
 
-" netrw file browser
+" netrw file browser - INACTIVE
 " Per default, netrw leaves unmodified buffers open. This autocommand
 " deletes netrw's buffer once it's hidden (using ':q', for example)
 autocmd FileType netrw setl bufhidden=delete
@@ -39,7 +40,7 @@ function! ToggleNetrw()
         let i = bufnr("$")
         while (i >= 1)
             if (getbufvar(i, "&filetype") == "netrw")
-                silent exe "bwipeout " . i 
+                silent exe "bwipeout " . i
             endif
             let i-=1
         endwhile
@@ -49,6 +50,10 @@ function! ToggleNetrw()
         silent Lexplore
     endif
 endfunction
+
+" ranger file browser
+let g:NERDTreeHijackNetrw = 0   " add this line if you use NERDTree
+let g:ranger_replace_netrw = 1  " open ranger when vim open a directory
 
 " lightline status
 let g:lightline = {
@@ -61,7 +66,7 @@ let g:lightline = {
     \ },
     \ }
 
-" indentLine 
+" indentLine
 let g:indentLine_char = '│'
 let g:indentLine_setConceal = 2
 " default ''.
