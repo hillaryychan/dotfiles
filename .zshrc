@@ -105,3 +105,5 @@ bindkey \^U backward-kill-line
 
 # Format time to resemble bash
 TIMEFMT=$'\n%J\ncpu\t%P\nreal\t%*Es\nuser\t%*Us\nsys\t%*Ss'
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
