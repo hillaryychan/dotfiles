@@ -1,3 +1,8 @@
+" Load plugins
+if filereadable(expand('~/.vim/plugins.vim'))
+    source ~/.vim/plugins.vim
+endif
+
 " General
 set nocompatible            " ensure config is not used with Vi
 filetype off
@@ -110,58 +115,3 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
-
-" PLUGIN CONFIGURATIONS
-
-" netrw file browser
-" Per default, netrw leaves unmodified buffers open. This autocommand
-" deletes netrw's buffer once it's hidden (using ':q', for example)
-autocmd FileType netrw setl bufhidden=delete
-
-let g:netrw_winsize = -28               " absolute width of netrw window
-let g:netrw_banner = 0                  " do not display banner
-let g:netrw_sort_sequence = '[\/]$,*'   " sort directories on the top, files below
-let g:netrw_altv = 1                    " set vsplit to right
-let g:netrw_hide=1                      " don't show hidden file (toggle with gh)
-let ghregex='\(^\|\s\s\)\zs\.\S\+,^\.\.'
-let g:netrw_list_hide=ghregex
-
-nnoremap <silent> <leader>\ :call ToggleNetrw()<CR>
-let g:NetrwIsOpen=0
-function! ToggleNetrw()
-    if g:NetrwIsOpen
-        let i = bufnr("$")
-        while (i >= 1)
-            if (getbufvar(i, "&filetype") == "netrw")
-                silent exe "bwipeout " . i 
-            endif
-            let i-=1
-        endwhile
-        let g:NetrwIsOpen=0
-    else
-        let g:NetrwIsOpen=1
-        silent Lexplore
-    endif
-endfunction
-
-" lightline status
-let g:lightline = {
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ 'component_function': {
-    \   'gitbranch': 'gitbranch#name'
-    \ },
-    \ }
-
-" indentLine 
-let g:indentLine_char = '│'
-let g:indentLine_setConceal = 2
-" default ''.
-" n for Normal mode
-" v for Visual mode
-" i for Insert mode
-" c for Command line editing, for 'incsearch'
-let g:indentLine_concealcursor = ""
-let g:indentLine_fileTypeExclude = ['json']

@@ -28,7 +28,7 @@ Vim
 * [Command Cheat Sheet](https://devhints.io/vim)
 * [Keyboard Cheat Sheet](https://github.com/CallumHoward/cli-tools/blob/master/vimcheatsheet.pdf)
 * Colour scheme: [Oceanic-Next](https://github.com/hillaryychan/oceanic-next)
-* Plugin Manager: vim built-in packages
+* Plugin Manager: [vim-plug](https://github.com/junegunn/vim-plug)
 
 [Visual Studio Code](https://code.visualstudio.com/)
 
