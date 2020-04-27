@@ -44,7 +44,7 @@ set noshowmode              " don't show working mode
 set ruler                   " show file stats
 set number                  " show line numbers
 set relativenumber          " show relative line numbers
-"set nowrap                  " don't wrap lines
+set nowrap                  " don't wrap lines
 set path+=**                " provides recursive file path
 set wildmenu                " visual autocomplete for command-line
 set wildignorecase          " ignore case in commandline filename completion

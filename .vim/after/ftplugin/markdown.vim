@@ -1,4 +1,5 @@
 setlocal spell spelllang=en_au
+setlocal wrap
 
 " keybindings for bold, italics, code blocks, lists, [image] links
 inoremap <c-b> ****<esc>hi
