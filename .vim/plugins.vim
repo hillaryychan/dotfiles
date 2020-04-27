@@ -11,8 +11,9 @@ Plug 'hillaryychan/oceanic-next'                " colourscheme
 
 Plug 'itchyny/lightline.vim'                    " status line info
 Plug 'itchyny/vim-gitbranch'                    " status line branch info
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
-Plug 'francoiscabrol/ranger.vim'                " file browsing
 Plug 'Yggdroot/indentLine'                      " display indentation levels
 Plug 'airblade/vim-gitgutter'                   " preview git changes
 
@@ -50,10 +51,6 @@ function! ToggleNetrw()
         silent Lexplore
     endif
 endfunction
-
-" ranger file browser
-let g:NERDTreeHijackNetrw = 0   " add this line if you use NERDTree
-let g:ranger_replace_netrw = 1  " open ranger when vim open a directory
 
 " lightline status
 let g:lightline = {
