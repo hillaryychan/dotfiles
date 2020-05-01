@@ -55,7 +55,7 @@ set colorcolumn=80          " colour the 80th column
 set laststatus=2            " always display status line
 set list                    " display hidden characters in vim
                             " display white space as chars
-set listchars=tab:→\ ,space:·,extends:›,precedes:‹,trail:·,nbsp:⎵
+set listchars=tab:→\ ,extends:›,precedes:‹,trail:·,nbsp:⎵
 
 " Searching
 set hlsearch                " highlight searches
