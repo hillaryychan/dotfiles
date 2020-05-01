@@ -76,6 +76,10 @@ set foldcolumn=0            " disable visual representation of fold levels
 autocmd BufWinEnter * silent! :%foldopen!   " have all folds open by default
 let g:markdown_folding=1    " enable folding for markdown filetype
 
+autocmd VimEnter * if &diff | execute 'windo set wrap' | endif
+autocmd InsertEnter * set norelativenumber
+autocmd InsertLeave * set relativenumber
+
 " Mappings
 " case-insensitive commands
 inoremap jk <esc>
