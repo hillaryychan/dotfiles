@@ -88,4 +88,4 @@ nmap <leader>cd <Plug>(GitGutterPreviewHunk)
 nmap <leader>ce :pclose<CR>
 
 "" CoC configurations - TODO
-autocmd FileType markdown, sql let b:coc_suggest_disable = 1
+autocmd FileType markdown let b:coc_suggest_disable = 1
