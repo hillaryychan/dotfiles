@@ -8,27 +8,27 @@ Dotfiles are stored/installed following this [guide](https://www.atlassian.com/g
 
 ### Shell
 
-[zshell](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH)
+[zshell](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH)  
+Plugin framework: [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
+Plugins:
 
-* [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
 * [zsh-autosuggestion](https://github.com/zsh-users/zsh-autosuggestions) (fish style)
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) (fish style)
-* prompt: [powerlevel10k](https://github.com/romkatv/powerlevel10k?fbclid=IwAR0xEmjJLjOCjxB75KiU6Ab-2ehSDVXacIm6suddTm6Q_5_t7bD-XjS4o14)
+* [autoupdate](https://github.com/TamCore/autoupdate-oh-my-zsh-plugins)
+* theme: [powerlevel10k](https://github.com/romkatv/powerlevel10k?fbclid=IwAR0xEmjJLjOCjxB75KiU6Ab-2ehSDVXacIm6suddTm6Q_5_t7bD-XjS4o14)
 
 ### tmux
 
 * Customising tmux [guide](https://hackernoon.com/customizing-tmux-b3d2a5050207)
-* Plugin Manager: [tpm](https://github.com/tmux-plugins/tpm)
+* Plugin manager: [tpm](https://github.com/tmux-plugins/tpm)
 
 ### Text Editors
 
 Vim
 
 * Using `vim-gnome` for `clipboard` support
-* [Command Cheat Sheet](https://devhints.io/vim)
-* [Keyboard Cheat Sheet](https://github.com/CallumHoward/cli-tools/blob/master/vimcheatsheet.pdf)
 * Colour scheme: [Oceanic-Next](https://github.com/hillaryychan/oceanic-next)
-* Plugin Manager: [vim-plug](https://github.com/junegunn/vim-plug)
+* Plugin manager: [vim-plug](https://github.com/junegunn/vim-plug)
 
 [Visual Studio Code](https://code.visualstudio.com/)
 
