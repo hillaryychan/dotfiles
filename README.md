@@ -9,7 +9,7 @@ Dotfiles are stored/installed following this [guide](https://www.atlassian.com/g
 ### Shell
 
 [zshell](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH)  
-Plugin framework: [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
+Plugin framework: [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)  
 Plugins:
 
 * [zsh-autosuggestion](https://github.com/zsh-users/zsh-autosuggestions) (fish style)
