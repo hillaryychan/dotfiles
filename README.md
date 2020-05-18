@@ -41,7 +41,7 @@ Vim
 
 * syntax highlighting: [highlight](http://www.andre-simon.de/doku/highlight/en/highlight.php)
 * [image previews](https://github.com/ranger/ranger/wiki/Image-Previews)
-  * `w3m-img` for image previews
+    * `w3m-img` for image previews
 
 ## Desktop Setup
 
