@@ -92,8 +92,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/vim
+if [ -x "$(which nvim)" ]; then
+    export EDITOR=nvim
+else
+    export EDITOR=vim
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
