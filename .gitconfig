@@ -5,6 +5,8 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+[difftool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE
 [alias]
 	dt = difftool
 	vimdiff = difftool
