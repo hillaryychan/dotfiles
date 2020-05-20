@@ -17,8 +17,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'Yggdroot/indentLine'                      " display indentation levels
 Plug 'airblade/vim-gitgutter'                   " preview git changes
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
-
 call plug#end()
 
 " netrw file browser
