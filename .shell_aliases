@@ -8,6 +8,7 @@ alias chrome='google-chrome'
 
 if [ -x "$(which nvim)" ]; then
     alias vim='nvim'
+    alias vimdiff='nvim -d'
 fi
 
 alias m='make'
