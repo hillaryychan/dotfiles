@@ -25,7 +25,6 @@ let g:oceanic_next_terminal_italic = 1
 if (has("termguicolors"))
     set termguicolors
 endif
-set t_Co=256
 colorscheme OceanicNext
 
 " Indentation
