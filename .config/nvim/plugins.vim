@@ -16,6 +16,7 @@ Plug 'itchyny/vim-gitbranch'                    " status line branch info
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'                      " display indentation levels
 Plug 'airblade/vim-gitgutter'                   " preview git changes
 
@@ -70,7 +71,9 @@ let g:lightline = {
     \ }
 
 " fzf
-let g:fzf_command_prefix = 'Fzf'
+nnoremap <silent> <leader>p :Files<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>g :Rg<CR>
 
 " indentLine
 let g:indentLine_char = '│'

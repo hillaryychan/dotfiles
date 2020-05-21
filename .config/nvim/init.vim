@@ -25,6 +25,7 @@ let g:oceanic_next_terminal_italic = 1
 if (has("termguicolors"))
     set termguicolors
 endif
+set t_Co=256                " enable 256 colors
 colorscheme OceanicNext
 
 " Indentation
@@ -76,8 +77,6 @@ autocmd BufWinEnter * silent! :%foldopen!   " have all folds open by default
 let g:markdown_folding=1    " enable folding for markdown filetype
 
 autocmd VimEnter * if &diff | execute 'windo set wrap' | endif
-autocmd InsertEnter * set norelativenumber
-autocmd InsertLeave * set relativenumber
 
 " Mappings
 " case-insensitive commands
@@ -93,10 +92,10 @@ noremap <F12> :setlocal spell! spelllang=en_au<cr>
 inoremap <F12> <c-\><c-o>:setlocal spell! spelllang=en_au<cr>
 
 " split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
 
 " quickfix mappings
 nnoremap <silent> <leader>q :cw<CR>
@@ -113,7 +112,7 @@ nnoremap <silent> [L :lfirst<CR>
 nnoremap <silent> ]L :llast<CR>
 
 " buffer mappings
-nnoremap <silent> <leader>b :ls<CR>
+" <leader>b mapped to :Buffers from fzf
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
