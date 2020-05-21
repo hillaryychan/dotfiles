@@ -9,8 +9,9 @@
     cmd = nvim -d $LOCAL $REMOTE
 [alias]
 	dt = difftool
+	mt = mergetool
 	vimdiff = difftool
 [merge]
 	tool = vimdiff3
 [mergetool "vimdiff3"]
-    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
