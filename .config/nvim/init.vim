@@ -6,8 +6,8 @@ endif
 " General
 set nocompatible            " ensure config is not used with Vi
 filetype off
-set hidden                  " reuse same window and switch from an unsaved buffer 
-                            " without saving it first. Also keep undo history for 
+set hidden                  " reuse same window and switch from an unsaved buffer
+                            " without saving it first. Also keep undo history for
                             " multiple files
 set modelines=0             " security
 set visualbell              " use visual bell instead of beeping when there is an error
