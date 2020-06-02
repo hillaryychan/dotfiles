@@ -23,6 +23,8 @@ Plug 'airblade/vim-gitgutter'                   " preview git changes
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
 
+Plug 'neovimhaskell/haskell-vim'              " haskell syntax
+
 call plug#end()
 
 " ranger
@@ -86,7 +88,7 @@ let g:indentLine_setConceal = 2
 " i for Insert mode
 " c for Command line editing, for 'incsearch'
 let g:indentLine_concealcursor = ""
-let g:indentLine_fileTypeExclude = ['json']
+let g:indentLine_fileTypeExclude = ['json', 'haskell']
 
 " vim-gitgutter
 set updatetime=500
