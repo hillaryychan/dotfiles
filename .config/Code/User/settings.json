@@ -1,10 +1,10 @@
 {
     "workbench.colorTheme": "One Monokai",
+    "workbench.startupEditor": "newUntitledFile",
     "window.zoomLevel": 1,
     "editor.renderWhitespace": "all",
     "editor.rulers": [80],
     "files.eol": "\n",
-    "workbench.startupEditor": "newUntitledFile",
     "C_Cpp.updateChannel": "Insiders",
     "markdownlint.config": {
         "default": true,
