@@ -5,14 +5,18 @@
 .markdown-preview.markdown-preview {
   &.prince {
     @page {
-        size: A4;
-        @bottom {
-            content: "Page " counter(page) " of " counter(pages);
-        }
+      size: A4;
+      @bottom {
+        content: "Page " counter(page) " of " counter(pages);
+      }
     }
-    p { font-size: 11pt; }
+    p { font-size: 10pt; }
     ol, ul {
       margin-left: 10pt;
+      font-size:   10pt;
+    }
+    table {
+      font-size: 10pt;
     }
     h1, h2, h3, h4, h5, h6 {
       margin: 10pt 0 0 0;
@@ -23,6 +27,5 @@
     h4 { font-size: 16pt; }
     h5 { font-size: 14pt; }
     h6 { font-size: 12pt; }
-
   }
 }
