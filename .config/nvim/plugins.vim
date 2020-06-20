@@ -17,13 +17,15 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'jiangmiao/auto-pairs'                     " pair completion
+Plug 'tpope/vim-surround'                       " easy surrounding of pairs
 Plug 'tpope/vim-commentary'                     " easy commenting
 Plug 'Yggdroot/indentLine'                      " display indentation levels
 Plug 'airblade/vim-gitgutter'                   " preview git changes
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
 
-Plug 'neovimhaskell/haskell-vim'              " haskell syntax
+Plug 'neovimhaskell/haskell-vim'                " haskell syntax
+Plug 'vim-python/python-syntax'                 " python syntax
 
 call plug#end()
 
@@ -221,3 +223,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+let g:python_highlight_all = 1
+let g:python_highlight_file_headers_as_comments=1
