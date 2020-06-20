@@ -87,6 +87,3 @@ let g:gitgutter_sign_removed_first_line =  '˙'
 let g:gitgutter_sign_modified_removed = '│'
 nmap <leader>cd <Plug>(GitGutterPreviewHunk)
 nmap <leader>ce :pclose<CR>
-
-"" CoC configurations - TODO
-autocmd FileType markdown let b:coc_suggest_disable = 1
