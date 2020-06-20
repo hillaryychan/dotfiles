@@ -224,5 +224,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+" python-syntax
 let g:python_highlight_all = 1
 let g:python_highlight_file_headers_as_comments=1
