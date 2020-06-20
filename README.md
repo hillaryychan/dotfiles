@@ -61,7 +61,7 @@ Launchers
 | Shortcut Keys | Description               |
 | :---:         | ---                       |
 | `ctrl-alt-t`  | Open terminal             |
-| `ctrl-alt-w`  | Open default web browser  |
+| `ctrl-alt-b`  | Open default web browser  |
 | `ctrl-alt-v`  | Open vscode               |
 | `ctrl-alt-s`  | Open settings             |
 | `super-e`     | Open file explorer        |
