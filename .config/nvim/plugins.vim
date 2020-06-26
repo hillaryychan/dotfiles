@@ -16,10 +16,11 @@ Plug 'itchyny/vim-gitbranch'                    " status line branch info
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'jiangmiao/auto-pairs'                     " pair completion
+Plug 'cohama/lexima.vim'                        " pair completion
 Plug 'tpope/vim-surround'                       " easy surrounding of pairs
 Plug 'tpope/vim-commentary'                     " easy commenting
 Plug 'Yggdroot/indentLine'                      " display indentation levels
+Plug 'lukas-reineke/indent-blankline.nvim'      " indentation for blank lines
 Plug 'airblade/vim-gitgutter'                   " preview git changes
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
@@ -28,10 +29,6 @@ Plug 'neovimhaskell/haskell-vim'                " haskell syntax
 Plug 'vim-python/python-syntax'                 " python syntax
 
 call plug#end()
-
-" ranger
-let g:NERDTreeHijackNetrw = 0   " add this line if you use NERDTree
-let g:ranger_replace_netrw = 1  " open ranger when vim open a directory
 
 " netrw file browser
 " Per default, netrw leaves unmodified buffers open. This autocommand
@@ -63,6 +60,10 @@ function! ToggleNetrw()
         silent Lexplore
     endif
 endfunction
+
+" ranger
+let g:NERDTreeHijackNetrw = 0   " add this line if you use NERDTree
+let g:ranger_replace_netrw = 1  " open ranger when vim open a directory
 
 " lightline status
 let g:lightline = {
@@ -227,3 +228,4 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " python-syntax
 let g:python_highlight_all = 1
 let g:python_highlight_file_headers_as_comments = 1
+let g:python_highlight_space_errors = 0
