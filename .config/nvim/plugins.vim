@@ -22,6 +22,7 @@ Plug 'tpope/vim-commentary'                     " easy commenting
 Plug 'Yggdroot/indentLine'                      " display indentation levels
 Plug 'lukas-reineke/indent-blankline.nvim'      " indentation for blank lines
 Plug 'airblade/vim-gitgutter'                   " preview git changes
+Plug 'psliwka/vim-smoothie'                     " smooth scrolling
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
 
