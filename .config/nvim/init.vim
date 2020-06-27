@@ -85,7 +85,7 @@ inoremap JK <esc>
 vnoremap jk <esc>
 vnoremap JK <esc>
 
-nnoremap <space><space> :noh<return>
+nnoremap <space><space> :noh<CR>
 
 " toggle spell check
 noremap <F12> :setlocal spell! spelllang=en_au<cr>
