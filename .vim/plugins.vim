@@ -14,11 +14,12 @@ Plug 'itchyny/vim-gitbranch'                    " status line branch info
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'jiangmiao/auto-pairs'                     " pair completion
+Plug 'cohama/lexima.vim'                        " pair completion
 Plug 'tpope/vim-surround'                       " easy surrounding of pairs
 Plug 'tpope/vim-commentary'                     " easy commenting
 Plug 'Yggdroot/indentLine'                      " display indentation levels
 Plug 'airblade/vim-gitgutter'                   " preview git changes
+Plug 'psliwka/vim-smoothie'                     " smooth scrolling
 
 call plug#end()
 
