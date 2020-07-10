@@ -1,4 +1,4 @@
-"leader Automatically install vim-plug
+" automatically install vim-plug
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -26,6 +26,7 @@ Plug 'psliwka/vim-smoothie'                     " smooth scrolling
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
 
+Plug 'bfrg/vim-cpp-modern'                      " c/c++ syntax
 Plug 'neovimhaskell/haskell-vim'                " haskell syntax
 Plug 'vim-python/python-syntax'                 " python syntax
 
@@ -82,9 +83,10 @@ let g:lightline = {
     \ }
 
 " fzf
-nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>g :Rg<CR>
+let g:fzf_command_prefix = 'Fzf'
+nnoremap <silent> <leader>f :FzfFiles<CR>
+nnoremap <silent> <leader>b :FzfBuffers<CR>
+nnoremap <silent> <leader>g :FzfRg<CR>
 
 " indentLine
 let g:indentLine_char = '│'
