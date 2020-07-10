@@ -70,12 +70,7 @@ set matchpairs+=<:>         " use % to jump between pairs
 set splitright              " puts new vsplit windows to the right of the current
 set splitbelow              " puts new split windows to bottom of current
 
-" Folding
-set foldmethod=syntax       " fold based on syntax highlighting
-set foldcolumn=0            " disable visual representation of fold levels
-autocmd BufWinEnter * silent! :%foldopen!   " have all folds open by default
-let g:markdown_folding=1    " enable folding for markdown filetype
-
+" wrap lines for vimdiff
 autocmd VimEnter * if &diff | execute 'windo set wrap' | endif
 
 " Mappings
