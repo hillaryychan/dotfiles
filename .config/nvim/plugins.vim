@@ -23,6 +23,7 @@ Plug 'Yggdroot/indentLine'                      " display indentation levels
 Plug 'lukas-reineke/indent-blankline.nvim'      " indentation for blank lines
 Plug 'airblade/vim-gitgutter'                   " preview git changes
 Plug 'psliwka/vim-smoothie'                     " smooth scrolling
+Plug 'machakann/vim-highlightedyank'            " highlight yanked text
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
 
@@ -109,6 +110,9 @@ let g:gitgutter_sign_modified_removed = '│'
 let g:gitgutter_preview_win_floating = 0
 nmap <silent> cd <Plug>(GitGutterPreviewHunk)
 nmap <silent> ce :pclose<CR>
+
+" highlightedyank
+let g:highlightedyank_highlight_duration = 500
 
 "" CoC configurations
 let g:coc_disable_startup_warning=1

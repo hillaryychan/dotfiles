@@ -56,6 +56,7 @@ set laststatus=2            " always display status line
 set list                    " display hidden characters in vim
                             " display white space as chars
 set listchars=tab:→\ ,extends:›,precedes:‹,trail:·,nbsp:⎵
+set inccommand=nosplit      " show effects of a command incrementally
 
 " Searching
 set hlsearch                " highlight searches
@@ -64,6 +65,7 @@ set ignorecase              " use case insensitive search except when using capi
 set smartcase               " an uppercase letter will enable case sensitivity
 
 set scrolloff=3
+set sidescrolloff=5
 set matchpairs+=<:>         " use % to jump between pairs
 
 " Splitting
@@ -80,7 +82,11 @@ inoremap JK <esc>
 vnoremap jk <esc>
 vnoremap JK <esc>
 
+" clear highlighting
 nnoremap <space><space> :noh<CR>
+
+" make Y consistent with C and D
+nnoremap Y y$
 
 " toggle spell check
 noremap <F12> :setlocal spell! spelllang=en_au<cr>
