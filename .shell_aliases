@@ -2,6 +2,10 @@
 
 alias dit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -v"
+
 if [ -x "$(which nvim)" ]; then
     alias vim='nvim'
     alias vimdiff='nvim -d'
@@ -15,6 +19,15 @@ alias chrome='google-chrome'
 
 alias m='make'
 alias mc='make clean'
+
+alias rg="rg -S \
+    --colors 'path:fg:green' \
+    --colors 'path:style:nobold' \
+    --colors 'line:fg:yellow' \
+    --colors 'line:style:nobold' \
+    --colors 'match:fg:black' \
+    --colors 'match:bg:yellow' \
+    --colors 'match:style:nobold'"
 
 # tmux aliases
 alias tn='tmux new-session'

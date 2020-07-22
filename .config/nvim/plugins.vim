@@ -224,6 +224,9 @@ nnoremap <silent> <space>ck  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>cl  :<C-u>CocListResume<CR>
 
+" cpp-modern
+let c_no_curly_error = 1
+
 " python-syntax
 let g:python_highlight_all = 1
 let g:python_highlight_file_headers_as_comments = 1
