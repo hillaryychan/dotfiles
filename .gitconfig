@@ -11,6 +11,7 @@
 	dt = difftool
 	mt = mergetool
 	vimdiff = difftool
+	plog = log --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
 [merge]
 	tool = vimdiff3
 [mergetool "vimdiff3"]
