@@ -25,6 +25,8 @@ Plug 'airblade/vim-gitgutter'                   " preview git changes
 Plug 'psliwka/vim-smoothie'                     " smooth scrolling
 Plug 'machakann/vim-highlightedyank'            " highlight yanked text
 
+Plug 'samoshkin/vim-mergetool'                  " git mergetool
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
 
 Plug 'bfrg/vim-cpp-modern'                      " c/c++ syntax
@@ -114,7 +116,12 @@ nmap <silent> ce :pclose<CR>
 " highlightedyank
 let g:highlightedyank_highlight_duration = 500
 
-"" CoC configurations
+" vim-mergetool
+let g:mergetool_layout = 'rm'               " remote on left, optimistic merge on right
+let g:mergetool_prefer_revision = 'local'   " optimistically accept local changes for merge
+nmap <leader>mt <plug>(MergetoolToggle)
+
+" CoC configurations
 let g:coc_disable_startup_warning=1
 
 set nobackup                " For servers with issues
