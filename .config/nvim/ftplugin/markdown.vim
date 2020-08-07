@@ -15,3 +15,5 @@ let g:markdown_fenced_languages = [
             \ 'go', 'html', 'haskell', 'hs=haskell', 'java', 'javascript',
             \ 'js=javascript', 'json', 'less', 'make', 'php', 'python', 'ruby',
             \ 'rust', 'scss', 'sh', 'shell=sh', 'sql', 'vim', 'xml', 'yaml', 'zsh']
+
+vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>

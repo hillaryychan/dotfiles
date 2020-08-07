@@ -19,6 +19,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'cohama/lexima.vim'                        " pair completion
 Plug 'tpope/vim-surround'                       " easy surrounding of pairs
 Plug 'tpope/vim-commentary'                     " easy commenting
+Plug 'junegunn/vim-easy-align'                  " easy alignment
 Plug 'Yggdroot/indentLine'                      " display indentation levels
 Plug 'lukas-reineke/indent-blankline.nvim'      " indentation for blank lines
 Plug 'airblade/vim-gitgutter'                   " preview git changes
@@ -90,6 +91,12 @@ let g:fzf_command_prefix = 'Fzf'
 nnoremap <silent> <leader>f :FzfFiles<CR>
 nnoremap <silent> <leader>b :FzfBuffers<CR>
 nnoremap <silent> <leader>g :FzfRg<CR>
+
+" easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " indentLine
 let g:indentLine_char = '│'
