@@ -4,8 +4,8 @@
 [alias]
 	dt = difftool
 	mt = mergetool
-	vimdiff = difftool
-	plog = log --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
+    vimdiff = difftool
+	plog = log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%ad) %C(bold blue)<%an>%Creset -%C(auto)%d%Creset %s' --abbrev-commit
 [diff]
 	tool = vimdiff3
 [difftool]
