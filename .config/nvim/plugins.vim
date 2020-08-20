@@ -19,12 +19,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'cohama/lexima.vim'                        " pair completion
 Plug 'tpope/vim-surround'                       " easy surrounding of pairs
 Plug 'tpope/vim-commentary'                     " easy commenting
+Plug 'tpope/vim-sleuth'                         " indentation detection
 Plug 'junegunn/vim-easy-align'                  " easy alignment
 Plug 'Yggdroot/indentLine'                      " display indentation levels
 Plug 'lukas-reineke/indent-blankline.nvim'      " indentation for blank lines
 Plug 'airblade/vim-gitgutter'                   " preview git changes
 Plug 'psliwka/vim-smoothie'                     " smooth scrolling
 Plug 'machakann/vim-highlightedyank'            " highlight yanked text
+Plug 'junegunn/vim-peekaboo'                    " register viewer
 
 Plug 'samoshkin/vim-mergetool'                  " git mergetool
 
@@ -41,7 +43,7 @@ call plug#end()
 " deletes netrw's buffer once it's hidden (using ':q', for example)
 autocmd FileType netrw setl bufhidden=delete
 
-let g:netrw_winsize = -30               " absolute width of netrw window
+let g:netrw_winsize = -40               " absolute width of netrw window
 let g:netrw_banner = 0                  " do not display banner
 let g:netrw_sort_sequence = '[\/]$,*'   " sort directories on the top, files below
 let g:netrw_altv = 1                    " set vsplit to right
@@ -122,6 +124,9 @@ nmap <silent> ce :pclose<CR>
 
 " highlightedyank
 let g:highlightedyank_highlight_duration = 500
+
+" vim-peekaboo
+let g:peekaboo_window = 'vert to 40new'
 
 " vim-mergetool
 let g:mergetool_layout = 'rm'               " remote on left, optimistic merge on right
