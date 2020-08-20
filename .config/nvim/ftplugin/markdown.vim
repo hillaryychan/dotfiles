@@ -11,9 +11,11 @@ inoremap <c-l> []()<esc>2hi
 inoremap <c-i><c-l> ![]()<esc>2hi
 
 let g:markdown_fenced_languages = [
-            \ 'bash=sh', 'c', 'cmake', 'cpp', 'cs', 'csharp=cs', 'css', 'diff',
-            \ 'go', 'html', 'haskell', 'hs=haskell', 'java', 'javascript',
-            \ 'js=javascript', 'json', 'less', 'make', 'php', 'python', 'ruby',
-            \ 'rust', 'scss', 'sh', 'shell=sh', 'sql', 'vim', 'xml', 'yaml', 'zsh']
+    \ 'bash=sh', 'c', 'cmake', 'cpp', 'cs', 'csharp=cs', 'css', 'diff',
+    \ 'go', 'html', 'haskell', 'hs=haskell', 'java', 'javascript',
+    \ 'js=javascript', 'json', 'less', 'make', 'php', 'python', 'ruby',
+    \ 'rust', 'scss', 'sh', 'shell=sh', 'sql', 'vim', 'xml', 'yaml', 'zsh']
 
 vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
+let b:sleuth_automatic = 0      " disable vim-sleuth

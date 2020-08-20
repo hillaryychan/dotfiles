@@ -17,9 +17,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'cohama/lexima.vim'                        " pair completion
 Plug 'tpope/vim-surround'                       " easy surrounding of pairs
 Plug 'tpope/vim-commentary'                     " easy commenting
+Plug 'tpope/vim-sleuth'                         " indentation detection
 Plug 'Yggdroot/indentLine'                      " display indentation levels
 Plug 'airblade/vim-gitgutter'                   " preview git changes
 Plug 'psliwka/vim-smoothie'                     " smooth scrolling
+Plug 'machakann/vim-highlightedyank'            " highlight yanked text
+Plug 'junegunn/vim-peekaboo'                    " register viewer
 
 call plug#end()
 
@@ -28,7 +31,7 @@ call plug#end()
 " deletes netrw's buffer once it's hidden (using ':q', for example)
 autocmd FileType netrw setl bufhidden=delete
 
-let g:netrw_winsize = -28               " absolute width of netrw window
+let g:netrw_winsize = -40               " absolute width of netrw window
 let g:netrw_banner = 0                  " do not display banner
 let g:netrw_sort_sequence = '[\/]$,*'   " sort directories on the top, files below
 let g:netrw_altv = 1                    " set vsplit to right
@@ -67,6 +70,9 @@ let g:lightline = {
 
 " fzf
 let g:fzf_command_prefix = 'Fzf'
+nnoremap <silent> <leader>f :FzfFiles<CR>
+nnoremap <silent> <leader>b :FzfBuffers<CR>
+nnoremap <silent> <leader>g :FzfRg<CR>
 
 " indentLine
 let g:indentLine_char = '│'
@@ -80,11 +86,17 @@ let g:indentLine_concealcursor = ""
 let g:indentLine_fileTypeExclude = ['json']
 
 " vim-gitgutter
-set updatetime=250
+set updatetime=500
 let g:gitgutter_sign_added = '│'
 let g:gitgutter_sign_modified = '│'
 let g:gitgutter_sign_removed =  '.'
 let g:gitgutter_sign_removed_first_line =  '˙'
 let g:gitgutter_sign_modified_removed = '│'
-nmap <leader>cd <Plug>(GitGutterPreviewHunk)
-nmap <leader>ce :pclose<CR>
+nmap <silent> cd <Plug>(GitGutterPreviewHunk)
+nmap <silent> ce :pclose<CR>
+
+" highlightedyank
+let g:highlightedyank_highlight_duration = 500
+
+" vim-peekaboo
+let g:peekaboo_window = 'vert to 40new'
