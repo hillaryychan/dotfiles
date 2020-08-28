@@ -20,14 +20,15 @@ Plug 'cohama/lexima.vim'                        " pair completion
 Plug 'tpope/vim-surround'                       " easy surrounding of pairs
 Plug 'tpope/vim-commentary'                     " easy commenting
 Plug 'tpope/vim-sleuth'                         " indentation detection
-Plug 'junegunn/vim-easy-align'                  " easy alignment
 Plug 'Yggdroot/indentLine'                      " display indentation levels
 Plug 'lukas-reineke/indent-blankline.nvim'      " indentation for blank lines
-Plug 'airblade/vim-gitgutter'                   " preview git changes
-Plug 'psliwka/vim-smoothie'                     " smooth scrolling
-Plug 'machakann/vim-highlightedyank'            " highlight yanked text
+Plug 'junegunn/vim-easy-align'                  " easy alignment
 Plug 'junegunn/vim-peekaboo'                    " register viewer
+Plug 'pseewald/vim-anyfold'                     " generic folding
+Plug 'machakann/vim-highlightedyank'            " highlight yanked text
+Plug 'psliwka/vim-smoothie'                     " smooth scrolling
 
+Plug 'airblade/vim-gitgutter'                   " preview git changes
 Plug 'samoshkin/vim-mergetool'                  " git mergetool
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
@@ -94,12 +95,6 @@ nnoremap <silent> <leader>f :FzfFiles<CR>
 nnoremap <silent> <leader>b :FzfBuffers<CR>
 nnoremap <silent> <leader>g :FzfRg<CR>
 
-" easy-align
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
 " indentLine
 let g:indentLine_char = '│'
 let g:indentLine_setConceal = 2
@@ -111,6 +106,22 @@ let g:indentLine_setConceal = 2
 let g:indentLine_concealcursor = ""
 let g:indentLine_fileTypeExclude = ['json', 'haskell']
 
+" easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" vim-peekaboo
+let g:peekaboo_window = 'vert to 40new'
+
+" vim-anyfold
+autocmd Filetype * AnyFoldActivate
+set foldlevel=99
+
+" highlightedyank
+let g:highlightedyank_highlight_duration = 500
+
 " vim-gitgutter
 set updatetime=500
 let g:gitgutter_sign_added = '│'
@@ -121,12 +132,6 @@ let g:gitgutter_sign_modified_removed = '│'
 let g:gitgutter_preview_win_floating = 0
 nmap <silent> cd <Plug>(GitGutterPreviewHunk)
 nmap <silent> ce :pclose<CR>
-
-" highlightedyank
-let g:highlightedyank_highlight_duration = 500
-
-" vim-peekaboo
-let g:peekaboo_window = 'vert to 40new'
 
 " vim-mergetool
 let g:mergetool_layout = 'rm'               " remote on left, optimistic merge on right
