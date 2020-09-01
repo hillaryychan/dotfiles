@@ -36,6 +36,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, lint
 Plug 'bfrg/vim-cpp-modern'                      " c/c++ syntax
 Plug 'neovimhaskell/haskell-vim'                " haskell syntax
 Plug 'vim-python/python-syntax'                 " python syntax
+Plug 'alvan/vim-closetag'                       " tag completion
 
 call plug#end()
 
@@ -255,3 +256,8 @@ let c_no_curly_error = 1
 let g:python_highlight_all = 1
 let g:python_highlight_file_headers_as_comments = 1
 let g:python_highlight_space_errors = 0
+
+" vim-closetag
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml,*.md"
+let g:closetag_xhtml_filetypes = 'xml,xhtml,phtml'
+let g:closetag_emptyTags_caseSensitive = 1

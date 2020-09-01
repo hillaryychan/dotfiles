@@ -6,7 +6,5 @@
     "MD007": { "indent": 4 },
     "MD013": false,
     "MD026": { "punctuation": ",;。，；：！？" }
-  },
-
-  "python.jediEnabled": false
+  }
 }
