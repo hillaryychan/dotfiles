@@ -12,7 +12,7 @@ inoremap <c-i><c-l> ![]()<esc>2hi
 
 let g:markdown_fenced_languages = [
     \ 'bash=sh', 'c', 'cmake', 'cpp', 'cs', 'csharp=cs', 'css', 'diff',
-    \ 'go', 'html', 'haskell', 'hs=haskell', 'java', 'javascript',
+    \ 'django', 'go', 'html', 'haskell', 'hs=haskell', 'java', 'javascript',
     \ 'js=javascript', 'json', 'less', 'make', 'php', 'python', 'ruby',
     \ 'rust', 'scss', 'sh', 'shell=sh', 'sql', 'vim', 'xml', 'yaml', 'zsh']
 
