@@ -1,6 +1,5 @@
 #!/bin/sh
 
-upower -i /org/freedesktop/UPower/devices/battery_BAT0 |
-grep percentage |
-sed -r 's/ +//g' |
-cut -d':' -f2
+upower -i $(upower -e | grep BAT) | grep percentage | # Linux
+# pmset -g batt |                                       # MacOS
+egrep -o '[0-9]+%'
