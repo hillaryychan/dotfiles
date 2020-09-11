@@ -1,0 +1,3 @@
+#!/bin/sh
+
+upower --dump | grep 'Keychron K2' -A 11 | egrep -o 'percentage:\s*[0-9]+%'
