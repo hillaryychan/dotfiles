@@ -20,9 +20,5 @@
     {
         "key": "ctrl+alt+z",
         "command": "workbench.action.toggleMaximizedPanel"
-    },
-    { 
-        "key": "ctrl+escape",
-        "command": "workbench.action.terminal.toggleTerminal"
     }
 ]
