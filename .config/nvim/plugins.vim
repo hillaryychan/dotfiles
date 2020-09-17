@@ -258,6 +258,6 @@ let g:python_highlight_file_headers_as_comments = 1
 let g:python_highlight_space_errors = 0
 
 " vim-closetag
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml,*.md"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml"
 let g:closetag_xhtml_filetypes = 'xml,xhtml,phtml'
 let g:closetag_emptyTags_caseSensitive = 1
