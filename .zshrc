@@ -84,7 +84,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source ~/.shell_aliases
-source ~/.shell_exports
+# source ~/.shell_exports
 
 # User configuration
 
