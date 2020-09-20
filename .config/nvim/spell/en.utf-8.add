@@ -305,3 +305,5 @@ backend
 backends
 frontends
 dict
+setup
+plugins
