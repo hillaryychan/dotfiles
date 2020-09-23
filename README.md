@@ -36,7 +36,7 @@ Plugins:
 
 ## Desktop Setup
 
-OS: Ubuntu 18.04.4 LTS  
+OS: Ubuntu 18.04 LTS  
 Desktop Environment: GNOME3  
 Window Manager: GNOME Shell  
 Terminal: xfce4-terminal
@@ -78,8 +78,6 @@ Navigation
 | `alt-tab`         | Switch windows                    |
 | `ctrl-alt-down`   | Move to workspace below           |
 | `ctrl-alt-up`     | Move to workspace above           |
-| `ctrl-alt-pgdn`   | Move window to workspace below    |
-| `ctrl-alt-pgup`   | Move window to workspace above    |
 
 Screenshots
 
