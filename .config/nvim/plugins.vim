@@ -8,6 +8,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'hillaryychan/oceanic-next'                " colourscheme
+" Plug 'glepnir/zephyr-nvim'
 
 Plug 'rbgrouleff/bclose.vim'                    " dependency for ranger
 Plug 'francoiscabrol/ranger.vim'                " file exploring
