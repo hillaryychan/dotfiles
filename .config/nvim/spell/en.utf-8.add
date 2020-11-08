@@ -309,3 +309,5 @@ setup
 plugins
 everytime
 filesystem
+Lua
+npm
