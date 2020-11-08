@@ -31,6 +31,7 @@ Plug 'psliwka/vim-smoothie'                     " smooth scrolling
 
 Plug 'airblade/vim-gitgutter'                   " preview git changes
 Plug 'samoshkin/vim-mergetool'                  " git mergetool
+Plug 'APZelos/blamer.nvim'                      " git blame
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
 
@@ -141,7 +142,7 @@ let g:mergetool_prefer_revision = 'local'   " optimistically accept local change
 nmap <leader>mt <plug>(MergetoolToggle)
 
 " CoC configurations
-let g:coc_disable_startup_warning=1
+" let g:coc_disable_startup_warning=1
 
 set nobackup                " For servers with issues
 set nowritebackup           " with backup files, see #649.
