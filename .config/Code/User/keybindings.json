@@ -11,7 +11,8 @@
     {
         "key": "ctrl+shift+k",
         "command": "workbench.action.terminal.focusNext",
-        "when": "terminalFocus" },
+        "when": "terminalFocus" 
+    },
     {
         "key": "ctrl+shift+j",
         "command": "workbench.action.terminal.focusPrevious",
@@ -20,5 +21,13 @@
     {
         "key": "ctrl+alt+z",
         "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "alt+[",
+        "command": "workbench.action.navigateBack"
+    },
+    {
+        "key": "alt+]",
+        "command": "workbench.action.navigateForward"
     }
 ]
