@@ -84,13 +84,47 @@ map <leader>r :Ranger<CR>
 let g:lightline = {
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+    \             [ 'gitbranch', 'cocstatus', 'readonly', 'filename', 'modified' ] ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ],
+    \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
     \ },
     \ 'component_function': {
-    \   'gitbranch': 'gitbranch#name',
-    \   'cocstatus': 'coc#status'
+    \   'gitbranch': 'LightlineGitbranch',
+    \   'cocstatus': 'coc#status',
+    \   'fileformat': 'LightlineFileformat',
+    \   'fileencoding': 'LightlineFileencoding',
+    \   'filetype': 'LightlineFiletype'
     \ },
     \ }
+
+  " collapse long filenames
+let g:lightline.component = { 'filename': '%<%f'}
+
+  " hide/only show 20 chars of git branch name
+function! LightlineGitbranch()
+  if exists('*gitbranch#name') && winwidth(0) > 70
+    let branch = gitbranch#name()
+    if len(branch) <= 20
+      return branch
+    endif
+    return branch[:10] . '..' . branch[(len(branch)-7):]
+  endif
+  return ''
+endfunction
+
+  " hide fileformat, fileencoding, filetype
+function! LightlineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightlineFileencoding()
+  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
+
+function! LightlineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
 
 " fzf
 let g:fzf_command_prefix = 'Fzf'
