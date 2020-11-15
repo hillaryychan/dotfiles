@@ -91,7 +91,7 @@ let g:lightline = {
     \ },
     \ 'component_function': {
     \   'gitbranch': 'LightlineGitbranch',
-    \   'cocstatus': 'coc#status',
+    \   'cocstatus': 'LightlineCocStatus',
     \   'fileformat': 'LightlineFileformat',
     \   'fileencoding': 'LightlineFileencoding',
     \   'filetype': 'LightlineFiletype'
@@ -111,6 +111,24 @@ function! LightlineGitbranch()
     return branch[:10] . '..' . branch[(len(branch)-7):]
   endif
   return ''
+endfunction
+
+function! EmptyDiagnostics(diagnostics)
+  let info = a:diagnostics
+  if empty(info)
+    return 1
+  endif
+  return !get(info, 'error', 0) && !get(info, 'warning', 0) && !get(info, 'information', 0) && !get(info, 'hint', 0)
+endfunction
+
+function! LightlineCocStatus()
+  if winwidth(0) <= 80
+    let info = get(b:, 'coc_diagnostic_info', {})
+    if EmptyDiagnostics(info)
+      return ''
+    endif
+  endif
+  return trim(coc#status())
 endfunction
 
   " hide fileformat, fileencoding, filetype
