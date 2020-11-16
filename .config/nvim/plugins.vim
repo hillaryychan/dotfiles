@@ -28,12 +28,15 @@ Plug 'junegunn/vim-peekaboo'                    " register viewer
 Plug 'pseewald/vim-anyfold'                     " generic folding
 Plug 'machakann/vim-highlightedyank'            " highlight yanked text
 Plug 'psliwka/vim-smoothie'                     " smooth scrolling
+Plug 'szw/vim-maximizer'                        " window toggling
 
 Plug 'airblade/vim-gitgutter'                   " preview git changes
 Plug 'samoshkin/vim-mergetool'                  " git mergetool
 Plug 'APZelos/blamer.nvim'                      " git blame
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
+
+Plug 'puremourning/vimspector'                  " debugging
 
 Plug 'bfrg/vim-cpp-modern'                      " c/c++ syntax
 Plug 'neovimhaskell/haskell-vim'                " haskell syntax
@@ -127,6 +130,7 @@ function! LightlineFiletype()
 endfunction
 
 " fzf
+let $FZF_DEFAULT_COMMAND = "rg --files --hidden --glob '!.git'"
 let g:fzf_command_prefix = 'Fzf'
 nnoremap <silent> <leader>f :FzfFiles<CR>
 nnoremap <silent> <leader>b :FzfBuffers<CR>
@@ -158,6 +162,11 @@ set foldlevel=99
 
 " highlightedyank
 let g:highlightedyank_highlight_duration = 500
+
+" vim-maximizer
+nnoremap <silent><leader>z :MaximizerToggle<CR>
+vnoremap <silent><leader>z :MaximizerToggle<CR>gv
+inoremap <silent><leader>z <C-o>:MaximizerToggle<CR>
 
 " vim-gitgutter
 set updatetime=500
@@ -284,6 +293,11 @@ nnoremap <silent> <space>cj  :<C-u>CocNext<CR>
 nnoremap <silent> <space>ck  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>cl  :<C-u>CocListResume<CR>
+
+" vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
+nnoremap <leader>db :call vimspector#Launch()<CR>
+nnoremap <leader>de :call vimspector#Reset()<CR>
 
 " cpp-modern
 let c_no_curly_error = 1
