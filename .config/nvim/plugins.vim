@@ -36,7 +36,7 @@ Plug 'APZelos/blamer.nvim'                      " git blame
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
 
-Plug 'puremourning/vimspector'                  " debugging
+" Plug 'puremourning/vimspector'                  " debugging
 
 Plug 'bfrg/vim-cpp-modern'                      " c/c++ syntax
 Plug 'neovimhaskell/haskell-vim'                " haskell syntax
