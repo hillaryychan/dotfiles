@@ -176,8 +176,27 @@ let g:gitgutter_sign_removed =  '.'
 let g:gitgutter_sign_removed_first_line =  '˙'
 let g:gitgutter_sign_modified_removed = '│'
 let g:gitgutter_preview_win_floating = 0
-nmap <silent> cd <Plug>(GitGutterPreviewHunk)
-nmap <silent> ce :pclose<CR>
+nmap <silent> ghs :call TogglePreviewHunk()<CR>
+nmap <silent> ghu <Plug>(GitGutterUndoHunk)
+
+let g:lineNo=0
+function! TogglePreviewHunk()
+  if PreviewWindowOpened() && g:lineNo == line('.')
+    pclose
+  else
+    silent exe "GitGutterPreviewHunk"
+    let g:lineNo=line('.')
+  endif
+endfunction
+
+function! PreviewWindowOpened()
+  for nr in range(1, winnr('$'))
+    if getwinvar(nr, "&pvw") == 1
+      return 1
+    endif
+  endfor
+  return 0
+endfunction
 
 " vim-mergetool
 let g:mergetool_layout = 'rm'               " remote on left, optimistic merge on right
