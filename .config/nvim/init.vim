@@ -123,3 +123,18 @@ augroup dynamic_smartcase
     autocmd CmdLineEnter : set nosmartcase
     autocmd CmdLineLeave : set smartcase
 augroup END
+
+noremap <silent><leader>mp :call OpenMarkdownPreview()<CR>
+
+function! OpenMarkdownPreview() abort
+  if exists('s:markdown_job_id') && s:markdown_job_id > 0
+    call jobstop(s:markdown_job_id)
+    unlet s:markdown_job_id
+  endif
+  let s:markdown_job_id = jobstart(
+    \ 'grip ' . shellescape(expand('%:p')) . " 0 2>&1 | awk '/Running/ { printf $4 }'",
+    \ { 'on_stdout': 'OnGripStart', 'pty': 1 })
+  function! OnGripStart(_, output, __)
+    call system('firefox ' . a:output[0])
+  endfunction
+endfunction
