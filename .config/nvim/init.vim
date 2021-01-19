@@ -50,7 +50,7 @@ set wildignorecase          " ignore case in commandline filename completion
 set showmatch               " highlight matching parenthesis
 set showcmd                 " display incomplete commands
 set cursorline              " highlight the cursor line
-set colorcolumn=80          " colour the 80th column
+set colorcolumn=80,100,120  " colour the 80th column
 set laststatus=2            " always display status line
 set list                    " display hidden characters in vim
                             " display white space as chars

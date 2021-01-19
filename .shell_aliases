@@ -1,7 +1,5 @@
 # vim: ft=sh
 
-alias dit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -v"
