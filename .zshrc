@@ -115,3 +115,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 mkcd() { mkdir -p "$@" && cd "$@"; }
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin

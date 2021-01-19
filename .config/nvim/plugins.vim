@@ -42,6 +42,9 @@ Plug 'bfrg/vim-cpp-modern'                      " c/c++ syntax
 Plug 'neovimhaskell/haskell-vim'                " haskell syntax
 Plug 'vim-python/python-syntax'                 " python syntax
 Plug 'alvan/vim-closetag'                       " tag completion
+Plug 'fatih/vim-go'                             " golang
+Plug 'othree/html5.vim'
+Plug 'othree/yajs.vim'
 
 call plug#end()
 
@@ -330,3 +333,6 @@ let g:python_highlight_space_errors = 0
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml"
 let g:closetag_xhtml_filetypes = 'xml,xhtml,phtml'
 let g:closetag_emptyTags_caseSensitive = 1
+
+" vim-go
+let g:go_def_mapping_enabled = 0
