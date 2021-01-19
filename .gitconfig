@@ -11,7 +11,7 @@
 [difftool]
 	prompt = false
 [difftool "vimdiff3"]
-    cmd = nvim -d $LOCAL $REMOTE
+	cmd = nvim -d $LOCAL $REMOTE
 [merge]
 	tool = vim_mergetool
 	conflictstyle = diff3
