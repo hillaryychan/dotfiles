@@ -1,8 +1,6 @@
-# Local Setup & Configurations
+# Dotfiles
 
-A summary of my setup and dotfiles.
-
-Dotfiles are stored/installed following this [guide](https://www.atlassian.com/git/tutorials/dotfiles)
+Managed using [`yadm`](https://github.com/TheLocehiliosan/yadm).
 
 ## Terminal Setup
 
