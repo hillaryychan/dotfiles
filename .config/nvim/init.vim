@@ -1,3 +1,5 @@
+let mapleader = " "
+
 " Load plugins
 if filereadable(expand('~/.config/nvim/plugins.vim'))
     source ~/.config/nvim/plugins.vim
@@ -20,12 +22,12 @@ scriptencoding utf-8
 
 " Colours
 syntax enable
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
 if (has("termguicolors"))
     set termguicolors
 endif
-colorscheme OceanicNext
+let g:sonokai_style = 'default'
+let g:sonokai_enable_italic = 1
+colorscheme sonokai
 
 " Indentation
 set expandtab               " tab expands to spaces
@@ -82,7 +84,7 @@ vnoremap jk <esc>
 vnoremap JK <esc>
 
 " clear highlighting
-nnoremap <space><space> :noh<CR>
+nnoremap <leader><space> :noh<CR>
 
 " make Y consistent with C and D
 nnoremap Y y$

@@ -7,8 +7,7 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'hillaryychan/oceanic-next'                " colourscheme
-" Plug 'glepnir/zephyr-nvim'
+Plug 'sainnhe/sonokai'                          " colourscheme
 
 Plug 'rbgrouleff/bclose.vim'                    " dependency for ranger
 Plug 'francoiscabrol/ranger.vim'                " file exploring
@@ -103,6 +102,7 @@ let g:lightline = {
     \   'filetype': 'LightlineFiletype'
     \ },
     \ }
+let g:lightline.colorscheme = 'sonokai'
 
   " collapse long filenames
 let g:lightline.component = { 'filename': '%<%f'}
