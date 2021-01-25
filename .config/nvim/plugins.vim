@@ -60,30 +60,11 @@ let g:netrw_hide=1                      " don't show hidden file (toggle with gh
 let ghregex='\(^\|\s\s\)\zs\.\S\+,^\.\.'
 let g:netrw_list_hide=ghregex
 
-nnoremap <silent> <leader>\ :call ToggleNetrw()<CR>
-let g:NetrwIsOpen=0
-function! ToggleNetrw()
-    if g:NetrwIsOpen
-        let i = bufnr("$")
-        while (i >= 1)
-            if (getbufvar(i, "&filetype") == "netrw")
-                silent exe "bwipeout " . i
-            endif
-            let i-=1
-        endwhile
-        let g:NetrwIsOpen=0
-    else
-        let g:NetrwIsOpen=1
-        silent Lexplore
-    endif
-endfunction
-
 " ranger
 let g:NERDTreeHijackNetrw = 0   " add this line if you use NERDTree
 let g:ranger_replace_netrw = 1  " open ranger when vim open a directory
 let g:ranger_map_keys = 0       " disable <leader>f mapping
 map <leader>r :Ranger<CR>
-
 
 " lightline status
 let g:lightline = {
@@ -164,7 +145,7 @@ autocmd Filetype * AnyFoldActivate
 set foldlevel=99
 
 " highlightedyank
-let g:highlightedyank_highlight_duration = 500
+let g:highlightedyank_highlight_duration = 1000
 
 " vim-maximizer
 nnoremap <silent><leader>z :MaximizerToggle<CR>
