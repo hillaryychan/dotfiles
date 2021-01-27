@@ -27,7 +27,6 @@
         "--line-length=80"
     ],
     "python.sortImports.path": "isort",
-    "json.format.enable": true,
     "languageserver": {
         "golang": {
             "command": "gopls",
