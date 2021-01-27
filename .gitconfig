@@ -4,7 +4,7 @@
 [alias]
 	dt = difftool
 	mt = mergetool
-    vimdiff = difftool
+	vimdiff = difftool
 	plog = log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%ad) %C(bold blue)<%an>%Creset -%C(auto)%d%Creset %s' --abbrev-commit
 [diff]
 	tool = vimdiff3
