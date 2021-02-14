@@ -19,6 +19,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'cohama/lexima.vim'                        " pair completion
 Plug 'tpope/vim-surround'                       " easy surrounding of pairs
 Plug 'tpope/vim-commentary'                     " easy commenting
+Plug 'unblevable/quick-scope'                   " easier motions
 Plug 'tpope/vim-sleuth'                         " indentation detection
 Plug 'Yggdroot/indentLine'                      " display indentation levels
 Plug 'lukas-reineke/indent-blankline.nvim'      " indentation for blank lines
@@ -119,6 +120,9 @@ let g:fzf_command_prefix = 'Fzf'
 nnoremap <silent> <leader>f :FzfFiles<CR>
 nnoremap <silent> <leader>b :FzfBuffers<CR>
 nnoremap <silent> <leader>g :FzfRg<CR>
+
+" quick-scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " indentLine
 let g:indentLine_char = '│'
