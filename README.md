@@ -31,3 +31,4 @@ Plugins:
     * [image previews](https://github.com/ranger/ranger/wiki/Image-Previews)
         * `w3m-img` for image previews
 * [ripgrep](https://github.com/BurntSushi/ripgrep)
+* [fd](https://github.com/sharkdp/fd)
