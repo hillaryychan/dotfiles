@@ -115,7 +115,7 @@ function! LightlineFiletype()
 endfunction
 
 " fzf
-let $FZF_DEFAULT_COMMAND = "fd --type file --hidden --no-ignore --follow --exclude .git"
+let $FZF_DEFAULT_COMMAND = "fd --type file --hidden --follow --exclude .git"
 let g:fzf_command_prefix = 'Fzf'
 nnoremap <silent> <leader>f :FzfFiles<CR>
 nnoremap <silent> <leader>b :FzfBuffers<CR>
