@@ -22,10 +22,9 @@ Plug 'tpope/vim-commentary'                     " easy commenting
 Plug 'unblevable/quick-scope'                   " easier motions
 Plug 'tpope/vim-sleuth'                         " indentation detection
 Plug 'Yggdroot/indentLine'                      " display indentation levels
-Plug 'lukas-reineke/indent-blankline.nvim'      " indentation for blank lines
 Plug 'junegunn/vim-easy-align'                  " easy alignment
 Plug 'junegunn/vim-peekaboo'                    " register viewer
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree'                          " undo history management
 Plug 'pseewald/vim-anyfold'                     " generic folding
 Plug 'machakann/vim-highlightedyank'            " highlight yanked text
 Plug 'psliwka/vim-smoothie'                     " smooth scrolling
