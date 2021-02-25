@@ -25,6 +25,7 @@ Plug 'Yggdroot/indentLine'                      " display indentation levels
 Plug 'lukas-reineke/indent-blankline.nvim'      " indentation for blank lines
 Plug 'junegunn/vim-easy-align'                  " easy alignment
 Plug 'junegunn/vim-peekaboo'                    " register viewer
+Plug 'mbbill/undotree'
 Plug 'pseewald/vim-anyfold'                     " generic folding
 Plug 'machakann/vim-highlightedyank'            " highlight yanked text
 Plug 'psliwka/vim-smoothie'                     " smooth scrolling
@@ -133,7 +134,7 @@ let g:indentLine_setConceal = 2
 " i for Insert mode
 " c for Command line editing, for 'incsearch'
 let g:indentLine_concealcursor = ""
-let g:indentLine_fileTypeExclude = ['json', 'haskell']
+let g:indentLine_fileTypeExclude = ['json', 'haskell', 'markdown']
 
 " easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -143,6 +144,9 @@ nmap ga <Plug>(EasyAlign)
 
 " vim-peekaboo
 let g:peekaboo_window = 'vert to 40new'
+
+" undotree
+nnoremap <silent> <leader>u :UndotreeToggle<CR>
 
 " vim-anyfold
 autocmd Filetype * AnyFoldActivate
