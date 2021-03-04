@@ -1,3 +1,5 @@
+let mapleader = " "
+
 " Load plugins
 if filereadable(expand('~/.vim/plugins.vim'))
     source ~/.vim/plugins.vim
@@ -20,15 +22,15 @@ scriptencoding utf-8
 
 " Colours
 syntax enable
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
 if (has("termguicolors"))
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
 endif
-set t_Co=256
-colorscheme OceanicNext
+" set t_Co=256
+let g:sonokai_style = 'default'
+let g:sonokai_enable_italic = 1
+colorscheme sonokai
 
 " Indentation
 set expandtab               " tab expands to spaces
@@ -53,7 +55,7 @@ set wildignorecase          " ignore case in commandline filename completion
 set showmatch               " highlight matching parenthesis
 set showcmd                 " display incomplete commands
 set cursorline              " highlight the cursor line
-set colorcolumn=80          " colour the 80th column
+set colorcolumn=80,100,120  " colour the 80th column
 set laststatus=2            " always display status line
 set list                    " display hidden characters in vim
                             " display white space as chars
@@ -66,6 +68,7 @@ set ignorecase              " use case insensitive search except when using capi
 set smartcase               " an uppercase letter will enable case sensitivity
 
 set scrolloff=3
+set sidescrolloff=5
 set matchpairs+=<:>         " use % to jump between pairs
 
 " Splitting
@@ -78,9 +81,8 @@ set foldcolumn=0            " disable visual representation of fold levels
 autocmd BufWinEnter * silent! :%foldopen!   " have all folds open by default
 let g:markdown_folding=1    " enable folding for markdown filetype
 
+" wrap lines for vimdiff
 autocmd VimEnter * if &diff | execute 'windo set wrap' | endif
-autocmd InsertEnter * set norelativenumber
-autocmd InsertLeave * set relativenumber
 
 " Mappings
 " case-insensitive commands
@@ -89,17 +91,21 @@ inoremap JK <esc>
 vnoremap jk <esc>
 vnoremap JK <esc>
 
-nnoremap <space><space> :noh<return>
+" clear highlighting
+nnoremap <leader><space> :noh<CR>
+
+" make Y consistent with C and D
+nnoremap Y y$
 
 " toggle spell check
 noremap <F12> :setlocal spell! spelllang=en_au<cr>
 inoremap <F12> <c-\><c-o>:setlocal spell! spelllang=en_au<cr>
 
 " split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
 
 " quickfix mappings
 nnoremap <silent> <leader>q :cw<CR>
@@ -116,8 +122,14 @@ nnoremap <silent> [L :lfirst<CR>
 nnoremap <silent> ]L :llast<CR>
 
 " buffer mappings
-nnoremap <silent> <leader>b :ls<CR>
+" <leader>b mapped to :Buffers from fzf
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
+
+augroup dynamic_smartcase
+  autocmd!
+  autocmd CmdLineEnter : set nosmartcase
+  autocmd CmdLineLeave : set smartcase
+augroup END
