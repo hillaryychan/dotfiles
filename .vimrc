@@ -23,11 +23,11 @@ scriptencoding utf-8
 " Colours
 syntax enable
 if (has("termguicolors"))
+    set termguicolors
+    " for tmux
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    set termguicolors
 endif
-" set t_Co=256
 let g:sonokai_style = 'default'
 let g:sonokai_enable_italic = 1
 colorscheme sonokai
@@ -127,9 +127,3 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
-
-augroup dynamic_smartcase
-  autocmd!
-  autocmd CmdLineEnter : set nosmartcase
-  autocmd CmdLineLeave : set smartcase
-augroup END
