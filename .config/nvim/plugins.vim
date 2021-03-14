@@ -167,8 +167,9 @@ let g:gitgutter_sign_removed =  '.'
 let g:gitgutter_sign_removed_first_line =  '˙'
 let g:gitgutter_sign_modified_removed = '│'
 let g:gitgutter_preview_win_floating = 0
-nmap <silent> ghs :call TogglePreviewHunk()<CR>
+nmap <silent> ghp :call TogglePreviewHunk()<CR>
 nmap <silent> ghu <Plug>(GitGutterUndoHunk)
+nmap <silent> ghs <Plug>(GitGutterStageHunk)
 
 let g:lineNo=0
 function! TogglePreviewHunk()
