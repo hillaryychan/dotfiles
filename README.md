@@ -21,7 +21,7 @@ Plugins:
     * Customising tmux [guide](https://hackernoon.com/customizing-tmux-b3d2a5050207)
     * Plugin manager: [tpm](https://github.com/tmux-plugins/tpm)
 * [Neovim](https://github.com/neovim/neovim)
-    * Colour scheme: [Oceanic-Next](https://github.com/hillaryychan/oceanic-next)
+    * Colour scheme: [sonokai](https://github.com/sainnhe/sonokai)
     * Plugin manager: [vim-plug](https://github.com/junegunn/vim-plug)
 * [Visual Studio Code](https://code.visualstudio.com/)
     * [Keyboard shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
