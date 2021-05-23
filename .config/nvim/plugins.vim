@@ -9,8 +9,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'sainnhe/sonokai'                          " colourscheme
 
-Plug 'rbgrouleff/bclose.vim'                    " dependency for ranger
-Plug 'francoiscabrol/ranger.vim'                " file exploring
+Plug 'preservim/nerdtree'                       " file explorer
 Plug 'itchyny/lightline.vim'                    " status line info
 Plug 'itchyny/vim-gitbranch'                    " status line branch info
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -61,11 +60,9 @@ let g:netrw_hide=1                      " don't show hidden file (toggle with gh
 let ghregex='\(^\|\s\s\)\zs\.\S\+,^\.\.'
 let g:netrw_list_hide=ghregex
 
-" ranger
-let g:NERDTreeHijackNetrw = 0   " add this line if you use NERDTree
-let g:ranger_replace_netrw = 1  " open ranger when vim open a directory
-let g:ranger_map_keys = 0       " disable <leader>f mapping
-map <leader>r :Ranger<CR>
+" nerdtree
+nnoremap <silent> <leader>e :NERDTreeToggle<CR>
+nnoremap <silent> <leader>ee :NERDTreeFind<CR>
 
 " lightline status
 let g:lightline = {
