@@ -77,6 +77,8 @@ set splitbelow              " puts new split windows to bottom of current
 autocmd VimEnter * if &diff | execute 'windo set wrap' | endif
 
 " Mappings
+nnoremap <leader>w :w<CR>
+
 " case-insensitive commands
 inoremap jk <esc>
 inoremap JK <esc>
