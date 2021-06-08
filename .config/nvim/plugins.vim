@@ -37,11 +37,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, lint
 
 " Plug 'puremourning/vimspector'                  " debugging
 
-Plug 'bfrg/vim-cpp-modern'                      " c/c++ syntax
-Plug 'neovimhaskell/haskell-vim'                " haskell syntax
+" Plug 'bfrg/vim-cpp-modern'                      " c/c++ syntax
 Plug 'vim-python/python-syntax'                 " python syntax
 Plug 'alvan/vim-closetag'                       " tag completion
-Plug 'fatih/vim-go'                             " golang
+" Plug 'fatih/vim-go'                             " golang
 Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim'
 
