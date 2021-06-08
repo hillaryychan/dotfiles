@@ -60,6 +60,7 @@ let ghregex='\(^\|\s\s\)\zs\.\S\+,^\.\.'
 let g:netrw_list_hide=ghregex
 
 " nerdtree
+let g:NERDTreeShowHidden=1
 nnoremap <silent> <leader>e :NERDTreeToggle<CR>
 nnoremap <silent> <leader>ee :NERDTreeFind<CR>
 
