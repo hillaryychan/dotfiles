@@ -27,5 +27,10 @@
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": [
         "--line-length=80"
-    ]
+    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "editor.fontSize": 12,
+    "terminal.integrated.fontSize": 12
 }
