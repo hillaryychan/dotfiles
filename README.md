@@ -26,9 +26,5 @@ Plugins:
 * [Visual Studio Code](https://code.visualstudio.com/)
     * [Keyboard shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
     * [Extensions](https://github.com/hillaryychan/dotfiles/blob/master/.vscode/extensions_list)
-* [ranger](https://github.com/ranger/ranger)
-    * syntax highlighting: [highlight](http://www.andre-simon.de/doku/highlight/en/highlight.php)
-    * [image previews](https://github.com/ranger/ranger/wiki/Image-Previews)
-        * `w3m-img` for image previews
-* [ripgrep](https://github.com/BurntSushi/ripgrep)
-* [fd](https://github.com/sharkdp/fd)
+* [ripgrep](https://github.com/BurntSushi/ripgrep) - `grep` alternative
+* [fd](https://github.com/sharkdp/fd) - `find` alternative
