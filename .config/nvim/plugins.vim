@@ -9,22 +9,22 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'sainnhe/sonokai'                          " colourscheme
 
-Plug 'preservim/nerdtree'                       " file explorer
 Plug 'itchyny/lightline.vim'                    " status line info
 Plug 'itchyny/vim-gitbranch'                    " status line branch info
+Plug 'preservim/nerdtree'                       " file explorer
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'                         " fuzzy finder
 
 Plug 'cohama/lexima.vim'                        " pair completion
 Plug 'tpope/vim-surround'                       " easy surrounding of pairs
 Plug 'tpope/vim-commentary'                     " easy commenting
-Plug 'unblevable/quick-scope'                   " easier motions
 Plug 'tpope/vim-sleuth'                         " indentation detection
 Plug 'Yggdroot/indentLine'                      " display indentation levels
-Plug 'junegunn/vim-easy-align'                  " easy alignment
-Plug 'junegunn/vim-peekaboo'                    " register viewer
 Plug 'mbbill/undotree'                          " undo history management
+Plug 'junegunn/vim-peekaboo'                    " register viewer
+Plug 'junegunn/vim-easy-align'                  " easy alignment
 Plug 'pseewald/vim-anyfold'                     " generic folding
+Plug 'unblevable/quick-scope'                   " easier motions
 Plug 'machakann/vim-highlightedyank'            " highlight yanked text
 Plug 'psliwka/vim-smoothie'                     " smooth scrolling
 Plug 'szw/vim-maximizer'                        " window toggling
@@ -34,8 +34,6 @@ Plug 'samoshkin/vim-mergetool'                  " git mergetool
 Plug 'APZelos/blamer.nvim'                      " git blame
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
-
-" Plug 'puremourning/vimspector'                  " debugging
 
 " Plug 'bfrg/vim-cpp-modern'                      " c/c++ syntax
 Plug 'vim-python/python-syntax'                 " python syntax
@@ -58,11 +56,6 @@ let g:netrw_altv = 1                    " set vsplit to right
 let g:netrw_hide=1                      " don't show hidden file (toggle with gh)
 let ghregex='\(^\|\s\s\)\zs\.\S\+,^\.\.'
 let g:netrw_list_hide=ghregex
-
-" nerdtree
-let g:NERDTreeShowHidden=1
-nnoremap <silent> <leader>e :NERDTreeToggle<CR>
-nnoremap <silent> <leader>ee :NERDTreeFind<CR>
 
 " lightline status
 let g:lightline = {
@@ -111,15 +104,17 @@ function! LightlineFiletype()
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
 
+" nerdtree
+let g:NERDTreeShowHidden=1
+nnoremap <silent> <leader>e :NERDTreeToggle<CR>
+nnoremap <silent> <leader>ee :NERDTreeFind<CR>
+
 " fzf
 let $FZF_DEFAULT_COMMAND = "fd --type file --hidden --follow --exclude .git"
 let g:fzf_command_prefix = 'Fzf'
 nnoremap <silent> <leader>f :FzfFiles<CR>
 nnoremap <silent> <leader>b :FzfBuffers<CR>
 nnoremap <silent> <leader>g :FzfRg<CR>
-
-" quick-scope
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " indentLine
 let g:indentLine_char = '│'
@@ -132,21 +127,26 @@ let g:indentLine_setConceal = 2
 let g:indentLine_concealcursor = ""
 let g:indentLine_fileTypeExclude = ['json', 'haskell', 'markdown']
 
+" undotree
+nnoremap <silent> <leader>u :UndotreeToggle<CR>
+
+" vim-peekaboo
+let g:peekaboo_window = 'vert to 40new'
+
 " easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" vim-peekaboo
-let g:peekaboo_window = 'vert to 40new'
-
-" undotree
-nnoremap <silent> <leader>u :UndotreeToggle<CR>
+vmap <leader><bslash> :EasyAlign*<bar><Enter>
 
 " vim-anyfold
 autocmd Filetype * AnyFoldActivate
 set foldlevel=99
+
+" quick-scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " highlightedyank
 let g:highlightedyank_highlight_duration = 1000

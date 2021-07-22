@@ -17,6 +17,4 @@ let g:markdown_fenced_languages = [
     \ 'js=javascript', 'json', 'less', 'make', 'php', 'python', 'ruby',
     \ 'rust', 'scss', 'sh', 'shell=sh', 'sql', 'vim', 'xml', 'yaml', 'zsh']
 
-vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-
 let b:sleuth_automatic = 0      " disable vim-sleuth
