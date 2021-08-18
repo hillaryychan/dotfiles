@@ -105,18 +105,21 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+mkcd() { mkdir -p "$@" && cd "$@"; }
+
 # Allow ctrl-u to delete from cursor to beginning of line instead of clearing whole line
 bindkey \^U backward-kill-line
 
 # Format time to resemble bash
 TIMEFMT=$'\n%J\ncpu\t%P\nreal\t%*Es\nuser\t%*Us\nsys\t%*Ss'
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-mkcd() { mkdir -p "$@" && cd "$@"; }
+# Enable fuzzy auto-completion for Zsh and Debian based os
+source /usr/share/doc/fzf/examples/completion.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
