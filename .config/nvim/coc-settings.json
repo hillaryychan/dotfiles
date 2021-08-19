@@ -1,45 +1,29 @@
 {
-    "suggest.autoTrigger": "none",
-    "coc.preferences.formatOnSaveFiletypes": [
-        "python",
-        "html",
-        "json",
-        "javascript"
-    ],
-    "diagnostic.checkCurrentLine": true,
-    "markdownlint.config": {
-        "default": true,
-        "MD007": {
-            "indent": 4
-        },
-        "MD013": false,
-        "MD026": {
-            "punctuation": ",;。，；：！？"
-        },
-        "MD033": false
+  "diagnostic.checkCurrentLine": true,
+  "suggest.autoTrigger": "none",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "html",
+    "json",
+    "javascript",
+    "typescript"
+  ],
+  "prettier.eslintIntegration": true,
+  "markdownlint.config": {
+    "default": true,
+    "MD007": {
+      "indent": 4
     },
-    "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": [
-        "--max-line-length=80"
-    ],
-    "python.formatting.provider": "black",
-    "python.formatting.blackArgs": [
-        "--line-length=80"
-    ],
-    "python.sortImports.path": "isort",
-    "languageserver": {
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": [
-                "go.mod",
-                ".vim/",
-                ".git/",
-                ".hg/"
-            ],
-            "filetypes": [
-                "go"
-            ]
-        }
-    }
+    "MD013": false,
+    "MD026": {
+      "punctuation": ",;。，；：！？"
+    },
+    "MD033": false
+  },
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["--max-line-length=80"],
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length=80"],
+  "python.sortImports.path": "isort"
 }

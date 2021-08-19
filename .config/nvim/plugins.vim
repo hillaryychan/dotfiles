@@ -35,12 +35,13 @@ Plug 'APZelos/blamer.nvim'                      " git blame
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
 
-" Plug 'bfrg/vim-cpp-modern'                      " c/c++ syntax
 Plug 'vim-python/python-syntax'                 " python syntax
 Plug 'alvan/vim-closetag'                       " tag completion
-" Plug 'fatih/vim-go'                             " golang
 Plug 'othree/html5.vim'
-Plug 'othree/yajs.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'bfrg/vim-cpp-modern'                      " c/c++ syntax
+" Plug 'fatih/vim-go'                             " golang
 
 call plug#end()
 
@@ -316,18 +317,29 @@ let g:vimspector_enable_mappings = 'HUMAN'
 nnoremap <leader>db :call vimspector#Launch()<CR>
 nnoremap <leader>de :call vimspector#Reset()<CR>
 
-" cpp-modern
-let c_no_curly_error = 1
-
 " python-syntax
 let g:python_highlight_all = 1
 let g:python_highlight_file_headers_as_comments = 1
 let g:python_highlight_space_errors = 0
 
 " vim-closetag
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml"
-let g:closetag_xhtml_filetypes = 'xml,xhtml,phtml'
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml,*.jsx,*.tsx"
+let g:closetag_xhtml_filetypes = 'xml,xhtml,phtml,jsx,javascript.jsx,javascript.tsx,typescript.tsx,javascriptreact'
 let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
+
+" vim-jsx-pretty
+let g:vim_jsx_pretty_highlight_close_tag = 1
+
+" cpp-modern
+let c_no_curly_error = 1
 
 " vim-go
 let g:go_def_mapping_enabled = 0
