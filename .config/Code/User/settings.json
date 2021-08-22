@@ -1,36 +1,77 @@
 {
-    "workbench.colorTheme": "One Monokai",
-    "workbench.startupEditor": "newUntitledFile",
-    "window.zoomLevel": 0,
-    "editor.renderWhitespace": "all",
-    "editor.rulers": [
-        80
-    ],
-    "files.eol": "\n",
-    "C_Cpp.updateChannel": "Insiders",
-    "markdownlint.config": {
-        "default": true,
-        "MD007": {
-            "indent": 4
-        },
-        "MD013": false,
-        "MD026": {
-            "punctuation": ",;。，；：！？"
-        },
-        "MD033": false
+  // General
+  "workbench.colorTheme": "One Monokai",
+  "workbench.startupEditor": "newUntitledFile",
+  "window.zoomLevel": 0,
+  "files.eol": "\n",
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [80],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontSize": 12,
+  "terminal.integrated.fontSize": 12,
+  // Vim settings
+  "vim.leader": "<space>",
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["leader", "w"],
+      "commands": [":w"]
     },
-    "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": [
-        "--max-line-length=80"
-    ],
-    "python.formatting.provider": "black",
-    "python.formatting.blackArgs": [
-        "--line-length=80"
-    ],
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
+    {
+      "before": ["leader", "<space>"],
+      "commands": [":noh"]
     },
-    "editor.fontSize": 12,
-    "terminal.integrated.fontSize": 12
+    {
+      "before": ["Y"],
+      "after": ["y", "$"]
+    },
+    {
+      "before": ["[", "b"],
+      "commands": [":bprevious"]
+    },
+    {
+      "before": ["]", "b"],
+      "commands": [":bnext"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-b>": false,
+    "<C-f>": false,
+    "<C-h>": false,
+    "<C-q>": false
+  },
+  "vim.smartRelativeLine": true,
+  // Markdown
+  "markdownlint.config": {
+    "default": true,
+    "MD007": {
+      "indent": 4
+    },
+    "MD013": false,
+    "MD026": {
+      "punctuation": ",;。，；：！？"
+    },
+    "MD033": false
+  },
+  // Python
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["--max-line-length=80"],
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length=80"],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  // C++
+  "C_Cpp.updateChannel": "Insiders"
 }
