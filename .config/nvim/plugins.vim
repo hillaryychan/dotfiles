@@ -112,10 +112,26 @@ nnoremap <silent> <leader>ee :NERDTreeFind<CR>
 
 " fzf
 let $FZF_DEFAULT_COMMAND = "fd --type file --hidden --follow --exclude .git"
-let g:fzf_command_prefix = 'Fzf'
-nnoremap <silent> <leader>f :FzfFiles<CR>
-nnoremap <silent> <leader>b :FzfBuffers<CR>
-nnoremap <silent> <leader>g :FzfRg<CR>
+let $FZF_DEFAULT_OPTS = '--bind alt-a:select-all,alt-d:deselect-all'
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>g :Rg<CR>
+
+  " don't search filenames with ripgrep
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+  " select and add results to quickfix list
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 " indentLine
 let g:indentLine_char = '│'
