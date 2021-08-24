@@ -92,7 +92,7 @@ nnoremap <silent> [Q :cfirst<CR>
 nnoremap <silent> ]Q :clast<CR>
 
 " location list mappings
-nnoremap <silent> <leader>l :cw<CR> :lw<CR>
+nnoremap <silent> <leader>l :lw<CR>
 nnoremap <silent> [l :lprevious<CR>zmzv
 nnoremap <silent> ]l :lnext<CR>zmzv
 nnoremap <silent> [L :lfirst<CR>
