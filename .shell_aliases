@@ -12,7 +12,6 @@ fi
 alias :q='exit'
 alias :e='vim'
 alias v.='vim .'
-alias ra='ranger'
 alias chrome='google-chrome'
 
 alias m='make'
