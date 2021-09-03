@@ -6,7 +6,8 @@
     "html",
     "json",
     "javascript",
-    "typescript"
+    "typescript",
+    "yaml"
   ],
   "prettier.eslintIntegration": true,
   "markdownlint.config": {
