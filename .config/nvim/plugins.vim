@@ -35,10 +35,12 @@ Plug 'APZelos/blamer.nvim'                      " git blame
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
 
+Plug 'NoahTheDuke/vim-just'                     " Justfile syntax
 Plug 'vim-python/python-syntax'                 " python syntax
 Plug 'alvan/vim-closetag'                       " tag completion
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 " Plug 'bfrg/vim-cpp-modern'                      " c/c++ syntax
 " Plug 'fatih/vim-go'                             " golang
@@ -207,6 +209,9 @@ endfunction
 let g:mergetool_layout = 'rm'               " remote on left, optimistic merge on right
 let g:mergetool_prefer_revision = 'local'   " optimistically accept local changes for merge
 nmap <leader>mt <plug>(MergetoolToggle)
+
+" blamer
+nmap <silent> gb :BlamerToggle<CR>
 
 " CoC configurations
 " let g:coc_disable_startup_warning=1
