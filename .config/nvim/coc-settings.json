@@ -4,9 +4,12 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "python",
     "html",
+    "css",
     "json",
     "javascript",
     "typescript",
+    "javascriptreact",
+    "typescriptreact",
     "yaml"
   ],
   "prettier.eslintIntegration": true,
@@ -23,8 +26,10 @@
   },
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": ["--max-line-length=80"],
+  "python.linting.flake8Args": ["--max-line-length=100"],
+  "python.linting.pylintEnabled": true,
   "python.formatting.provider": "black",
-  "python.formatting.blackArgs": ["--line-length=80"],
-  "python.sortImports.path": "isort"
+  "python.formatting.blackArgs": ["--line-length=100"],
+  "python.sortImports.path": "isort",
+  "pyright.organizeimports.provider": "isort"
 }
