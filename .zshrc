@@ -80,6 +80,7 @@ plugins=(
   autoupdate
   zsh-syntax-highlighting
   zsh-autosuggestions
+  poetry
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -119,11 +120,10 @@ TIMEFMT=$'\n%J\ncpu\t%P\nreal\t%*Es\nuser\t%*Us\nsys\t%*Ss'
 # Enable fuzzy auto-completion for Zsh and Debian based os
 source /usr/share/doc/fzf/examples/completion.zsh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export JUST_SUPPRESS_DOTENV_LOAD_WARNING=1
