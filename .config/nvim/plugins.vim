@@ -11,7 +11,6 @@ Plug 'sainnhe/sonokai'                          " colourscheme
 
 Plug 'itchyny/lightline.vim'                    " status line info
 Plug 'itchyny/vim-gitbranch'                    " status line branch info
-Plug 'preservim/nerdtree'                       " file explorer
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'                         " fuzzy finder
 
@@ -27,7 +26,7 @@ Plug 'pseewald/vim-anyfold'                     " generic folding
 Plug 'unblevable/quick-scope'                   " easier motions
 Plug 'machakann/vim-highlightedyank'            " highlight yanked text
 Plug 'psliwka/vim-smoothie'                     " smooth scrolling
-Plug 'szw/vim-maximizer'                        " window toggling
+Plug 'szw/vim-maximizer'                        " windod toggling
 
 Plug 'airblade/vim-gitgutter'                   " preview git changes
 Plug 'samoshkin/vim-mergetool'                  " git mergetool
@@ -106,11 +105,6 @@ endfunction
 function! LightlineFiletype()
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
-
-" nerdtree
-let g:NERDTreeShowHidden=1
-nnoremap <silent> <leader>e :NERDTreeToggle<CR>
-nnoremap <silent> <leader>ee :NERDTreeFind<CR>
 
 " fzf
 let $FZF_DEFAULT_COMMAND = "fd --type file --hidden --follow --exclude .git"
