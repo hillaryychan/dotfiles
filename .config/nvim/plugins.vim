@@ -109,8 +109,8 @@ endfunction
 
 " nerdtree
 let g:NERDTreeShowHidden=1
-nnoremap <silent> <leader>e :NERDTreeToggle<CR>
-nnoremap <silent> <leader>ee :NERDTreeFind<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeFind<CR>
 
 " fzf
 let $FZF_DEFAULT_COMMAND = "fd --type file --hidden --follow --exclude .git"
