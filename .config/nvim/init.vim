@@ -74,6 +74,13 @@ nnoremap <leader><space> :noh<CR>
 " make Y consistent with C and D
 nnoremap Y y$
 
+" center highlighted search results
+cnoremap <expr> <CR> getcmdtype() =~ '[/?]' ? '<CR>zz' : '<CR>'
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+
 " toggle spell check
 noremap <F12> :setlocal spell! spelllang=en_au<cr>
 inoremap <F12> <c-\><c-o>:setlocal spell! spelllang=en_au<cr>
@@ -104,6 +111,7 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
+nnoremap <silent> <leader>D :bufdo bd<CR>
 
 augroup dynamic_smartcase
   autocmd!

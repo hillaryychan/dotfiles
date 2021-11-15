@@ -27,6 +27,7 @@ Plug 'pseewald/vim-anyfold'                     " generic folding
 Plug 'unblevable/quick-scope'                   " easier motions
 Plug 'machakann/vim-highlightedyank'            " highlight yanked text
 Plug 'psliwka/vim-smoothie'                     " smooth scrolling
+Plug 'qpkorr/vim-bufkill'                       " buffer management
 Plug 'szw/vim-maximizer'                        " window toggling
 
 Plug 'airblade/vim-gitgutter'                   " preview git changes
@@ -169,6 +170,9 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " highlightedyank
 let g:highlightedyank_highlight_duration = 1000
+
+" vim-bufkill
+nnoremap <leader>d :BD<CR>
 
 " vim-maximizer
 nnoremap <silent><leader>z :MaximizerToggle<CR>
