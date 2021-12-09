@@ -14,8 +14,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'itchyny/lightline.vim'                    " status line info
 Plug 'itchyny/vim-gitbranch'                    " status line branch info
 Plug 'preservim/nerdtree'                       " file explorer
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'                         " fuzzy finder
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'            " fuzzy finder
 
 Plug 'cohama/lexima.vim'                        " pair completion
 Plug 'tpope/vim-surround'                       " easy surrounding of pairs
@@ -26,6 +26,7 @@ Plug 'junegunn/vim-easy-align'                  " easy alignment
 Plug 'unblevable/quick-scope'                   " easier motions
 Plug 'machakann/vim-highlightedyank'            " highlight yanked text
 Plug 'psliwka/vim-smoothie'                     " smooth scrolling
+Plug 'milkypostman/vim-togglelist'              " toggling lists
 Plug 'qpkorr/vim-bufkill'                       " buffer management
 
 Plug 'airblade/vim-gitgutter'                   " preview git changes
@@ -110,28 +111,27 @@ let g:NERDTreeShowHidden=1
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <leader>n :NERDTreeFind<CR>
 
-" fzf
-let $FZF_DEFAULT_COMMAND = "fd --type file --hidden --follow --exclude .git"
-let $FZF_DEFAULT_OPTS = '--bind alt-a:select-all,alt-d:deselect-all'
-nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>g :Rg<CR>
+" telescope.nvim
+nnoremap <leader>f <cmd>Telescope find_files<CR>
+nnoremap <leader>g <cmd>Telescope live_grep<CR>
+nnoremap <leader>b <cmd>Telescope buffers<CR>
 
-  " don't search filenames with ripgrep
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
-
-  " select and add results to quickfix list
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-
-let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+lua << EOF
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      n = {
+    	['<c-d>'] = require('telescope.actions').delete_buffer,
+        ['<c-u>'] = false
+      },
+      i = {
+        ['<c-d>'] = require('telescope.actions').delete_buffer,
+        ['<c-u>'] = false
+      }
+    }
+  },
+}
+EOF
 
 " indentLine
 let g:indentLine_char = '│'
@@ -160,6 +160,10 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " highlightedyank
 let g:highlightedyank_highlight_duration = 1000
+
+" togglelist
+nnoremap <silent> <leader>q :call ToggleQuickfixList()<CR>
+nnoremap <silent> <leader>l :call ToggleLocationList()<CR>
 
 " vim-bufkill
 nnoremap <leader>d :BD<CR>

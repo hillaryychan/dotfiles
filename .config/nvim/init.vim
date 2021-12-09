@@ -92,14 +92,12 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
 " quickfix mappings
-nnoremap <silent> <leader>q :cw<CR>
 nnoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]q :cnext<CR>
 nnoremap <silent> [Q :cfirst<CR>
 nnoremap <silent> ]Q :clast<CR>
 
 " location list mappings
-nnoremap <silent> <leader>l :lw<CR>
 nnoremap <silent> [l :lprevious<CR>zmzv
 nnoremap <silent> ]l :lnext<CR>zmzv
 nnoremap <silent> [L :lfirst<CR>
