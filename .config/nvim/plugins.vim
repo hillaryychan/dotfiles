@@ -20,7 +20,7 @@ Plug 'junegunn/fzf.vim'                         " fuzzy finder
 Plug 'cohama/lexima.vim'                        " pair completion
 Plug 'tpope/vim-surround'                       " easy surrounding of pairs
 Plug 'tpope/vim-commentary'                     " easy commenting
-Plug 'Yggdroot/indentLine'                      " display indentation levels
+Plug 'lukas-reineke/indent-blankline.nvim'      " display indentation levels
 Plug 'junegunn/vim-peekaboo'                    " register viewer
 Plug 'junegunn/vim-easy-align'                  " easy alignment
 Plug 'unblevable/quick-scope'                   " easier motions
@@ -35,6 +35,7 @@ Plug 'APZelos/blamer.nvim'                      " git blame
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
 
 Plug 'NoahTheDuke/vim-just'                     " Justfile syntax
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'alvan/vim-closetag'                       " tag completion
 
 call plug#end()
@@ -325,6 +326,9 @@ nnoremap <silent> <space>cj  :<C-u>CocNext<CR>
 nnoremap <silent> <space>ck  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>cl  :<C-u>CocListResume<CR>
+
+" markdown-preview.nvim
+nmap <leader>mp <Plug>MarkdownPreviewToggle
 
 " vim-closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml,*.jsx,*.tsx"
