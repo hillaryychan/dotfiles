@@ -133,3 +133,17 @@ function! OpenMarkdownPreview() abort
     call system('xdg-open ' . a:output[0])
   endfunction
 endfunction
+
+" netrw file browser
+" Per default, netrw leaves unmodified buffers open. This autocommand
+" deletes netrw's buffer once it's hidden (using ':q', for example)
+autocmd FileType netrw setl bufhidden=delete
+
+let g:netrw_winsize = -40               " absolute width of netrw window
+let g:netrw_banner = 0                  " do not display banner
+let g:netrw_sort_sequence = '[\/]$,*'   " sort directories on the top, files below
+let g:netrw_altv = 1                    " set vsplit to right
+let g:netrw_hide=1                      " don't show hidden file (toggle with gh)
+let ghregex='\(^\|\s\s\)\zs\.\S\+,^\.\.'
+let g:netrw_list_hide=ghregex
+

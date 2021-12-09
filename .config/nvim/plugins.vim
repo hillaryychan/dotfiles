@@ -20,17 +20,13 @@ Plug 'junegunn/fzf.vim'                         " fuzzy finder
 Plug 'cohama/lexima.vim'                        " pair completion
 Plug 'tpope/vim-surround'                       " easy surrounding of pairs
 Plug 'tpope/vim-commentary'                     " easy commenting
-Plug 'tpope/vim-sleuth'                         " indentation detection
 Plug 'Yggdroot/indentLine'                      " display indentation levels
-Plug 'mbbill/undotree'                          " undo history management
 Plug 'junegunn/vim-peekaboo'                    " register viewer
 Plug 'junegunn/vim-easy-align'                  " easy alignment
-Plug 'pseewald/vim-anyfold'                     " generic folding
 Plug 'unblevable/quick-scope'                   " easier motions
 Plug 'machakann/vim-highlightedyank'            " highlight yanked text
 Plug 'psliwka/vim-smoothie'                     " smooth scrolling
 Plug 'qpkorr/vim-bufkill'                       " buffer management
-Plug 'szw/vim-maximizer'                        " window toggling
 
 Plug 'airblade/vim-gitgutter'                   " preview git changes
 Plug 'samoshkin/vim-mergetool'                  " git mergetool
@@ -51,24 +47,15 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
+  indent = {
+    enable = true
+  }
 }
 EOF
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-
-" netrw file browser
-" Per default, netrw leaves unmodified buffers open. This autocommand
-" deletes netrw's buffer once it's hidden (using ':q', for example)
-autocmd FileType netrw setl bufhidden=delete
-
-let g:netrw_winsize = -40               " absolute width of netrw window
-let g:netrw_banner = 0                  " do not display banner
-let g:netrw_sort_sequence = '[\/]$,*'   " sort directories on the top, files below
-let g:netrw_altv = 1                    " set vsplit to right
-let g:netrw_hide=1                      " don't show hidden file (toggle with gh)
-let ghregex='\(^\|\s\s\)\zs\.\S\+,^\.\.'
-let g:netrw_list_hide=ghregex
+set foldlevelstart=99 " open all folds
 
 " lightline status
 let g:lightline = {
@@ -156,9 +143,6 @@ let g:indentLine_setConceal = 2
 let g:indentLine_concealcursor = ""
 let g:indentLine_fileTypeExclude = ['json', 'haskell', 'markdown']
 
-" undotree
-nnoremap <silent> <leader>u :UndotreeToggle<CR>
-
 " vim-peekaboo
 let g:peekaboo_window = 'vert to 40new'
 
@@ -169,10 +153,6 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 vmap <leader><bslash> :EasyAlign*<bar><Enter>
-
-" vim-anyfold
-autocmd Filetype * AnyFoldActivate
-set foldlevel=99
 
 " quick-scope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
