@@ -9,6 +9,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'sainnhe/sonokai'                          " colourscheme
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 Plug 'itchyny/lightline.vim'                    " status line info
 Plug 'itchyny/vim-gitbranch'                    " status line branch info
 Plug 'preservim/nerdtree'                       " file explorer
@@ -37,16 +39,23 @@ Plug 'APZelos/blamer.nvim'                      " git blame
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense (completion, linting etc)
 
 Plug 'NoahTheDuke/vim-just'                     " Justfile syntax
-Plug 'vim-python/python-syntax'                 " python syntax
 Plug 'alvan/vim-closetag'                       " tag completion
-Plug 'othree/html5.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'maxmellon/vim-jsx-pretty'
-" Plug 'bfrg/vim-cpp-modern'                      " c/c++ syntax
-" Plug 'fatih/vim-go'                             " golang
 
 call plug#end()
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  sync_install = false,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
 " netrw file browser
 " Per default, netrw leaves unmodified buffers open. This autocommand
@@ -337,16 +346,6 @@ nnoremap <silent> <space>ck  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>cl  :<C-u>CocListResume<CR>
 
-" vimspector
-let g:vimspector_enable_mappings = 'HUMAN'
-nnoremap <leader>db :call vimspector#Launch()<CR>
-nnoremap <leader>de :call vimspector#Reset()<CR>
-
-" python-syntax
-let g:python_highlight_all = 1
-let g:python_highlight_file_headers_as_comments = 1
-let g:python_highlight_space_errors = 0
-
 " vim-closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml,*.jsx,*.tsx"
 let g:closetag_xhtml_filetypes = 'xml,xhtml,phtml,jsx,javascript.jsx,javascript.tsx,typescript.tsx,javascriptreact'
@@ -359,12 +358,3 @@ let g:closetag_regions = {
     \ }
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
-
-" vim-jsx-pretty
-let g:vim_jsx_pretty_highlight_close_tag = 1
-
-" cpp-modern
-let c_no_curly_error = 1
-
-" vim-go
-let g:go_def_mapping_enabled = 0
