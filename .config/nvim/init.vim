@@ -119,21 +119,6 @@ augroup dynamic_smartcase
   autocmd CmdLineLeave : set smartcase
 augroup END
 
-noremap <silent><leader>mp :call OpenMarkdownPreview()<CR>
-
-function! OpenMarkdownPreview() abort
-  if exists('s:markdown_job_id') && s:markdown_job_id > 0
-    call jobstop(s:markdown_job_id)
-    unlet s:markdown_job_id
-  endif
-  let s:markdown_job_id = jobstart(
-    \ 'grip ' . shellescape(expand('%:p')) . " 0 2>&1 | awk '/Running/ { printf $4 }'",
-    \ { 'on_stdout': 'OnGripStart', 'pty': 1 })
-  function! OnGripStart(_, output, __)
-    call system('xdg-open ' . a:output[0])
-  endfunction
-endfunction
-
 " netrw file browser
 " Per default, netrw leaves unmodified buffers open. This autocommand
 " deletes netrw's buffer once it's hidden (using ':q', for example)
