@@ -133,17 +133,6 @@ require('telescope').setup{
 }
 EOF
 
-" indentLine
-let g:indentLine_char = '│'
-let g:indentLine_setConceal = 2
-" default ''.
-" n for Normal mode
-" v for Visual mode
-" i for Insert mode
-" c for Command line editing, for 'incsearch'
-let g:indentLine_concealcursor = ""
-let g:indentLine_fileTypeExclude = ['json', 'haskell', 'markdown']
-
 " vim-peekaboo
 let g:peekaboo_window = 'vert to 40new'
 
@@ -167,10 +156,6 @@ nnoremap <silent> <leader>l :call ToggleLocationList()<CR>
 
 " vim-bufkill
 nnoremap <leader>d :BD<CR>
-
-" vim-maximizer
-nnoremap <silent><leader>z :MaximizerToggle<CR>
-vnoremap <silent><leader>z :MaximizerToggle<CR>gv
 
 " vim-gitgutter
 set updatetime=500
