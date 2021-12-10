@@ -11,11 +11,10 @@ Plug 'sainnhe/sonokai'                          " colourscheme
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-Plug 'itchyny/lightline.vim'                    " status line info
-Plug 'itchyny/vim-gitbranch'                    " status line branch info
 Plug 'preservim/nerdtree'                       " file explorer
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'            " fuzzy finder
+Plug 'nvim-lualine/lualine.nvim'                " status line
 
 Plug 'cohama/lexima.vim'                        " pair completion
 Plug 'tpope/vim-surround'                       " easy surrounding of pairs
@@ -59,52 +58,15 @@ set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set foldlevelstart=99 " open all folds
 
-" lightline status
-let g:lightline = {
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'cocstatus', 'readonly', 'filename', 'modified' ] ],
-    \   'right': [ [ 'lineinfo' ],
-    \              [ 'percent' ],
-    \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
-    \ },
-    \ 'component_function': {
-    \   'gitbranch': 'LightlineGitbranch',
-    \   'cocstatus': 'coc#status',
-    \   'fileformat': 'LightlineFileformat',
-    \   'fileencoding': 'LightlineFileencoding',
-    \   'filetype': 'LightlineFiletype'
-    \ },
-    \ }
-let g:lightline.colorscheme = 'sonokai'
-
-  " collapse long filenames
-let g:lightline.component = { 'filename': '%<%f'}
-
-  " hide/only show 20 chars of git branch name
-function! LightlineGitbranch()
-  if exists('*gitbranch#name') && winwidth(0) > 70
-    let branch = gitbranch#name()
-    if len(branch) <= 20
-      return branch
-    endif
-    return branch[:10] . '..' . branch[(len(branch)-7):]
-  endif
-  return ''
-endfunction
-
-  " hide fileformat, fileencoding, filetype
-function! LightlineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! LightlineFileencoding()
-  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-endfunction
-
-function! LightlineFiletype()
-  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-endfunction
+" lualine
+lua <<EOF
+require'lualine'.setup {
+  options = {
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+  }
+}
+EOF
 
 " nerdtree
 let g:NERDTreeShowHidden=1
