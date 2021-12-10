@@ -35,6 +35,10 @@ Plug 'airblade/vim-gitgutter'                   -- preview git changes
 Plug 'samoshkin/vim-mergetool'                  -- git mergetool
 Plug 'APZelos/blamer.nvim'                      -- git blame
 
+Plug 'NoahTheDuke/vim-just'                     -- Justfile syntax
+Plug('iamcco/markdown-preview.nvim', {['do'] = vim.fn['mkdp#util#install'], ['for'] = {'markdown', 'vim-plug'}})
+Plug 'alvan/vim-closetag'                       -- tag completion
+
 vim.call('plug#end')
 
 -- nvim-treesitter
@@ -149,14 +153,14 @@ function! TogglePreviewHunk()
   if PreviewWindowOpened() && g:lineNo == line('.')
     pclose
   else
-    silent exe "GitGutterPreviewHunk"
+    silent exe 'GitGutterPreviewHunk'
     let g:lineNo=line('.')
   endif
 endfunction
 
 function! PreviewWindowOpened()
   for nr in range(1, winnr('$'))
-    if getwinvar(nr, "&pvw") == 1
+    if getwinvar(nr, '&pvw') == 1
       return 1
     endif
   endfor
@@ -170,3 +174,19 @@ vim.g.mergetool_prefer_revision = 'local'   -- optimistically accept local chang
 
 -- blamer
 vim.api.nvim_set_keymap('n', 'gb', ':BlamerToggle<CR>', { silent =  true })
+
+-- markdown-preview
+vim.api.nvim_set_keymap('n', '<leader>mp', '<Plug>MarkdownPreviewToggle', { silent =  true })
+
+-- vim-closetag
+vim.g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.xml,*.jsx,*.tsx'
+vim.g.closetag_xhtml_filetypes = 'xml,xhtml,phtml,jsx,javascript.jsx,javascript.tsx,typescript.tsx,javascriptreact'
+vim.g.closetag_emptyTags_caseSensitive = 1
+vim.g.closetag_regions = {
+  ['typescript.tsx'] = 'jsxRegion,tsxRegion',
+  ['javascript.jsx'] = 'jsxRegion',
+  ['typescriptreact'] = 'jsxRegion,tsxRegion',
+  ['javascriptreact'] = 'jsxRegion',
+}
+vim.g.closetag_shortcut = '>'
+vim.g.closetag_close_shortcut = '<leader>>'
