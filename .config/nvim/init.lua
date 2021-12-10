@@ -67,36 +67,36 @@ augroup dynamic_smartcase
 augroup END
 ]], false)
 
--- -- Mappings
--- nnoremap <leader>w :w<CR>
--- 
--- -- case-insensitive commands
--- inoremap jk <esc>
--- inoremap JK <esc>
--- vnoremap jk <esc>
--- vnoremap JK <esc>
--- 
--- -- clear highlighting
--- nnoremap <leader><space> :noh<CR>
--- 
--- -- make Y consistent with C and D
--- nnoremap Y y$
--- 
--- -- center highlighted search results
+-- Mappings
+vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
+
+-- case-insensitive commands
+vim.api.nvim_set_keymap('i', 'jk', '<esc>', { noremap = true })
+vim.api.nvim_set_keymap('i', 'JK', '<esc>', { noremap = true })
+vim.api.nvim_set_keymap('v', 'jk', '<esc>', { noremap = true })
+vim.api.nvim_set_keymap('v', 'JK', '<esc>', { noremap = true })
+
+-- clear highlighting
+vim.api.nvim_set_keymap('n', '<leader><space>', ':noh<CR>', { noremap = true })
+
+-- TODO: remove for v0.6
+-- make Y consistent with C and D
+vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
+
+-- center highlighted search results
 -- cnoremap <expr> <CR> getcmdtype() =~ '[/?]' ? '<CR>zz' : '<CR>'
--- nnoremap n nzz
--- nnoremap N Nzz
--- nnoremap * *zz
--- nnoremap # #zz
--- 
--- -- toggle spell check
--- noremap <F12> :setlocal spell! spelllang=en_au<cr>
--- inoremap <F12> <c-\><c-o>:setlocal spell! spelllang=en_au<cr>
--- 
--- -- split navigation
--- nnoremap <C-j> <C-w><C-j>
--- nnoremap <C-k> <C-w><C-k>
--- nnoremap <C-l> <C-w><C-l>
--- nnoremap <C-h> <C-w><C-h>
--- 
+vim.api.nvim_set_keymap('n', 'n', 'nzz', { noremap = true })
+vim.api.nvim_set_keymap('n', 'N', 'Nzz', { noremap = true })
+vim.api.nvim_set_keymap('n', '*', '*zz', { noremap = true })
+vim.api.nvim_set_keymap('n', '#', '#zz', { noremap = true })
+
+-- toggle spell check
+vim.api.nvim_set_keymap('', '<F12>', ':setlocal spell! spelllang=en_au<CR>', { noremap = true })
+vim.api.nvim_set_keymap('i', '<F12>', '<C-\\><C-o>:setlocal spell! spelllang=en_au<CR>', { noremap = true })
+
+-- split navigation
+vim.api.nvim_set_keymap('n', '<C-j>', '<C-w><C-j>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-w><C-k>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-l>', '<C-w><C-l>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-h>', '<C-w><C-h>', { noremap = true })
 
