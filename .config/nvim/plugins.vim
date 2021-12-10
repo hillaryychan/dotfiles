@@ -108,11 +108,28 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 let g:highlightedyank_highlight_duration = 1000
 
 " togglelist
+  " quickfix mappings
 nnoremap <silent> <leader>q :call ToggleQuickfixList()<CR>
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> [Q :cfirst<CR>
+nnoremap <silent> ]Q :clast<CR>
+
+  " location list mappings
 nnoremap <silent> <leader>l :call ToggleLocationList()<CR>
+nnoremap <silent> [l :lprevious<CR>zmzv
+nnoremap <silent> ]l :lnext<CR>zmzv
+nnoremap <silent> [L :lfirst<CR>
+nnoremap <silent> ]L :llast<CR>
 
 " vim-bufkill
-nnoremap <leader>d :BD<CR>
+  " buffer mappings
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+nnoremap <silent> <leader>d :BD<CR>
+nnoremap <silent> <leader>D :bufdo bd<CR>
 
 " vim-gitgutter
 set updatetime=500
