@@ -52,23 +52,16 @@ require('nvim-treesitter.configs').setup {
     enable = true
   }
 }
-EOF
 
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-set foldlevelstart=99 " open all folds
+vim.api.nvim_set_option('foldmethod', 'expr')
+vim.api.nvim_set_option('foldexpr', 'nvim_treesitter#foldexpr()')
+vim.api.nvim_set_option('foldlevelstart', 99)
 
-" telescope.nvim
-nnoremap <leader>f <cmd>Telescope find_files<CR>
-nnoremap <leader>g <cmd>Telescope live_grep<CR>
-nnoremap <leader>b <cmd>Telescope buffers<CR>
-
-lua << EOF
 require('telescope').setup{
   defaults = {
     mappings = {
       n = {
-    	['<c-d>'] = require('telescope.actions').delete_buffer,
+        ['<c-d>'] = require('telescope.actions').delete_buffer,
         ['<c-u>'] = false
       },
       i = {
@@ -78,10 +71,11 @@ require('telescope').setup{
     }
   },
 }
-EOF
 
-" lualine
-lua <<EOF
+vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>Telescope find_files<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>Telescope live_grep<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>b', '<cmd>Telescope buffers<CR>', { noremap = true, silent = true })
+
 require('lualine').setup {
   options = {
     icons_enabled = false,
