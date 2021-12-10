@@ -1,9 +1,6 @@
 vim.g.mapleader = ' '
 
--- Load plugins
--- if filereadable(expand('~/.config/nvim/plugins.vim'))
---     source ~/.config/nvim/plugins.vim
--- endif
+require('plugins')
 
 -- General
 vim.opt.hidden = true               -- reuse same window and switch from an unsaved buffer
@@ -14,13 +11,13 @@ vim.opt.visualbell = true           -- use visual bell instead of beeping when t
 vim.opt.mouse = 'a'                 -- enable mouse for all modes
 vim.opt.clipboard = 'unnamedplus'   -- enable copy pasting between clipboard registers
 
--- TODO:Colours
--- if (has("termguicolors"))
---     vim.opt.termguicolors
--- endif
--- let g:sonokai_style = 'default'
--- let g:sonokai_enable_italic = 1
--- colorscheme sonokai
+-- Colours
+if vim.fn.has('termguicolors') then
+  vim.opt.termguicolors = true
+end
+vim.g.sonokai_style = 'default'
+vim.g.sonokai_enable_italic = 1
+vim.cmd('colorscheme sonokai')
 
 -- Indentation
 vim.opt.expandtab = true            -- tab expands to spaces
