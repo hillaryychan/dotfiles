@@ -84,7 +84,15 @@ vim.api.nvim_set_keymap('n', '<leader><space>', ':noh<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
 
 -- center highlighted search results
--- cnoremap <expr> <CR> getcmdtype() =~ '[/?]' ? '<CR>zz' : '<CR>'
+local function t(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+function _G.center_search()
+    local cmdtype = vim.fn.getcmdtype()
+    return cmdtype:match('[/?]') and t'<CR>zz' or t'<CR>'
+end
+vim.api.nvim_set_keymap('c', '<CR>', 'v:lua.center_search()', { expr = true, noremap = true })
 vim.api.nvim_set_keymap('n', 'n', 'nzz', { noremap = true })
 vim.api.nvim_set_keymap('n', 'N', 'Nzz', { noremap = true })
 vim.api.nvim_set_keymap('n', '*', '*zz', { noremap = true })
