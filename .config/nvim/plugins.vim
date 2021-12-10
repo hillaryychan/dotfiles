@@ -11,10 +11,10 @@ Plug 'sainnhe/sonokai'                          " colourscheme
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-Plug 'preservim/nerdtree'                       " file explorer
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'            " fuzzy finder
 Plug 'nvim-lualine/lualine.nvim'                " status line
+Plug 'preservim/nerdtree'                       " file explorer
 
 Plug 'cohama/lexima.vim'                        " pair completion
 Plug 'tpope/vim-surround'                       " easy surrounding of pairs
@@ -41,7 +41,7 @@ Plug 'alvan/vim-closetag'                       " tag completion
 call plug#end()
 
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   ensure_installed = "maintained",
   sync_install = false,
   highlight = {
@@ -57,21 +57,6 @@ EOF
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set foldlevelstart=99 " open all folds
-
-" lualine
-lua <<EOF
-require'lualine'.setup {
-  options = {
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-  }
-}
-EOF
-
-" nerdtree
-let g:NERDTreeShowHidden=1
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <leader>n :NERDTreeFind<CR>
 
 " telescope.nvim
 nnoremap <leader>f <cmd>Telescope find_files<CR>
@@ -94,6 +79,22 @@ require('telescope').setup{
   },
 }
 EOF
+
+" lualine
+lua <<EOF
+require('lualine').setup {
+  options = {
+    icons_enabled = false,
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+  }
+}
+EOF
+
+" nerdtree
+let g:NERDTreeShowHidden=1
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeFind<CR>
 
 " vim-peekaboo
 let g:peekaboo_window = 'vert to 40new'
