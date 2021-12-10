@@ -1,6 +1,5 @@
 {
   "diagnostic.checkCurrentLine": true,
-  "suggest.autoTrigger": "none",
   "coc.preferences.formatOnSaveFiletypes": [
     "python",
     "html",
