@@ -42,7 +42,7 @@ call plug#end()
 
 lua <<EOF
 require('nvim-treesitter.configs').setup {
-  ensure_installed = "maintained",
+  ensure_installed = 'maintained',
   sync_install = false,
   highlight = {
     enable = true,
@@ -108,14 +108,14 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 let g:highlightedyank_highlight_duration = 1000
 
 " togglelist
-  " quickfix mappings
+" * quickfix mappings
 nnoremap <silent> <leader>q :call ToggleQuickfixList()<CR>
 nnoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]q :cnext<CR>
 nnoremap <silent> [Q :cfirst<CR>
 nnoremap <silent> ]Q :clast<CR>
 
-  " location list mappings
+" * location list mappings
 nnoremap <silent> <leader>l :call ToggleLocationList()<CR>
 nnoremap <silent> [l :lprevious<CR>zmzv
 nnoremap <silent> ]l :lnext<CR>zmzv
@@ -123,7 +123,7 @@ nnoremap <silent> [L :lfirst<CR>
 nnoremap <silent> ]L :llast<CR>
 
 " vim-bufkill
-  " buffer mappings
+" * buffer mappings
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
@@ -148,14 +148,14 @@ function! TogglePreviewHunk()
   if PreviewWindowOpened() && g:lineNo == line('.')
     pclose
   else
-    silent exe "GitGutterPreviewHunk"
+    silent exe 'GitGutterPreviewHunk'
     let g:lineNo=line('.')
   endif
 endfunction
 
 function! PreviewWindowOpened()
   for nr in range(1, winnr('$'))
-    if getwinvar(nr, "&pvw") == 1
+    if getwinvar(nr, '&pvw') == 1
       return 1
     endif
   endfor
@@ -294,7 +294,7 @@ nnoremap <silent> <space>cl  :<C-u>CocListResume<CR>
 nmap <leader>mp <Plug>MarkdownPreviewToggle
 
 " vim-closetag
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml,*.jsx,*.tsx"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.xml,*.jsx,*.tsx'
 let g:closetag_xhtml_filetypes = 'xml,xhtml,phtml,jsx,javascript.jsx,javascript.tsx,typescript.tsx,javascriptreact'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_regions = {

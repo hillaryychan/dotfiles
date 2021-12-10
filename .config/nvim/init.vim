@@ -15,7 +15,7 @@ set mouse+=a                " enable mouse for all modes
 set clipboard^=unnamedplus  " enable copy pasting between clipboard registers
 
 " Colours
-if (has("termguicolors"))
+if (has('termguicolors'))
     set termguicolors
 endif
 let g:sonokai_style = 'default'
