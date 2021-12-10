@@ -90,7 +90,7 @@ end
 
 function _G.center_search()
     local cmdtype = vim.fn.getcmdtype()
-    return cmdtype:match('[/?]') and t'<CR>zz' or t'<CR>'
+    return cmdtype:match('^[/?]$') and t'<CR>zz' or t'<CR>'
 end
 vim.api.nvim_set_keymap('c', '<CR>', 'v:lua.center_search()', { expr = true, noremap = true })
 vim.api.nvim_set_keymap('n', 'n', 'nzz', { noremap = true })
