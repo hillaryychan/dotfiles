@@ -84,11 +84,11 @@ cmp.setup({
       c = cmp.mapping.close(),
     }),
     ['<C-Space>'] = cmp.mapping(
-    cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    }),
-    { 'i', 'c' }
+      cmp.mapping.confirm({
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = true,
+      }),
+      { 'i', 'c' }
     ),
     ['<Tab>'] = function(fallback)
       if not cmp.select_next_item() then
@@ -192,7 +192,7 @@ local on_attach = function(client, bufnr)
   if client.resolved_capabilities.document_formatting then
     buf_set_keymap('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", "<leader>=", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+    buf_set_keymap('n', '<leader>=', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
   end
 end
 
@@ -216,11 +216,11 @@ nvim_lsp['efm'].setup({
   init_options = { documentFormatting = true, codeAction = true },
   root_dir = vim.loop.cwd,
   settings = {
-    rootMarkers = { '.git/' },
+    rootMarkers = { '.git/', 'pyproject.toml' },
     languages = {
       lua = {
         {
-          formatCommand = 'stylua --indent-type spaces --indent-width 2 --quote-style AutoPreferSingle -',
+          formatCommand = 'stylua --indent-type spaces --indent-width 2 --quote-style ForceSingle -',
           formatStdin = true,
         },
       },
@@ -301,7 +301,7 @@ vim.api.nvim_set_keymap('n', ']L', ':llast<CR>', { noremap = true, silent = true
 -- * buffer mappings
 vim.api.nvim_set_keymap('n', '[b', ':bprevious<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', ']b', ':bnext<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '[B', ':bfirst<CR>',{ noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '[B', ':bfirst<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', ']B', ':blast<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>d', ':BD<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>D', ':bufdo bd<CR>', { noremap = true, silent = true })
