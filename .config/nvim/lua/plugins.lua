@@ -274,11 +274,12 @@ vim.api.nvim_set_keymap('n', '<leader>d', ':BD<CR>', { noremap = true, silent = 
 vim.api.nvim_set_keymap('n', '<leader>D', ':bufdo bd<CR>', { noremap = true, silent =  true })
 
 -- vim-gitgutter
-function _G.toggle_git_preview_hunk() 
+function _G.toggle_git_preview_hunk()
+  local action = 'preview()'
   if vim.fn['gitgutter#hunk#is_preview_window_open']() == 1 then
-    return ':call gitgutter#hunk#close_hunk_preview_window()' .. utils.t'<CR>'
+    action  = 'close_hunk_preview_window()'
   end
-  return ':call gitgutter#hunk#preview()' .. utils.t'<CR>'
+  return ':call gitgutter#hunk#'..action..utils.t'<CR>'
 end
 
 vim.opt.updatetime = 500
