@@ -26,7 +26,8 @@ Plug('hrsh7th/cmp-cmdline')                 -- vim cmdline source for nvim-cmp
 Plug('neovim/nvim-lspconfig')               -- intellisense
 
 Plug('nvim-lua/plenary.nvim')
-Plug('nvim-telescope/telescope.nvim')       -- fuzzy finder
+-- TODO: remove commit pin for v6.0
+Plug('nvim-telescope/telescope.nvim', { commit = '80cdb00' })       -- fuzzy finder
 Plug('nvim-lualine/lualine.nvim')           -- status line
 Plug('preservim/nerdtree')                  -- file explorer
 
@@ -52,12 +53,12 @@ Plug('alvan/vim-closetag')                  -- tag completion
 
 vim.call('plug#end')
 
-require("plugins.treesitter")
-require("plugins.cmp")
-require("plugins.lsp")
-require("plugins.telescope")
-require("plugins.lualine")
-require("plugins.nerdtree")
-require("plugins.quality-of-life")
-require("plugins.git")
-require("plugins.file-specific")
+require('plugins.treesitter')
+require('plugins.cmp')
+require('plugins.lsp')
+require('plugins.telescope')
+require('plugins.lualine')
+require('plugins.nerdtree')
+require('plugins.quality-of-life')
+require('plugins.git')
+require('plugins.file-specific')
