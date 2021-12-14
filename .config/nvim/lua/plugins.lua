@@ -10,6 +10,7 @@ endif
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
 
+Plug 'dstein64/vim-startuptime'
 Plug 'sainnhe/sonokai'                          -- colourscheme
 
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn['TSUpdate']})
@@ -28,6 +29,7 @@ Plug 'preservim/nerdtree'                       -- file explorer
 Plug 'cohama/lexima.vim'                        -- pair completion
 Plug 'tpope/vim-surround'                       -- easy surrounding of pairs
 Plug 'tpope/vim-commentary'                     -- easy commenting
+Plug 'tpope/vim-sleuth'                         -- indentation detection
 Plug 'lukas-reineke/indent-blankline.nvim'      -- display indentation levels
 Plug 'junegunn/vim-peekaboo'                    -- register viewer
 Plug 'junegunn/vim-easy-align'                  -- easy alignment
@@ -54,9 +56,6 @@ require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
-  },
-  indent = {
-    enable = true
   }
 }
 
@@ -79,10 +78,13 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ['<C-Space>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    },
+    ['<C-Space>'] = cmp.mapping(
+      cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = true,
+      },
+      { 'i', 'c' }
+    ),
     ['<Tab>'] = function(fallback)
       if not cmp.select_next_item() then
         if vim.bo.buftype ~= 'prompt' and has_words_before() then
@@ -162,6 +164,7 @@ local on_attach = function(client, bufnr)
   local opts = { noremap=true, silent=true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
+  -- TODO: fix function names for v0.6
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
@@ -238,14 +241,10 @@ vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 -- * Start interactive EasyAlign for a motion/text object (e.g. gaip)
 vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 
--- vmap <leader><bslash> :EasyAlign*<bar><Enter>
 vim.api.nvim_set_keymap('v', '<leader><bslash>', ':EasyAlign*<bar><CR>', {})
 
 -- quick-scope
 vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
-
--- highlightedyank
-vim.g.highlightedyank_highlight_duration = 1000
 
 -- togglelist
 -- * quickfix mappings
