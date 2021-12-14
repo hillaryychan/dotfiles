@@ -349,3 +349,4 @@ vim.g.closetag_regions = {
 }
 vim.g.closetag_shortcut = '>'
 vim.g.closetag_close_shortcut = '<leader>>'
+
