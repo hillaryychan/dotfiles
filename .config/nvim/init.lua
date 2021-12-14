@@ -38,22 +38,23 @@ vim.opt.showmatch = true            -- highlight matching parenthesis
 vim.opt.cursorline = true           -- highlight the cursor line
 vim.opt.colorcolumn = '80,100,120'  -- colour the 80th, 100th, 120th column
 vim.opt.list = true                 -- display hidden characters in vim
-vim.opt.listchars={ tab = '→ ', extends = '›', precedes = '‹', trail = '·', nbsp = '⎵' }
+vim.opt.listchars = { tab = '→ ', extends = '›', precedes = '‹', trail = '·', nbsp = '⎵' }
 vim.opt.inccommand = 'nosplit'      -- show effects of a command incrementally
 
 -- Searching
 vim.opt.ignorecase = true           -- use case insensitive search except when using capital letters
 vim.opt.smartcase = true            -- an uppercase letter will enable case sensitivity
 
-vim.opt.scrolloff=3                 -- vertical scroll padding
-vim.opt.sidescrolloff=5             -- horizontal scroll padding
+vim.opt.scrolloff = 3               -- vertical scroll padding
+vim.opt.sidescrolloff = 5           -- horizontal scroll padding
 vim.opt.matchpairs:append('<:>')    -- match angled brackets
 
 -- Splitting
 vim.opt.splitright = true           -- puts new vsplit windows to the right of the current
 vim.opt.splitbelow = true           -- puts new split windows to bottom of current
 
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+  [[
 " wrap lines for vimdiff
 autocmd VimEnter * if &diff | execute 'windo set wrap' | endif
 
@@ -63,7 +64,9 @@ augroup dynamic_smartcase
   autocmd CmdLineEnter : set nosmartcase
   autocmd CmdLineLeave : set smartcase
 augroup END
-]], false)
+]],
+  false
+)
 
 -- Mappings
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
@@ -83,8 +86,8 @@ vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
 
 -- center highlighted search results
 function _G.center_search()
-    local cmdtype = vim.fn.getcmdtype()
-    return cmdtype:match('^[/?]$') and utils.t'<CR>zz' or utils.t'<CR>'
+  local cmdtype = vim.fn.getcmdtype()
+  return cmdtype:match('^[/?]$') and utils.t('<CR>zz') or utils.t('<CR>')
 end
 vim.api.nvim_set_keymap('c', '<CR>', 'v:lua.center_search()', { expr = true, noremap = true })
 vim.api.nvim_set_keymap('n', 'n', 'nzz', { noremap = true })
