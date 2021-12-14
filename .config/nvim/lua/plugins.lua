@@ -203,16 +203,20 @@ end
 nvim_lsp['efm'].setup {
   on_attach = on_attach,
   init_options = { documentFormatting = true, codeAction = true },
+  root_dir = vim.loop.cwd,
   settings = {
-      rootMarkers = {'.git/', 'pyproject.toml', 'Pipfile' },
-      languages = {
-          python = {
-              { formatCommand = 'black -', formatStdin = true },
-              { formatCommand = 'isort --stdout --profile black -', formatStdin = true }
-          }
-      }
+    rootMarkers = { '.git/' },
+    languages = {
+      lua = {
+        { formatCommand = 'stylua --indent-type spaces --indent-width 2 --quote-style AutoPreferSingle -', formatStdin = true },
+      },
+      python = {
+        { formatCommand = 'black -', formatStdin = true },
+        { formatCommand = 'isort --stdout --profile black -', formatStdin = true },
+      },
+    },
   },
-  filetypes = { 'python' }
+  filetypes = { "lua", "python" },
 }
 
 -- telescope
