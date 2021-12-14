@@ -1,27 +1,32 @@
--- vim-gitgutter
-function _G.toggle_git_preview_hunk()
-  local action = 'preview()'
-  if vim.fn['gitgutter#hunk#is_preview_window_open']() == 1 then
-    action = 'close_hunk_preview_window()'
-  end
-  return ':call gitgutter#hunk#' .. action .. utils.t('<CR>')
-end
+-- gitsigns
+require('gitsigns').setup({
+  keymaps = {
+    noremap = true,
 
-vim.opt.updatetime = 500
-vim.g.gitgutter_sign_added = '│'
-vim.g.gitgutter_sign_modified = '│'
-vim.g.gitgutter_sign_removed = '.'
-vim.g.gitgutter_sign_removed_first_line = '˙'
-vim.g.gitgutter_sign_modified_removed = '│'
-vim.g.gitgutter_preview_win_floating = 0
-vim.g.gitgutter_close_preview_on_escape = 1
-vim.api.nvim_set_keymap('n', 'ghp', 'v:lua.toggle_git_preview_hunk()', { expr = true, silent = true })
-vim.api.nvim_set_keymap('n', 'ghu', '<Plug>(GitGutterUndoHunk)', { silent = true })
-vim.api.nvim_set_keymap('n', 'ghs', '<Plug>(GitGutterStageHunk)', { silent = true })
+    ['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'" },
+    ['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'" },
+
+    ['n ghs'] = '<cmd>Gitsigns stage_hunk<CR>',
+    ['v ghs'] = ':Gitsigns stage_hunk<CR>',
+    ['n ghu'] = '<cmd>Gitsigns undo_stage_hunk<CR>',
+    ['n ghr'] = '<cmd>Gitsigns reset_hunk<CR>',
+    ['v ghr'] = ':Gitsigns reset_hunk<CR>',
+    ['n ghR'] = '<cmd>Gitsigns reset_buffer<CR>',
+    ['n ghp'] = '<cmd>Gitsigns preview_hunk<CR>',
+    ['n ghb'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
+    ['n ghS'] = '<cmd>Gitsigns stage_buffer<CR>',
+    ['n ghU'] = '<cmd>Gitsigns reset_buffer_index<CR>',
+    ['n gb'] = '<cmd>Gitsigns toggle_current_line_blame<CR>',
+
+    -- Text objects
+    ['o ih'] = ':<C-U>Gitsigns select_hunk<CR>',
+    ['x ih'] = ':<C-U>Gitsigns select_hunk<CR>',
+  },
+  yadm = {
+    enable = true,
+  },
+})
 
 -- vim-mergetool
 vim.g.mergetool_layout = 'rm'               -- remote on left, optimistic merge on right
 vim.g.mergetool_prefer_revision = 'local'   -- optimistically accept local changes for merge
-
--- blamer
-vim.api.nvim_set_keymap('n', 'gb', ':BlamerToggle<CR>', { silent = true })

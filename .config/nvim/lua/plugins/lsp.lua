@@ -64,7 +64,7 @@ nvim_lsp['efm'].setup({
     languages = {
       lua = {
         {
-          formatCommand = 'stylua --indent-type spaces --indent-width 2 --quote-style ForceSingle -',
+          formatCommand = 'stylua --indent-type spaces --indent-width 2 --quote-style AutoPreferSingle -',
           formatStdin = true,
         },
       },
