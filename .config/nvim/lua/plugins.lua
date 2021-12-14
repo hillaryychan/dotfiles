@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 -- automatically install vim-plug
 vim.api.nvim_exec([[
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
@@ -10,7 +12,6 @@ endif
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
 
-Plug 'dstein64/vim-startuptime'
 Plug 'sainnhe/sonokai'                          -- colourscheme
 
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn['TSUpdate']})
@@ -68,6 +69,7 @@ local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
+
 local cmp = require('cmp')
 
 cmp.setup({
@@ -272,6 +274,13 @@ vim.api.nvim_set_keymap('n', '<leader>d', ':BD<CR>', { noremap = true, silent = 
 vim.api.nvim_set_keymap('n', '<leader>D', ':bufdo bd<CR>', { noremap = true, silent =  true })
 
 -- vim-gitgutter
+function _G.toggle_git_preview_hunk() 
+  if vim.fn['gitgutter#hunk#is_preview_window_open']() == 1 then
+    return ':call gitgutter#hunk#close_hunk_preview_window()' .. utils.t'<CR>'
+  end
+  return ':call gitgutter#hunk#preview()' .. utils.t'<CR>'
+end
+
 vim.opt.updatetime = 500
 vim.g.gitgutter_sign_added = '│'
 vim.g.gitgutter_sign_modified = '│'
@@ -279,30 +288,10 @@ vim.g.gitgutter_sign_removed =  '.'
 vim.g.gitgutter_sign_removed_first_line =  '˙'
 vim.g.gitgutter_sign_modified_removed = '│'
 vim.g.gitgutter_preview_win_floating = 0
-vim.api.nvim_set_keymap('n', 'ghp', ':call TogglePreviewHunk()<CR>', { silent =  true })
+vim.g.gitgutter_close_preview_on_escape = 1
+vim.api.nvim_set_keymap('n', 'ghp', 'v:lua.toggle_git_preview_hunk()', { expr = true, silent =  true })
 vim.api.nvim_set_keymap('n', 'ghu', '<Plug>(GitGutterUndoHunk)', { silent =  true })
 vim.api.nvim_set_keymap('n', 'ghs', '<Plug>(GitGutterStageHunk)', { silent =  true })
-
-vim.api.nvim_exec([[
-let g:lineNo=0
-function! TogglePreviewHunk()
-  if PreviewWindowOpened() && g:lineNo == line('.')
-    pclose
-  else
-    silent exe 'GitGutterPreviewHunk'
-    let g:lineNo=line('.')
-  endif
-endfunction
-
-function! PreviewWindowOpened()
-  for nr in range(1, winnr('$'))
-    if getwinvar(nr, '&pvw') == 1
-      return 1
-    endif
-  endfor
-  return 0
-endfunction
-]], false)
 
 -- vim-mergetool
 vim.g.mergetool_layout = 'rm'               -- remote on left, optimistic merge on right

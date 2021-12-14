@@ -1,6 +1,7 @@
 vim.g.mapleader = ' '
 
 require('plugins')
+local utils = require('utils')
 
 -- General
 vim.opt.hidden = true               -- reuse same window and switch from an unsaved buffer
@@ -81,13 +82,9 @@ vim.api.nvim_set_keymap('n', '<leader><space>', ':noh<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
 
 -- center highlighted search results
-local function t(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
 function _G.center_search()
     local cmdtype = vim.fn.getcmdtype()
-    return cmdtype:match('^[/?]$') and t'<CR>zz' or t'<CR>'
+    return cmdtype:match('^[/?]$') and utils.t'<CR>zz' or utils.t'<CR>'
 end
 vim.api.nvim_set_keymap('c', '<CR>', 'v:lua.center_search()', { expr = true, noremap = true })
 vim.api.nvim_set_keymap('n', 'n', 'nzz', { noremap = true })
