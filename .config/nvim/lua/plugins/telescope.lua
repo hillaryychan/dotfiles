@@ -10,6 +10,23 @@ require('telescope').setup({
         ['<c-u>'] = false,
       },
     },
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--hidden',
+      '--glob',
+      '!.git/'
+    },
+  },
+  pickers = {
+    find_files = {
+      find_command = { 'fd', '--type', 'file', '--hidden', '--follow', '--exclude', '.git' },
+    },
   },
 })
 
