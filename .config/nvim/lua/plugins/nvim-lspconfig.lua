@@ -63,10 +63,7 @@ nvim_lsp['efm'].setup({
     rootMarkers = { '.git/', 'stylua.toml', 'pyproject.toml' },
     languages = {
       lua = {
-        {
-          formatCommand = 'stylua -',
-          formatStdin = true,
-        },
+        { formatCommand = 'stylua -', formatStdin = true },
       },
       python = {
         { formatCommand = 'black -', formatStdin = true },
