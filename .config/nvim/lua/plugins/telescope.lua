@@ -20,7 +20,7 @@ require('telescope').setup({
       '--smart-case',
       '--hidden',
       '--glob',
-      '!.git/'
+      '!.git/',
     },
   },
   pickers = {

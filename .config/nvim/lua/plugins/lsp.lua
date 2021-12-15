@@ -60,7 +60,7 @@ nvim_lsp['efm'].setup({
   init_options = { documentFormatting = true, codeAction = true },
   root_dir = vim.loop.cwd,
   settings = {
-    rootMarkers = { '.git/', 'pyproject.toml' },
+    rootMarkers = { '.git/', 'stylua.toml', 'pyproject.toml' },
     languages = {
       lua = {
         {
