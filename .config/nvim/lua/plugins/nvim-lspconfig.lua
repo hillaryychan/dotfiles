@@ -58,12 +58,11 @@ end
 nvim_lsp['efm'].setup({
   on_attach = on_attach,
   init_options = { documentFormatting = true, codeAction = true },
-  root_dir = vim.loop.cwd,
+  root_dir = nvim_lsp.util.root_pattern({ './git/', '.' }),
   settings = {
-    rootMarkers = { '.git/', 'stylua.toml', 'pyproject.toml' },
     languages = {
       lua = {
-        { formatCommand = 'stylua -', formatStdin = true },
+        { formatCommand = 'stylua -s -', formatStdin = true },
       },
       python = {
         { formatCommand = 'black -', formatStdin = true },
