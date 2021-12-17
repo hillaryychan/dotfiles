@@ -1,8 +1,6 @@
-local nvim_lsp = require('lspconfig')
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+return function(client, bufnr)
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
@@ -40,50 +38,3 @@ local on_attach = function(client, bufnr)
   end
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'tsserver' }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    },
-  })
-end
-
-local black = { formatCommand = 'black -', formatStdin = true }
-local isort = { formatCommand = 'isort --stdout --profile black -', formatStdin = true }
-local shellcheck = {
-  lintCommand = 'shellcheck -f gcc -x -',
-  lintStdin = true,
-  lintFormats = { '%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m', '%f:%l:%c: %tote: %m' },
-}
-local stylua = { formatCommand = 'stylua -s --stdin-filepath ${INPUT} -', formatStdin = true }
-local prettier = {
-  formatCommand = [[$([ -n "$(command -v node_modules/.bin/prettier)" ] && echo "node_modules/.bin/prettier" || echo "prettier") --stdin-filepath ${INPUT}]],
-  formatStdin = true,
-}
-
-local efm_settings = {
-  bash = { shellcheck },
-  css = { prettier },
-  html = { prettier },
-  json = { prettier },
-  lua = { stylua },
-  python = { black, isort },
-  sh = { shellcheck },
-  yaml = { prettier },
-  zsh = { shellcheck },
-}
-
-nvim_lsp['efm'].setup({
-  on_attach = on_attach,
-  init_options = { documentFormatting = true, codeAction = true },
-  root_dir = nvim_lsp.util.root_pattern({ './git/', '.' }),
-  settings = { languages = efm_settings },
-  filetypes = vim.tbl_keys(efm_settings),
-})

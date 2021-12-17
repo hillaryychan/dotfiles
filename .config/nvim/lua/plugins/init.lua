@@ -24,6 +24,8 @@ Plug('hrsh7th/cmp-buffer')                  -- buffer source for nvim-cmp
 Plug('hrsh7th/cmp-path')                    -- filsystem source for nvim-cmp
 Plug('hrsh7th/cmp-cmdline')                 -- vim cmdline source for nvim-cmp
 Plug('neovim/nvim-lspconfig')               -- intellisense
+-- TODO: remove commit pin for v6.0
+Plug('jose-elias-alvarez/null-ls.nvim', { commit = '8828af7' })     -- hook LSP features
 
 Plug('nvim-lua/plenary.nvim')
 -- TODO: remove commit pin for v6.0
