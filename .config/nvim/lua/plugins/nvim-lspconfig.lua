@@ -36,7 +36,7 @@ local on_attach = function(client, bufnr)
   if client.resolved_capabilities.document_formatting then
     buf_set_keymap('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap('n', '<leader>=', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+    buf_set_keymap('v', '<leader>=', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
   end
 end
 
@@ -55,20 +55,35 @@ for _, lsp in ipairs(servers) do
   })
 end
 
+local black = { formatCommand = 'black -', formatStdin = true }
+local isort = { formatCommand = 'isort --stdout --profile black -', formatStdin = true }
+local shellcheck = {
+  lintCommand = 'shellcheck -f gcc -x -',
+  lintStdin = true,
+  lintFormats = { '%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m', '%f:%l:%c: %tote: %m' },
+}
+local stylua = { formatCommand = 'stylua -s --stdin-filepath ${INPUT} -', formatStdin = true }
+local prettier = {
+  formatCommand = [[$([ -n "$(command -v node_modules/.bin/prettier)" ] && echo "node_modules/.bin/prettier" || echo "prettier") --stdin-filepath ${INPUT}]],
+  formatStdin = true,
+}
+
+local efm_settings = {
+  bash = { shellcheck },
+  css = { prettier },
+  html = { prettier },
+  json = { prettier },
+  lua = { stylua },
+  python = { black, isort },
+  sh = { shellcheck },
+  yaml = { prettier },
+  zsh = { shellcheck },
+}
+
 nvim_lsp['efm'].setup({
   on_attach = on_attach,
   init_options = { documentFormatting = true, codeAction = true },
   root_dir = nvim_lsp.util.root_pattern({ './git/', '.' }),
-  settings = {
-    languages = {
-      lua = {
-        { formatCommand = 'stylua -s -', formatStdin = true },
-      },
-      python = {
-        { formatCommand = 'black -', formatStdin = true },
-        { formatCommand = 'isort --stdout --profile black -', formatStdin = true },
-      },
-    },
-  },
-  filetypes = { 'lua', 'python' },
+  settings = { languages = efm_settings },
+  filetypes = vim.tbl_keys(efm_settings),
 })
