@@ -36,3 +36,7 @@ vim.api.nvim_set_keymap('n', '[B', ':bfirst<CR>', { noremap = true, silent = tru
 vim.api.nvim_set_keymap('n', ']B', ':blast<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>d', ':BD<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>D', ':bufdo bd<CR>', { noremap = true, silent = true })
+
+-- vim-maximizer
+vim.api.nvim_set_keymap('n', '<leader>z', ':MaximizerToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<leader>z', ':MaximizerToggle<CR>gv', { noremap = true, silent = true })

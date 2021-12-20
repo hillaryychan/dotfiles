@@ -45,6 +45,7 @@ Plug('machakann/vim-highlightedyank')       -- highlight yanked text
 Plug('psliwka/vim-smoothie')                -- smooth scrolling
 Plug('milkypostman/vim-togglelist')         -- toggling lists
 Plug('qpkorr/vim-bufkill')                  -- buffer management
+Plug('szw/vim-maximizer')                   -- toggling windows
 
 Plug('lewis6991/gitsigns.nvim')             -- preview git changes and blames
 Plug('samoshkin/vim-mergetool')             -- git mergetool
