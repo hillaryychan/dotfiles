@@ -1,5 +1,3 @@
-local utils = require('utils')
-
 -- automatically install vim-plug
 vim.api.nvim_exec(
   [[

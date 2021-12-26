@@ -1,6 +1,6 @@
 local M = {}
 
-M.t = function(str)
+function M.t(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
