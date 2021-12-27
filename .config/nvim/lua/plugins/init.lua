@@ -77,7 +77,6 @@ return packer.startup(function(use)
   -- Navigation
   use({
     'nvim-telescope/telescope.nvim',
-    commit = '80cdb00', -- TODO: remove commit pin for v6.0
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('plugins.telescope')
