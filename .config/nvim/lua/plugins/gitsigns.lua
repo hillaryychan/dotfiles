@@ -26,7 +26,3 @@ require('gitsigns').setup({
     enable = true,
   },
 })
-
--- vim-mergetool
-vim.g.mergetool_layout = 'rm'               -- remote on left, optimistic merge on right
-vim.g.mergetool_prefer_revision = 'local'   -- optimistically accept local changes for merge

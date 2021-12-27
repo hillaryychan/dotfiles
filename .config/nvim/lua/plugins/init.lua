@@ -1,65 +1,185 @@
--- automatically install vim-plug
-vim.api.nvim_exec(
-  [[
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-]],
-  true
-)
+local fn = vim.fn
 
-local Plug = vim.fn['plug#']
-vim.call('plug#begin', '~/.config/nvim/plugged')
+-- Automatically install packer
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  PACKER_BOOTSTRAP = fn.system({
+    'git',
+    'clone',
+    '--depth',
+    '1',
+    'https://github.com/wbthomason/packer.nvim',
+    install_path,
+  })
+  print('Installing packer close and reopen Neovim...')
+  vim.cmd([[packadd packer.nvim]])
+end
 
-Plug('sainnhe/sonokai')                     -- colourscheme
+-- -- Autocommand that reloads neovim whenever you save the plugins.lua file
+-- vim.cmd [[
+--   augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--   augroup end
+-- ]]
 
-Plug('nvim-treesitter/nvim-treesitter', { ['do'] = vim.fn['TSUpdate'] })
-Plug('hrsh7th/nvim-cmp')                    -- autocompletion
-Plug('hrsh7th/cmp-nvim-lsp')                -- LSP source for nvim-cmp
-Plug('hrsh7th/cmp-buffer')                  -- buffer source for nvim-cmp
-Plug('hrsh7th/cmp-path')                    -- filsystem source for nvim-cmp
-Plug('hrsh7th/cmp-cmdline')                 -- vim cmdline source for nvim-cmp
-Plug('neovim/nvim-lspconfig')               -- intellisense
--- TODO: remove commit pin for v6.0
-Plug('jose-elias-alvarez/null-ls.nvim', { commit = '8828af7' })     -- hook LSP features
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, 'packer')
+if not status_ok then
+  return
+end
 
-Plug('nvim-lua/plenary.nvim')
--- TODO: remove commit pin for v6.0
-Plug('nvim-telescope/telescope.nvim', { commit = '80cdb00' })       -- fuzzy finder
-Plug('nvim-lualine/lualine.nvim')           -- status line
-Plug('kyazdani42/nvim-tree.lua')            -- file explorer
+-- Enable profiling
+packer.init({ profile = { enable = true } })
 
-Plug('cohama/lexima.vim')                   -- pair completion
-Plug('tpope/vim-surround')                  -- easy surrounding of pairs
-Plug('tpope/vim-commentary')                -- easy commenting
-Plug('tpope/vim-sleuth')                    -- indentation detection
-Plug('lukas-reineke/indent-blankline.nvim') -- display indentation levels
-Plug('junegunn/vim-peekaboo')               -- register viewer
-Plug('junegunn/vim-easy-align')             -- easy alignment
-Plug('unblevable/quick-scope')              -- easier motions
-Plug('machakann/vim-highlightedyank')       -- highlight yanked text
-Plug('psliwka/vim-smoothie')                -- smooth scrolling
-Plug('milkypostman/vim-togglelist')         -- toggling lists
-Plug('qpkorr/vim-bufkill')                  -- buffer management
-Plug('szw/vim-maximizer')                   -- toggling windows
+return packer.startup(function(use)
+  use('wbthomason/packer.nvim')
 
-Plug('lewis6991/gitsigns.nvim')             -- preview git changes and blames
-Plug('samoshkin/vim-mergetool')             -- git mergetool
+  -- Colorscheme
+  use({
+    'sainnhe/sonokai',
+    config = function()
+      vim.g.sonokai_enable_italic = 1
+      vim.cmd('colorscheme sonokai')
+    end,
+  })
 
-Plug('NoahTheDuke/vim-just')                -- Justfile syntax
-Plug('iamcco/markdown-preview.nvim', { ['do'] = vim.fn['mkdp#util#install'], ['for'] = { 'markdown', 'vim-plug' } })
-Plug('alvan/vim-closetag')                  -- tag completion
+  -- Treesitter
+  use({
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require('plugins.nvim-treesitter')
+    end,
+  })
 
-vim.call('plug#end')
+  -- LSP + completion
+  use({
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-nvim-lsp',
+    },
+    config = function()
+      require('plugins.nvim-cmp')
+    end,
+  })
+  use({ 'jose-elias-alvarez/null-ls.nvim', commit = '8828af7' }) -- TODO: remove commit pin for v6.0
+  use({
+    'neovim/nvim-lspconfig',
+    config = function()
+      require('plugins.nvim-lspconfig')
+    end,
+  })
 
-require('plugins.nvim-treesitter')
-require('plugins.nvim-cmp')
-require('plugins.nvim-lspconfig')
-require('plugins.nvim-telescope')
-require('plugins.lualine')
-require('plugins.nvim-tree')
-require('plugins.quality-of-life-plugins')
-require('plugins.git-plugins')
-require('plugins.file-specific-plugins')
+  -- Navigation
+  use({
+    'nvim-telescope/telescope.nvim',
+    commit = '80cdb00', -- TODO: remove commit pin for v6.0
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('plugins.telescope')
+    end,
+  })
+  use({
+    'nvim-lualine/lualine.nvim',
+    config = function()
+      require('plugins.lualine')
+    end,
+  })
+  use({
+    'kyazdani42/nvim-tree.lua',
+    config = function()
+      require('plugins.nvim-tree')
+    end,
+  })
+
+  -- Quality of life
+  use('cohama/lexima.vim')
+  use('tpope/vim-surround')
+  use('tpope/vim-commentary')
+  use('tpope/vim-sleuth')
+  use('lukas-reineke/indent-blankline.nvim')
+  use({
+    'junegunn/vim-peekaboo',
+    config = function()
+      vim.g.peekaboo_window = 'vert to 40new'
+    end,
+  })
+  use({
+    'junegunn/vim-easy-align',
+    config = function()
+      require('plugins.vim-easy-align')
+    end,
+  })
+  use({
+    'unblevable/quick-scope',
+    config = function()
+      vim.g.qs_highlight_on_keys = { 'f', 'F', 't', 'T' }
+    end,
+  })
+  use('machakann/vim-highlightedyank')
+  use('psliwka/vim-smoothie')
+  use({
+    'milkypostman/vim-togglelist',
+    config = function()
+      require('plugins.vim-togglelist')
+    end,
+  })
+  use({
+    'qpkorr/vim-bufkill',
+    config = function()
+      require('plugins.vim-bufkill')
+    end,
+  })
+  use({
+    'szw/vim-maximizer',
+    config = function()
+      vim.api.nvim_set_keymap('n', '<leader>z', ':MaximizerToggle<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('v', '<leader>z', ':MaximizerToggle<CR>gv', { noremap = true, silent = true })
+    end,
+  })
+
+  -- Git
+  use({
+    'lewis6991/gitsigns.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('plugins.gitsigns')
+    end,
+  })
+  use({
+    'samoshkin/vim-mergetool',
+    config = function()
+      vim.g.mergetool_layout = 'rm' -- remote on left, optimistic merge on right
+      vim.g.mergetool_prefer_revision = 'local' -- optimistically accept local changes for merge
+    end,
+  })
+
+  -- File specific
+  use('NoahTheDuke/vim-just')
+  use({
+    'iamcco/markdown-preview.nvim',
+    run = function()
+      vim.fn['mkdp#util#install']()
+    end,
+    ft = { 'markdown' },
+    config = function()
+      vim.api.nvim_set_keymap('n', '<leader>mp', '<Plug>MarkdownPreviewToggle', { silent = true })
+    end,
+  })
+  use({
+    'alvan/vim-closetag',
+    config = function()
+      require('plugins.vim-closetag')
+    end,
+  })
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if PACKER_BOOTSTRAP then
+    require('packer').sync()
+  end
+end)

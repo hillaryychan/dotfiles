@@ -7,14 +7,6 @@ vim.opt.visualbell = true           -- use visual bell instead of beeping when t
 vim.opt.mouse = 'a'                 -- enable mouse for all modes
 vim.opt.clipboard = 'unnamedplus'   -- enable copy pasting between clipboard registers
 
--- Colours
-if vim.fn.has('termguicolors') then
-  vim.opt.termguicolors = true
-end
-vim.g.sonokai_style = 'default'
-vim.g.sonokai_enable_italic = 1
-vim.cmd('colorscheme sonokai')
-
 -- Indentation
 vim.opt.expandtab = true            -- tab expands to spaces
 vim.opt.tabstop = 4                 -- no. of visual spaces per tab
@@ -23,6 +15,9 @@ vim.opt.shiftwidth = 4              -- no. of spaces to use per indent
 vim.opt.smartindent = true          -- indent based on filetype
 
 -- UI configurations
+if vim.fn.has('termguicolors') then
+  vim.opt.termguicolors = true
+end
 vim.opt.showmode = false            -- don't show working mode
 vim.opt.number = true               -- show line numbers
 vim.opt.relativenumber = true       -- show relative line numbers
