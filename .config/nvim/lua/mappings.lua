@@ -11,10 +11,6 @@ vim.api.nvim_set_keymap('v', 'JK', '<esc>', { noremap = true })
 -- clear highlighting
 vim.api.nvim_set_keymap('n', '<leader><space>', ':noh<CR>', { noremap = true })
 
--- TODO: remove for v0.6
--- make Y consistent with C and D
-vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
-
 -- center highlighted search results
 function _G.center_search()
   local cmdtype = vim.fn.getcmdtype()
