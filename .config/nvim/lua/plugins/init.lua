@@ -41,6 +41,7 @@ return packer.startup(function(use)
   use({
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+    requires = { 'JoosepAlviste/nvim-ts-context-commentstring' },
     config = function()
       require('plugins.nvim-treesitter')
     end,
@@ -96,8 +97,13 @@ return packer.startup(function(use)
 
   -- Quality of life
   use('cohama/lexima.vim')
+  use({
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end,
+  })
   use('tpope/vim-surround')
-  use('tpope/vim-commentary')
   use('tpope/vim-sleuth')
   use('lukas-reineke/indent-blankline.nvim')
   use({
