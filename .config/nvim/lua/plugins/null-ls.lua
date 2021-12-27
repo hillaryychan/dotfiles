@@ -1,7 +1,10 @@
--- TODO: update null_ls config for v0.6
 local null_ls = require('null-ls')
+local builtins = require('null-ls.builtins')
 local helpers = require('null-ls.helpers')
 local methods = require('null-ls.methods')
+local utils = require('null-ls.utils')
+
+local on_attach = require('utils').on_attach
 
 local prettier_eslint = {
   name = 'prettier-eslint',
@@ -15,20 +18,22 @@ local prettier_eslint = {
   factory = helpers.formatter_factory,
 }
 
-null_ls.config({
+null_ls.setup({
+  on_attach = on_attach,
+  root_dir = utils.root_pattern('.null-ls-root', './git/', '.'),
   sources = {
-    null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.isort,
-    null_ls.builtins.formatting.prettier.with({
+    builtins.formatting.black,
+    builtins.formatting.isort,
+    builtins.formatting.prettier.with({
       filetypes = { 'css', 'scss', 'less', 'html', 'json', 'yaml' },
     }),
-    null_ls.builtins.formatting.stylua,
+    builtins.formatting.stylua,
     prettier_eslint,
 
-    null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.diagnostics.shellcheck.with({ filetypes = { 'sh', 'zsh', 'bash' } }),
-    null_ls.builtins.diagnostics.markdownlint,
+    builtins.diagnostics.eslint,
+    builtins.diagnostics.shellcheck.with({ filetypes = { 'sh', 'zsh', 'bash' } }),
+    builtins.diagnostics.markdownlint,
 
-    null_ls.builtins.code_actions.eslint,
+    builtins.code_actions.eslint,
   },
 })

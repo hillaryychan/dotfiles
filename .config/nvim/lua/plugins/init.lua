@@ -66,7 +66,13 @@ return packer.startup(function(use)
       require('plugins.nvim-cmp')
     end,
   })
-  use({ 'jose-elias-alvarez/null-ls.nvim', commit = '8828af7' }) -- TODO: remove commit pin for v6.0
+  use({
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('plugins.null-ls')
+    end,
+  })
   use({
     'neovim/nvim-lspconfig',
     config = function()
