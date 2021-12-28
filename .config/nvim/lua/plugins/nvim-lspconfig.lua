@@ -30,7 +30,7 @@ nvim_lsp.sumneko_lua.setup({
   settings = {
     Lua = {
       runtime = {
-        version = 'Lua 5.4',
+        version = 'LuaJIT',
         -- Setup your lua path
         path = vim.split(package.path, ';'),
       },
