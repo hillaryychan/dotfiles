@@ -1,6 +1,6 @@
 local fn = vim.fn
 
-function conf(name)
+local function conf(name)
   return require(string.format('plugins.%s', name))
 end
 

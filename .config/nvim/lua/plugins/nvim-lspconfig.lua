@@ -15,3 +15,37 @@ for _, lsp in ipairs(servers) do
     },
   })
 end
+
+HOME = vim.fn.expand('$HOME')
+local sumneko_root_path = HOME .. '/.config/nvim/servers/lua-language-server'
+local sumneko_binary = HOME .. '/.config/nvim/servers/lua-language-server/bin/lua-language-server'
+
+nvim_lsp.sumneko_lua.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'Lua 5.4',
+        -- Setup your lua path
+        path = vim.split(package.path, ';'),
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { 'vim' },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = { [vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true },
+      },
+      telemetry = {
+        -- Do not send telemetry data containing a randomized but unique identifier
+        enable = false,
+      },
+    },
+  },
+})
