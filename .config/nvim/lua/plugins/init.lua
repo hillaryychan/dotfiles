@@ -163,7 +163,7 @@ return packer.startup(function(use)
   })
 
   -- File specific
-  use('NoahTheDuke/vim-just')
+  use({ 'NoahTheDuke/vim-just', ft = { 'just' } })
   use({
     'iamcco/markdown-preview.nvim',
     run = function()
