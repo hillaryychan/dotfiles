@@ -22,7 +22,7 @@ Plugins:
   * Plugin manager: [tpm](https://github.com/tmux-plugins/tpm)
 * [Neovim](https://github.com/neovim/neovim)
   * Colour scheme: [sonokai](https://github.com/sainnhe/sonokai)
-  * Plugin manager: [vim-plug](https://github.com/junegunn/vim-plug)
+  * Plugin manager: [packer.nvim](https://github.com/wbthomason/packer.nvim)
 * [Visual Studio Code](https://code.visualstudio.com/)
   * [Keyboard shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
   * [Extensions](https://github.com/hillaryychan/dotfiles/blob/master/.vscode/extensions_list)
