@@ -1,9 +1,5 @@
 local fn = vim.fn
 
-local function conf(name)
-  return require(string.format('plugins.%s', name))
-end
-
 -- Automatically install packer
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -46,7 +42,9 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     requires = { 'JoosepAlviste/nvim-ts-context-commentstring' },
-    config = conf('nvim-treesitter'),
+    config = function()
+      require('plugins.nvim-treesitter')
+    end,
   })
 
   -- LSP + completion
@@ -58,31 +56,43 @@ return packer.startup(function(use)
       'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-nvim-lsp',
     },
-    config = conf('nvim-cmp'),
+    config = function()
+      require('plugins.nvim-cmp')
+    end,
   })
   use({
     'jose-elias-alvarez/null-ls.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
-    config = conf('null-ls'),
+    config = function()
+      require('plugins.null-ls')
+    end,
   })
   use({
     'neovim/nvim-lspconfig',
-    config = conf('nvim-lspconfig'),
+    config = function()
+      require('plugins.nvim-lspconfig')
+    end,
   })
 
   -- Navigation
   use({
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
-    config = conf('telescope'),
+    config = function()
+      require('plugins.telescope')
+    end,
   })
   use({
     'nvim-lualine/lualine.nvim',
-    config = conf('lualine'),
+    config = function()
+      require('plugins.lualine')
+    end,
   })
   use({
     'kyazdani42/nvim-tree.lua',
-    config = conf('nvim-tree'),
+    config = function()
+      require('plugins.nvim-tree')
+    end,
   })
 
   -- Quality of life
@@ -104,7 +114,9 @@ return packer.startup(function(use)
   })
   use({
     'junegunn/vim-easy-align',
-    config = conf('vim-easy-align'),
+    config = function()
+      require('plugins.vim-easy-align')
+    end,
   })
   use({
     'unblevable/quick-scope',
@@ -116,11 +128,15 @@ return packer.startup(function(use)
   use('psliwka/vim-smoothie')
   use({
     'milkypostman/vim-togglelist',
-    config = conf('vim-togglelist'),
+    config = function()
+      require('plugins.vim-togglelist')
+    end,
   })
   use({
     'qpkorr/vim-bufkill',
-    config = conf('vim-bufkill'),
+    config = function()
+      require('plugins.vim-bufkill')
+    end,
   })
   use({
     'szw/vim-maximizer',
@@ -134,7 +150,9 @@ return packer.startup(function(use)
   use({
     'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
-    config = conf('gitsigns'),
+    config = function()
+      require('plugins.gitsigns')
+    end,
   })
   use({
     'samoshkin/vim-mergetool',
@@ -158,7 +176,9 @@ return packer.startup(function(use)
   })
   use({
     'alvan/vim-closetag',
-    config = conf('vim-closetag'),
+    config = function()
+      require('plugins.vim-closetag')
+    end,
   })
 
   -- Automatically set up your configuration after cloning packer.nvim
