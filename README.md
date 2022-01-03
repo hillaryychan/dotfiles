@@ -18,13 +18,13 @@ Plugins:
 ### Productivity Tools
 
 * [tmux](https://github.com/tmux/tmux/wiki)
-  * Customising tmux [guide](https://hackernoon.com/customizing-tmux-b3d2a5050207)
-  * Plugin manager: [tpm](https://github.com/tmux-plugins/tpm)
+    * Customising tmux [guide](https://hackernoon.com/customizing-tmux-b3d2a5050207)
+    * Plugin manager: [tpm](https://github.com/tmux-plugins/tpm)
 * [Neovim](https://github.com/neovim/neovim)
-  * Colour scheme: [sonokai](https://github.com/sainnhe/sonokai)
-  * Plugin manager: [packer.nvim](https://github.com/wbthomason/packer.nvim)
+    * Colour scheme: [sonokai](https://github.com/sainnhe/sonokai)
+    * Plugin manager: [packer.nvim](https://github.com/wbthomason/packer.nvim)
 * [Visual Studio Code](https://code.visualstudio.com/)
-  * [Keyboard shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
-  * [Extensions](https://github.com/hillaryychan/dotfiles/blob/master/.vscode/extensions_list)
+    * [Keyboard shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
+    * [Extensions](https://github.com/hillaryychan/dotfiles/blob/master/.vscode/extensions_list)
 * [ripgrep](https://github.com/BurntSushi/ripgrep) - `grep` alternative
 * [fd](https://github.com/sharkdp/fd) - `find` alternative
