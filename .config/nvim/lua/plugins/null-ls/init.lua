@@ -18,6 +18,8 @@ local prettier_eslint = {
   factory = helpers.formatter_factory,
 }
 
+HOME = vim.fn.expand('$HOME')
+
 null_ls.setup({
   on_attach = on_attach,
   root_dir = utils.root_pattern('.null-ls-root', './git/', '.'),
@@ -32,7 +34,9 @@ null_ls.setup({
 
     builtins.diagnostics.eslint,
     builtins.diagnostics.shellcheck.with({ filetypes = { 'sh', 'zsh', 'bash' } }),
-    builtins.diagnostics.markdownlint,
+    builtins.diagnostics.markdownlint.with({
+      extra_args = { '--config', HOME .. '/.config/nvim/lua/plugins/null-ls/markdownlint.json' },
+    }),
 
     builtins.code_actions.eslint,
   },
