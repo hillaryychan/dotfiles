@@ -4,7 +4,12 @@ local helpers = require('null-ls.helpers')
 local methods = require('null-ls.methods')
 local utils = require('null-ls.utils')
 
-local on_attach = require('utils').on_attach
+local function on_attach(client, bufnr)
+  require('utils').on_attach_base(client, bufnr)
+
+  client.resolved_capabilities.document_formatting = true
+  client.resolved_capabilities.document_range_formatting = true
+end
 
 local prettier_eslint = {
   name = 'prettier-eslint',

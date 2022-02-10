@@ -1,7 +1,13 @@
 local nvim_lsp = require('lspconfig')
-local on_attach = require('utils').on_attach
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+local function on_attach(client, bufnr)
+  require('utils').on_attach_base(client, bufnr)
+
+  client.resolved_capabilities.document_formatting = false
+  client.resolved_capabilities.document_range_formatting = false
+end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
