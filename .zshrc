@@ -78,17 +78,21 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
   autoupdate
+  git
+  # Setup poetry completion in oh-my-zsh with:
+  # mkdir $ZSH_CUSTOM/plugins/poetry
+  # poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
+  poetry
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
-if [ -f ~/.shell_aliases ]; then
-    source ~/.shell_aliases
+
+if [ -f "$HOME/.shell_aliases" ]; then
+    source "$HOME/.shell_aliases"
 fi
-# source ~/.shell_exports
 
 # User configuration
 
