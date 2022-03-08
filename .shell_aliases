@@ -17,6 +17,8 @@ alias chrome='google-chrome'
 alias m='make'
 alias mc='make clean'
 
+alias glp="git logp || git log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%ad) %C(bold blue)<%an>%Creset -%C(auto)%d%Creset %s' --abbrev-commit"
+
 alias rg="rg -S \
     --colors 'path:fg:green' \
     --colors 'path:style:nobold' \
