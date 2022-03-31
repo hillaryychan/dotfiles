@@ -96,7 +96,14 @@ return packer.startup(function(use)
   })
 
   -- Quality of life
-  use('cohama/lexima.vim')
+  use({
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup({
+        disable_filetype = { 'TelescopePrompt', 'vim' },
+      })
+    end,
+  })
   use({
     'numToStr/Comment.nvim',
     config = function()
