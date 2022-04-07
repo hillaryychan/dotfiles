@@ -1,6 +1,6 @@
 require('nvim-tree').setup({
   git = {
-    enable = false
+    enable = false,
   },
   view = {
     width = 35,
