@@ -1,33 +1,43 @@
-// Place your key bindings in this file to override the defaults
 [
-    {
-        "key": "ctrl+tab",
-        "command": "workbench.action.nextEditorInGroup"
-    },
-    {
-        "key": "ctrl+shift+tab",
-        "command": "workbench.action.previousEditorInGroup"
-    },
-    {
-        "key": "ctrl+shift+k",
-        "command": "workbench.action.terminal.focusNext",
-        "when": "terminalFocus" 
-    },
-    {
-        "key": "ctrl+shift+j",
-        "command": "workbench.action.terminal.focusPrevious",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "ctrl+alt+z",
-        "command": "workbench.action.toggleMaximizedPanel"
-    },
-    {
-        "key": "alt+[",
-        "command": "workbench.action.navigateBack"
-    },
-    {
-        "key": "alt+]",
-        "command": "workbench.action.navigateForward"
-    }
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown"
+  },
+  {
+    "key": "alt+z",
+    "command": "workbench.action.toggleEditorWidths"
+  },
+  {
+    "key": "alt+z",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "panelFocus"
+  },
+  {
+    "key": "ctrl+tab",
+    "command": "workbench.action.nextEditorInGroup"
+  },
+  {
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.previousEditorInGroup"
+  },
+  {
+    "key": "alt+[",
+    "command": "workbench.action.navigateBack"
+  },
+  {
+    "key": "alt+]",
+    "command": "workbench.action.navigateForward"
+  }
 ]
