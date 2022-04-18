@@ -1,6 +1,7 @@
 local utils = require('utils')
 
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>e', ':noa w<CR>', { noremap = true })
 
 -- case-insensitive commands
 vim.api.nvim_set_keymap('i', 'jk', '<esc>', { noremap = true })
