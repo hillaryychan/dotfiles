@@ -1,7 +1,5 @@
 local null_ls = require('null-ls')
 local builtins = require('null-ls.builtins')
-local helpers = require('null-ls.helpers')
-local methods = require('null-ls.methods')
 local utils = require('null-ls.utils')
 
 local function on_attach(client, bufnr)
@@ -11,18 +9,6 @@ local function on_attach(client, bufnr)
   client.resolved_capabilities.document_range_formatting = true
 end
 
-local prettier_eslint = {
-  name = 'prettier-eslint',
-  method = methods.internal.FORMATTING,
-  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
-  generator = helpers.formatter_factory({
-    command = 'prettier-eslint',
-    args = { '$FILENAME' },
-    to_stdin = true,
-  }),
-  factory = helpers.formatter_factory,
-}
-
 HOME = vim.fn.expand('$HOME')
 
 null_ls.setup({
@@ -31,13 +17,11 @@ null_ls.setup({
   sources = {
     builtins.formatting.black,
     builtins.formatting.isort,
-    builtins.formatting.prettier.with({
-      filetypes = { 'css', 'scss', 'less', 'html', 'json', 'yaml' },
-    }),
+    builtins.formatting.prettier,
+    builtins.formatting.eslint_d,
     builtins.formatting.stylua,
-    prettier_eslint,
 
-    builtins.diagnostics.eslint,
+    builtins.diagnostics.eslint_d,
     builtins.diagnostics.shellcheck.with({ filetypes = { 'sh', 'zsh', 'bash' } }),
     builtins.diagnostics.markdownlint.with({
       extra_args = { '--config', HOME .. '/.config/nvim/lua/plugins/null-ls/markdownlint.json' },
