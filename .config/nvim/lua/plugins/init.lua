@@ -80,7 +80,6 @@ return packer.startup(function(use)
   use({
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
-    tag = 'nvim-0.6', -- TODO: remove when upgrade to v0.7
     config = function()
       require('plugins.telescope')
     end,
@@ -109,7 +108,6 @@ return packer.startup(function(use)
   })
   use({
     'numToStr/Comment.nvim',
-    tag = 'v0.6', -- TODO: remove when upgrade to v0.7
     config = function()
       require('Comment').setup()
     end,
