@@ -1,19 +1,23 @@
 [
   {
     "key": "ctrl+h",
-    "command": "workbench.action.navigateLeft"
+    "command": "workbench.action.navigateLeft",
+    "when": "editorFocus && vim.mode != 'Insert'"
   },
   {
     "key": "ctrl+l",
-    "command": "workbench.action.navigateRight"
+    "command": "workbench.action.navigateRight",
+    "when": "editorFocus && vim.mode != 'Insert'"
   },
   {
     "key": "ctrl+k",
-    "command": "workbench.action.navigateUp"
+    "command": "workbench.action.navigateUp",
+    "when": "editorFocus && vim.mode != 'Insert'"
   },
   {
     "key": "ctrl+j",
-    "command": "workbench.action.navigateDown"
+    "command": "workbench.action.navigateDown",
+    "when": "editorFocus && vim.mode != 'Insert'"
   },
   {
     "key": "alt+z",
