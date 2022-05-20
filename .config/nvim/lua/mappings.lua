@@ -1,13 +1,12 @@
 local utils = require('utils')
 
+-- saving buffers
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>e', ':noa w<CR>', { noremap = true })
 
--- case-insensitive commands
+-- escape mappings
 vim.api.nvim_set_keymap('i', 'jk', '<esc>', { noremap = true })
-vim.api.nvim_set_keymap('i', 'JK', '<esc>', { noremap = true })
 vim.api.nvim_set_keymap('v', 'jk', '<esc>', { noremap = true })
-vim.api.nvim_set_keymap('v', 'JK', '<esc>', { noremap = true })
 
 -- clear highlighting
 vim.api.nvim_set_keymap('n', '<leader><space>', ':noh<CR>', { noremap = true })
