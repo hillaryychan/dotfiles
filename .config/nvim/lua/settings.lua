@@ -30,6 +30,7 @@ vim.opt.colorcolumn = '80,100,120'  -- colour the 80th, 100th, 120th column
 vim.opt.list = true                 -- display hidden characters in vim
 vim.opt.listchars = { tab = '→ ', extends = '›', precedes = '‹', trail = '·', nbsp = '⎵' }
 vim.opt.inccommand = 'nosplit'      -- show effects of a command incrementally
+vim.opt.laststatus=3                -- global statusline
 
 -- Searching
 vim.opt.ignorecase = true           -- use case insensitive search except when using capital letters
