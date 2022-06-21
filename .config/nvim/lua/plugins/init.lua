@@ -85,6 +85,17 @@ return packer.startup(function(use)
     end,
   })
   use({
+    'folke/which-key.nvim',
+    config = function()
+      require('which-key').setup({
+        presets = {
+          operators = false,
+          motions = false,
+        },
+      })
+    end,
+  })
+  use({
     'nvim-lualine/lualine.nvim',
     config = function()
       require('plugins.lualine')
@@ -117,12 +128,6 @@ return packer.startup(function(use)
   use('tpope/vim-surround')
   use('tpope/vim-sleuth')
   use('lukas-reineke/indent-blankline.nvim')
-  use({
-    'junegunn/vim-peekaboo',
-    config = function()
-      vim.g.peekaboo_window = 'vert to 40new'
-    end,
-  })
   use({
     'junegunn/vim-easy-align',
     config = function()
