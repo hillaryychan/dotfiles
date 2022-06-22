@@ -87,12 +87,7 @@ return packer.startup(function(use)
   use({
     'folke/which-key.nvim',
     config = function()
-      require('which-key').setup({
-        presets = {
-          operators = false,
-          motions = false,
-        },
-      })
+      require('plugins.nvim-which-key')
     end,
   })
   use({
