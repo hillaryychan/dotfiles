@@ -125,7 +125,8 @@ export TIMEFMT=$'\n%J\ncpu\t%P\nreal\t%*Es\nuser\t%*Us\nsys\t%*Ss'
 # Configure fzf
 export FZF_DEFAULT_OPTS='--layout=reverse'
 # keybindings
-[ -f /usr/share/fzf/shell/key-bindings.zsh ] && source /usr/share/fzf/shell/key-bindings.zsh # Linux
+[ -f /usr/share/fzf/shell/key-bindings.zsh ] && source /usr/share/fzf/shell/key-bindings.zsh # Fedora
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh # Debian
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # MacOS - install with `$(brew --prefix)/opt/fzf/install`
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
