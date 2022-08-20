@@ -18,6 +18,7 @@ require('telescope').setup({
       '--line-number',
       '--column',
       '--smart-case',
+      '--trim',
       '--hidden',
       '--glob',
       '!.git/',
