@@ -182,7 +182,7 @@ return packer.startup(function(use)
     end,
     ft = { 'markdown' },
     config = function()
-      vim.api.nvim_set_keymap('n', '<leader>mp', '<Plug>MarkdownPreviewToggle', { silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>p', '<Plug>MarkdownPreviewToggle', { silent = true })
     end,
   })
   use({
