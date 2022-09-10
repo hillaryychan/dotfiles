@@ -4,6 +4,7 @@ setlocal wrap
 " keybindings for bold, italics, code blocks, lists, [image] links
 inoremap <c-b> ****<esc>hi
 inoremap <c-e> **<esc>i
+inoremap <c-q> $$<esc>i
 inoremap <c-c><c-b> ```<enter>```<esc>ka
 inoremap <c-u><c-l> * 
 inoremap <c-o><c-l> 1. 
