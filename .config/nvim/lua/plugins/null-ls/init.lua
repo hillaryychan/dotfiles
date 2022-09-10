@@ -19,6 +19,7 @@ null_ls.setup({
     builtins.formatting.isort,
     builtins.formatting.prettier,
     builtins.formatting.eslint_d,
+    builtins.formatting.rustfmt,
     builtins.formatting.stylua,
 
     builtins.diagnostics.eslint_d,
