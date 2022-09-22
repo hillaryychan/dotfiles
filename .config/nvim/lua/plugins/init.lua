@@ -114,7 +114,13 @@ return packer.startup(function(use)
       })
     end,
   })
-  use('tpope/vim-surround')
+  use({
+    'kylechui/nvim-surround',
+    tag = '*',
+    config = function()
+      require('nvim-surround').setup()
+    end,
+  })
   use('tpope/vim-sleuth')
   use('lukas-reineke/indent-blankline.nvim')
   use({
