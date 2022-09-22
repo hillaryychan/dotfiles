@@ -47,6 +47,11 @@ nvim_lsp.sumneko_lua.setup({
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = { [vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true },
+        -- Disable workspace configuration prompts
+        checkThirdParty = false,
+        -- Increase loaded file count/size
+        maxPreload = 10000,
+        preloadFileSize = 10000,
       },
       telemetry = {
         -- Do not send telemetry data containing a randomized but unique identifier
