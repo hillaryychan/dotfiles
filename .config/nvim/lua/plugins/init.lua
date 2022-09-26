@@ -116,7 +116,7 @@ return packer.startup(function(use)
   })
   use({
     'kylechui/nvim-surround',
-    tag = '*',
+    tag = '*', -- use latest tag
     config = function()
       require('nvim-surround').setup()
     end,
