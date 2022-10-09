@@ -124,7 +124,7 @@ export TIMEFMT=$'\n%J\ncpu\t%P\nreal\t%*Es\nuser\t%*Us\nsys\t%*Ss'
 
 # Configure fzf
 export FZF_DEFAULT_OPTS='--layout=reverse'
-# keybindings
+# fzf keybindings
 [ -f /usr/share/fzf/shell/key-bindings.zsh ] && source /usr/share/fzf/shell/key-bindings.zsh # Fedora
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh # Debian
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # MacOS - install with `$(brew --prefix)/opt/fzf/install`
@@ -140,3 +140,8 @@ export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
 
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# pipx completion
+autoload -U bashcompinit
+bashcompinit
+eval "$(register-python-argcomplete pipx)"
