@@ -121,7 +121,16 @@ return packer.startup(function(use)
     end,
   })
   use('tpope/vim-sleuth')
-  use('lukas-reineke/indent-blankline.nvim')
+  use({
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('indent_blankline').setup({
+        strict_tabs = true,
+        show_current_context = true,
+        context_char = '┃',
+      })
+    end,
+  })
   use({
     'junegunn/vim-peekaboo',
     config = function()
