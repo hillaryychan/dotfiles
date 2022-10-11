@@ -1,10 +1,5 @@
 let mapleader = " "
 
-" Load plugins
-if filereadable(expand('~/.vim/plugins.vim'))
-    source ~/.vim/plugins.vim
-endif
-
 " General
 set nocompatible            " ensure config is not used with Vi
 filetype off
@@ -28,9 +23,6 @@ if (has("termguicolors"))
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-let g:sonokai_style = 'default'
-let g:sonokai_enable_italic = 1
-colorscheme sonokai
 
 " Indentation
 set expandtab               " tab expands to spaces
@@ -44,7 +36,7 @@ set autoindent              " keep same indent if no filetype-specific indenting
 set backspace=indent,eol,start " backspacing over everything in insert mode
 
 " UI configurations
-set noshowmode              " don't show working mode
+set showmode                " show working mode
 set ruler                   " show file stats
 set number                  " show line numbers
 set relativenumber          " show relative line numbers
@@ -59,7 +51,7 @@ set colorcolumn=80,100,120  " colour the 80th column
 set laststatus=2            " always display status line
 set list                    " display hidden characters in vim
                             " display white space as chars
-set listchars=tab:→\ ,extends:›,precedes:‹,trail:·,nbsp:⎵
+set listchars=space:·,tab:→\ ,extends:›,precedes:‹,trail:·,nbsp:⎵
 
 " Searching
 set hlsearch                " highlight searches
@@ -75,27 +67,29 @@ set matchpairs+=<:>         " use % to jump between pairs
 set splitright              " puts new vsplit windows to the right of the current
 set splitbelow              " puts new split windows to bottom of current
 
-" Folding
-set foldmethod=syntax       " fold based on syntax highlighting
-set foldcolumn=0            " disable visual representation of fold levels
-autocmd BufWinEnter * silent! :%foldopen!   " have all folds open by default
-let g:markdown_folding=1    " enable folding for markdown filetype
-
 " wrap lines for vimdiff
 autocmd VimEnter * if &diff | execute 'windo set wrap' | endif
 
-" Mappings
-" case-insensitive commands
+" Mappings =====================================================================
+" saving buffers
+nnoremap <leader>w :w<CR>
+
+" escape mappings
 inoremap jk <esc>
-inoremap JK <esc>
 vnoremap jk <esc>
-vnoremap JK <esc>
 
 " clear highlighting
 nnoremap <leader><space> :noh<CR>
 
 " make Y consistent with C and D
 nnoremap Y y$
+
+" center highlighted search results
+cnoremap <expr> <CR> (getcmdtype() == '?' \|\| getcmdtype() == '/') ? '<CR>zz' : '<CR>'
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
 
 " toggle spell check
 noremap <F12> :setlocal spell! spelllang=en_au<cr>
@@ -122,7 +116,7 @@ nnoremap <silent> [L :lfirst<CR>
 nnoremap <silent> ]L :llast<CR>
 
 " buffer mappings
-" <leader>b mapped to :Buffers from fzf
+nnoremap <silent> <leader>b :buffers<CR>
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
