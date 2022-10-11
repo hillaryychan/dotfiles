@@ -1,0 +1,22 @@
+[alias]
+	dt = difftool
+	plog = log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%ad) %C(bold blue)<%an>%Creset -%C(auto)%d%Creset %s' --abbrev-commit
+	mt = mergetool
+[diff]
+	tool = vimdiff3
+[difftool]
+	prompt = false
+	trustExitCode = true
+[difftool "vimdiff3"]
+	cmd = nvim -d $LOCAL $REMOTE
+[merge]
+	tool = vim_mergetool
+	conflictstyle = diff3
+[mergetool "vim_mergetool"]
+	cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+	trustExitCode = true
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+
