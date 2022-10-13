@@ -1,7 +1,7 @@
 [alias]
 	dt = difftool
-	plog = log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%ad) %C(bold blue)<%an>%Creset -%C(auto)%d%Creset %s' --abbrev-commit
 	mt = mergetool
+	plog = log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%ad) %C(bold blue)<%an>%Creset -%C(auto)%d%Creset %s' --abbrev-commit
 [diff]
 	tool = vimdiff3
 [difftool]
