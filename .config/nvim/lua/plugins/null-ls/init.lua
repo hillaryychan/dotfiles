@@ -5,8 +5,8 @@ local utils = require('null-ls.utils')
 local function on_attach(client, bufnr)
   require('utils').on_attach_base(client, bufnr)
 
-  client.resolved_capabilities.document_formatting = true
-  client.resolved_capabilities.document_range_formatting = true
+  client.server_capabilities.documentFormattingProvider = true
+  client.server_capabilities.documentRangeFormattingProvider  = true
 end
 
 HOME = vim.fn.expand('$HOME')
