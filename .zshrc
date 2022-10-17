@@ -139,8 +139,6 @@ export NVM_DIR="$HOME/.nvm"
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
 
-export PATH="$HOME/.poetry/bin:$PATH"
-
 # pipx completion
 autoload -U bashcompinit
 bashcompinit
