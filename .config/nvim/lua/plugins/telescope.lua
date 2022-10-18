@@ -39,6 +39,7 @@ vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>Telescope<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>Telescope find_files<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>Telescope live_grep<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>b', '<cmd>Telescope buffers<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>c', '<cmd>Telescope git_status<CR>', opts)
 
 -- LSP Pickers
 vim.api.nvim_set_keymap('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts)
