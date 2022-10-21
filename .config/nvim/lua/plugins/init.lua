@@ -83,6 +83,7 @@ return packer.startup(function(use)
       require('plugins.telescope')
     end,
   })
+  use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
   use({
     'nvim-lualine/lualine.nvim',
     config = function()

@@ -31,7 +31,17 @@ require('telescope').setup({
       find_command = { 'fd', '--type', 'file', '--hidden', '--follow', '--exclude', '.git' },
     },
   },
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = 'smart_case',
+    },
+  },
 })
+
+require('telescope').load_extension('fzf')
 
 local opts = { noremap = true, silent = true }
 
