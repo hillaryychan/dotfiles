@@ -27,6 +27,10 @@ function M.on_attach_base(client, bufnr)
   vim.keymap.set('n', '<leader>=', function()
     vim.lsp.buf.format({ async = true })
   end, bufopts)
+
+  vim.api.nvim_create_user_command('Workspaces', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, {})
 end
 
 return M
