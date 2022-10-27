@@ -20,7 +20,7 @@ alias mc='make clean'
 alias gc-="git checkout -"
 alias gdtl="git difftool"
 alias gfp="git fetch --prune"
-alias glp="git plog || git log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%ad) %C(bold blue)<%an>%Creset -%C(auto)%d%Creset %s' --abbrev-commit"
+alias glp="git plog"
 
 alias rg="rg -S \
     --colors 'path:fg:green' \
