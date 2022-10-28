@@ -23,8 +23,13 @@ vim.api.nvim_set_keymap('n', '*', '*zz', { noremap = true })
 vim.api.nvim_set_keymap('n', '#', '#zz', { noremap = true })
 
 -- toggle spell check
-vim.api.nvim_set_keymap('', '<F12>', ':setlocal spell! spelllang=en_au<CR>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<F12>', '<C-\\><C-o>:setlocal spell! spelllang=en_au<CR>', { noremap = true })
+function _G.toggle_spellcheck()
+  vim.opt.spell = not (vim.opt.spell:get())
+  local spell_on = vim.opt.spell:get()
+  print('Spellcheck ' .. tostring(spell_on and 'ON' or 'OFF'))
+end
+vim.keymap.set('', '<F12>', toggle_spellcheck, { noremap = true })
+vim.keymap.set('i', '<F12>', toggle_spellcheck, { noremap = true })
 
 -- split navigation
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w><C-j>', { noremap = true })

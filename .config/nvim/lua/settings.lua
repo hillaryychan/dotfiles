@@ -44,6 +44,12 @@ vim.opt.matchpairs:append('<:>')    -- match angled brackets
 vim.opt.splitright = true           -- puts new vsplit windows to the right of the current
 vim.opt.splitbelow = true           -- puts new split windows to bottom of current
 
+-- Spelling (see mappings.lua to toggle spellcheck)
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_us', 'en_au' }
+vim.opt.spelloptions = { 'camel' }
+vim.opt.spellsuggest = { 'best', 9 }
+
 vim.api.nvim_exec(
   [[
 " wrap lines for vimdiff
