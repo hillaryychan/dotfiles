@@ -50,17 +50,5 @@ vim.opt.spelllang = { 'en_us', 'en_au' }
 vim.opt.spelloptions = { 'camel' }
 vim.opt.spellsuggest = { 'best', 9 }
 
-vim.api.nvim_exec(
-  [[
-" wrap lines for vimdiff
-autocmd VimEnter * if &diff | execute 'windo set wrap' | endif
-
-" case-insensitive command line
-augroup dynamic_smartcase
-  autocmd!
-  autocmd CmdLineEnter : set nosmartcase
-  autocmd CmdLineLeave : set smartcase
-augroup END
-]],
-  false
-)
+-- Wrap lines for diff mode
+vim.api.nvim_create_autocmd('VimEnter', { pattern = '*', command = 'windo set wrap' })
