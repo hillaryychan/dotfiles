@@ -1,27 +1,51 @@
 -- gitsigns
 require('gitsigns').setup({
-  keymaps = {
-    noremap = true,
+  on_attach = function(bufnr)
+    local gs = package.loaded.gitsigns
 
-    ['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'" },
-    ['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'" },
+    local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
 
-    ['n ghs'] = '<cmd>Gitsigns stage_hunk<CR>',
-    ['v ghs'] = ':Gitsigns stage_hunk<CR>',
-    ['n ghu'] = '<cmd>Gitsigns undo_stage_hunk<CR>',
-    ['n ghr'] = '<cmd>Gitsigns reset_hunk<CR>',
-    ['v ghr'] = ':Gitsigns reset_hunk<CR>',
-    ['n ghR'] = '<cmd>Gitsigns reset_buffer<CR>',
-    ['n ghp'] = '<cmd>Gitsigns preview_hunk<CR>',
-    ['n ghb'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
-    ['n ghS'] = '<cmd>Gitsigns stage_buffer<CR>',
-    ['n ghU'] = '<cmd>Gitsigns reset_buffer_index<CR>',
-    ['n gb'] = '<cmd>Gitsigns toggle_current_line_blame<CR>',
+    -- Navigation
+    map('n', ']c', function()
+      if vim.wo.diff then
+        return ']c'
+      end
+      vim.schedule(function()
+        gs.next_hunk()
+      end)
+      return '<Ignore>'
+    end, { expr = true })
 
-    -- Text objects
-    ['o ih'] = ':<C-U>Gitsigns select_hunk<CR>',
-    ['x ih'] = ':<C-U>Gitsigns select_hunk<CR>',
-  },
+    map('n', '[c', function()
+      if vim.wo.diff then
+        return '[c'
+      end
+      vim.schedule(function()
+        gs.prev_hunk()
+      end)
+      return '<Ignore>'
+    end, { expr = true })
+
+    -- Actions
+    map({ 'n', 'v' }, 'ghs', ':Gitsigns stage_hunk<CR>')
+    map({ 'n', 'v' }, 'ghr', ':Gitsigns reset_hunk<CR>')
+    map('n', 'ghS', gs.stage_buffer)
+    map('n', 'ghu', gs.undo_stage_hunk)
+    map('n', 'ghR', gs.reset_buffer)
+    map('n', 'ghp', gs.preview_hunk)
+    map('n', 'ghb', function()
+      gs.blame_line({ full = true })
+    end)
+    map('n', 'gtb', gs.toggle_current_line_blame)
+    map('n', 'gtd', gs.toggle_deleted)
+
+    -- Text object
+    map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+  end,
   yadm = {
     enable = true,
   },
