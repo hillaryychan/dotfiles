@@ -41,7 +41,7 @@ vim.api.nvim_set_keymap('n', '<C-h>', '<C-w><C-h>', { noremap = true })
 function _G.copy_path_name(path_type)
   return function()
     -- default to relative path
-    local path = vim.fn.expand('%')
+    local path = vim.fn.expand("%:~:.")
     if path_type == 'full' then
       path = vim.fn.expand('%:p')
     elseif path_type == 'filename' then
