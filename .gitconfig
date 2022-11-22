@@ -9,14 +9,16 @@
 	trustExitCode = true
 [difftool "vimdiff3"]
 	cmd = nvim -d $LOCAL $REMOTE
+[init]
+	defaultBranch = main
 [merge]
 	tool = vim_mergetool
 	conflictstyle = diff3
 [mergetool "vim_mergetool"]
 	cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
 	trustExitCode = true
-[init]
-	defaultBranch = main
+[pager]
+	branch = false
 [push]
 	autoSetupRemote = true
 
