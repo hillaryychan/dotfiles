@@ -54,4 +54,5 @@ vim.api.nvim_set_keymap('n', '<leader>c', '<cmd>Telescope git_status<CR>', opts)
 -- LSP Pickers
 vim.api.nvim_set_keymap('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>s', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>ws', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>ds', '<cmd>Telescope lsp_document_symbols<CR>', opts)
