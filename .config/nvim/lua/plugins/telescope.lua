@@ -43,16 +43,17 @@ require('telescope').setup({
 
 require('telescope').load_extension('fzf')
 
+local builtin = require('telescope.builtin')
 local opts = { noremap = true, silent = true }
 
-vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>Telescope<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>Telescope find_files<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>Telescope live_grep<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>b', '<cmd>Telescope buffers<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>c', '<cmd>Telescope git_status<CR>', opts)
+vim.keymap.set('n', '<leader>t', builtin.builtin, opts)
+vim.keymap.set('n', '<leader>f', builtin.find_files, opts)
+vim.keymap.set('n', '<leader>g', builtin.live_grep, opts)
+vim.keymap.set('n', '<leader>b', builtin.buffers, opts)
+vim.keymap.set('n', '<leader>c', builtin.git_status, opts)
 
 -- LSP Pickers
-vim.api.nvim_set_keymap('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts)
-vim.api.nvim_set_keymap('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>ws', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>ds', '<cmd>Telescope lsp_document_symbols<CR>', opts)
+vim.keymap.set('n', 'gd', builtin.lsp_definitions, opts)
+vim.keymap.set('n', 'gr', builtin.lsp_references, opts)
+vim.api.nvim_create_user_command('WorkspaceSymbols', builtin.lsp_dynamic_workspace_symbols, {})
+vim.api.nvim_create_user_command('DocumentSymbols', builtin.lsp_document_symbols, {})
