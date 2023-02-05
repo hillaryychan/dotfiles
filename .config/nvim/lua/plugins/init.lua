@@ -79,7 +79,10 @@ return packer.startup(function(use)
   -- Navigation
   use({
     'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
     config = function()
       require('plugins.telescope')
     end,
@@ -93,8 +96,22 @@ return packer.startup(function(use)
   })
   use({
     'kyazdani42/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
     config = function()
       require('plugins.nvim-tree')
+    end,
+  })
+  use({
+    'utilyre/barbecue.nvim',
+    tag = '*', -- use latest tag
+    requires = {
+      'SmiteshP/nvim-navic',
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require('barbecue').setup()
     end,
   })
 
