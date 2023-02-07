@@ -1,0 +1,25 @@
+let mapleader = " "
+
+set clipboard^=unnamedplus  " enable copy pasting between clipboard registers
+
+" saving buffers
+nnoremap <leader>w :w<CR>
+
+" escape mappings
+inoremap jk <esc>
+vnoremap jk <esc>
+
+" make Y consistent with C and D
+nnoremap Y y$
+
+" center highlighted search results
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+
+" split navigation
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
