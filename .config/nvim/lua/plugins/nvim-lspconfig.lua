@@ -23,16 +23,16 @@ for _, lsp in ipairs(servers) do
 end
 
 HOME = vim.fn.expand('$HOME')
-local sumneko_root_path = HOME .. '/.config/nvim/servers/lua-language-server'
-local sumneko_binary = HOME .. '/.config/nvim/servers/lua-language-server/bin/lua-language-server'
+local lua_ls_root_path = HOME .. '/.config/nvim/servers/lua-language-server'
+local lua_ls_binary = HOME .. '/.config/nvim/servers/lua-language-server/bin/lua-language-server'
 
-nvim_lsp.sumneko_lua.setup({
+nvim_lsp.lua_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
   },
-  cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
+  cmd = { lua_ls_binary, '-E', lua_ls_root_path .. '/main.lua' },
   settings = {
     Lua = {
       runtime = {
