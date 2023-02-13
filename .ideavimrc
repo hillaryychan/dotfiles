@@ -1,6 +1,13 @@
 let mapleader = " "
 
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank'
+
 set clipboard^=unnamedplus  " enable copy pasting between clipboard registers
+set ruler                   " show file stats
+set number                  " show line numbers
+set relativenumber          " show relative line numbers
 
 " saving buffers
 nnoremap <leader>w :w<CR>
