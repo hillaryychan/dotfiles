@@ -78,14 +78,21 @@ return packer.startup(function(use)
 
   -- Navigation
   use({
+    'ibhagwan/fzf-lua',
+    requires = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('plugins.fzf-lua')
+    end,
+  })
+  use({
     'nvim-telescope/telescope.nvim',
     requires = {
       'nvim-lua/plenary.nvim',
       'nvim-tree/nvim-web-devicons',
     },
-    config = function()
-      require('plugins.telescope')
-    end,
+    -- config = function()
+    --   require('plugins.telescope')
+    -- end,
   })
   use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
   use({
