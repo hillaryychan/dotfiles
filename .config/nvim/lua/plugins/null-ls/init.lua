@@ -17,6 +17,7 @@ null_ls.setup({
   sources = {
     builtins.formatting.black,
     builtins.formatting.isort,
+    builtins.formatting.ruff,
     builtins.formatting.prettier,
     builtins.formatting.eslint_d,
     builtins.formatting.rustfmt,
