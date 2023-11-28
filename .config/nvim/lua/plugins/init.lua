@@ -41,9 +41,17 @@ return packer.startup(function(use)
   use({
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    requires = { 'JoosepAlviste/nvim-ts-context-commentstring' },
     config = function()
       require('plugins.nvim-treesitter')
+    end,
+  })
+  use({
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    config = function()
+      vim.g.skip_ts_context_commentstring_module = true
+      require('ts_context_commentstring').setup({
+        enable_autocmd = false,
+      })
     end,
   })
 
@@ -214,7 +222,7 @@ return packer.startup(function(use)
   })
 
   -- File specific
-  use({ 'NoahTheDuke/vim-just', ft = { 'just' } })
+  use({ 'NoahTheDuke/vim-just', ft = { 'just' }, branch = 'main' })
   use({
     'iamcco/markdown-preview.nvim',
     run = function()
