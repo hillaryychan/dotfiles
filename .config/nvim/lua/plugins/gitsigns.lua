@@ -31,8 +31,14 @@ require('gitsigns').setup({
     end, { expr = true })
 
     -- Actions
-    map({ 'n', 'v' }, 'ghs', ':Gitsigns stage_hunk<CR>')
-    map({ 'n', 'v' }, 'ghr', ':Gitsigns reset_hunk<CR>')
+    map({ 'n' }, 'ghs', gs.stage_hunk)
+    map({ 'n' }, 'ghr', gs.reset_hunk)
+    map('v', 'ghs', function()
+      gs.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+    end)
+    map('v', 'ghr', function()
+      gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+    end)
     map('n', 'ghS', gs.stage_buffer)
     map('n', 'ghu', gs.undo_stage_hunk)
     map('n', 'ghR', gs.reset_buffer)
@@ -41,6 +47,10 @@ require('gitsigns').setup({
       gs.blame_line({ full = true })
     end)
     map('n', 'gtb', gs.toggle_current_line_blame)
+    map('n', 'ghd', gs.diffthis)
+    map('n', 'ghD', function()
+      gs.diffthis('~')
+    end)
     map('n', 'gtd', gs.toggle_deleted)
 
     -- Text object

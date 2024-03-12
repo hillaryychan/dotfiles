@@ -1,6 +1,0 @@
-vim.api.nvim_set_keymap('n', '[b', ':bprevious<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', ']b', ':bnext<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '[B', ':bfirst<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', ']B', ':blast<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>d', ':BD<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>D', ':bufdo bd<CR>', { noremap = true, silent = true })

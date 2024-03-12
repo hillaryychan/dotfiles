@@ -52,3 +52,9 @@ vim.opt.spellsuggest = { 'best', 9 }
 
 -- Wrap lines for diff mode
 vim.api.nvim_create_autocmd('VimEnter', { pattern = '*', command = 'windo set wrap' })
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank({ timeout = 1000 })
+  end,
+})

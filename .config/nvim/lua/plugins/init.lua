@@ -1,51 +1,37 @@
-local fn = vim.fn
-
--- Automatically install packer
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({
+-- bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
     'git',
     'clone',
-    '--depth',
-    '1',
-    'https://github.com/wbthomason/packer.nvim',
-    install_path,
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
   })
-  print('Installing packer close and reopen Neovim...')
-  vim.cmd([[packadd packer.nvim]])
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, 'packer')
-if not status_ok then
-  return
-end
-
--- Enable profiling
-packer.init({ profile = { enable = true } })
-
-return packer.startup(function(use)
-  -- Let packer manage itself
-  use('wbthomason/packer.nvim')
-
+require('lazy').setup({
   -- Colorscheme
-  use({
+  {
     'sainnhe/sonokai',
+    lazy = false,
     config = function()
       vim.g.sonokai_enable_italic = 1
       vim.cmd('colorscheme sonokai')
     end,
-  })
+  },
 
   -- Treesitter
-  use({
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    build = ':TSUpdate',
     config = function()
       require('plugins.nvim-treesitter')
     end,
-  })
-  use({
+  },
+  {
     'JoosepAlviste/nvim-ts-context-commentstring',
     config = function()
       vim.g.skip_ts_context_commentstring_module = true
@@ -53,12 +39,12 @@ return packer.startup(function(use)
         enable_autocmd = false,
       })
     end,
-  })
+  },
 
   -- LSP + completion
-  use({
+  {
     'hrsh7th/nvim-cmp',
-    requires = {
+    dependencies = {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-path',
@@ -69,178 +55,173 @@ return packer.startup(function(use)
     config = function()
       require('plugins.nvim-cmp')
     end,
-  })
-  use({
-    'jose-elias-alvarez/null-ls.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('plugins.null-ls')
-    end,
-  })
-  use({
+  },
+  {
     'neovim/nvim-lspconfig',
     config = function()
       require('plugins.nvim-lspconfig')
     end,
-  })
+  },
+  -- TODO: find auto foramtter plugin
 
   -- Navigation
-  use({
+  -- TODO: maybe try setup telescope to compare with fzf-lua
+  {
     'ibhagwan/fzf-lua',
-    requires = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('plugins.fzf-lua')
     end,
-  })
-  use({
-    'nvim-telescope/telescope.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-tree/nvim-web-devicons',
-    },
-    -- config = function()
-    --   require('plugins.telescope')
-    -- end,
-  })
-  use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
-  use({
+  },
+  {
     'nvim-lualine/lualine.nvim',
-    config = function()
-      require('plugins.lualine')
-    end,
-  })
-  use({
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons',
+    opts = {
+      options = {
+        icons_enabled = false,
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+      },
+      sections = {
+        lualine_b = { { 'diagnostics', colored = false } },
+      },
     },
+  },
+  {
+    'nvim-tree/nvim-tree.lua',
+    version = '*',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      require('plugins.nvim-tree')
+      require('nvim-tree').setup({
+        git = {
+          enable = false,
+        },
+        view = {
+          width = 35,
+        },
+      })
+      vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeFindFileToggle<CR>', { noremap = true })
     end,
-  })
-  use({
+  },
+  {
     'utilyre/barbecue.nvim',
-    tag = '*', -- use latest tag
-    requires = {
-      'SmiteshP/nvim-navic',
-      'nvim-tree/nvim-web-devicons',
-    },
-    config = function()
-      require('barbecue').setup()
-    end,
-  })
+    name = 'barbecue',
+    version = '*',
+    dependencies = { 'SmiteshP/nvim-navic', 'nvim-tree/nvim-web-devicons' },
+    opts = {},
+  },
 
   -- Quality of life
-  use({
+  {
     'windwp/nvim-autopairs',
-    config = function()
-      require('nvim-autopairs').setup({
-        disable_filetype = { 'TelescopePrompt', 'vim' },
-      })
-    end,
-  })
-  use({
+    event = 'InsertEnter',
+    config = true,
+  },
+  {
     'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup({
-        ignore = '^$',
-      })
-    end,
-  })
-  use({
+    opts = {
+      -- ignore empty/blank lines
+      ignore = '^%s*$',
+    },
+  },
+  {
     'kylechui/nvim-surround',
-    tag = '*', -- use latest tag
+    version = '*',
+    event = 'VeryLazy',
     config = function()
       require('nvim-surround').setup()
     end,
-  })
-  use('tpope/vim-sleuth')
-  use({
+  },
+  { 'tpope/vim-sleuth' },
+  {
     'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require('ibl').setup({
-        scope = { enabled = true, show_start = false },
-      })
-    end,
-  })
-  use({
+    main = 'ibl',
+    opts = {
+      scope = {
+        enabled = true,
+        show_start = false,
+        show_end = false,
+      },
+    },
+  },
+  {
     'junegunn/vim-peekaboo',
     config = function()
       vim.g.peekaboo_window = 'vert to 40new'
     end,
-  })
-  use({
+  },
+  {
     'junegunn/vim-easy-align',
     config = function()
-      require('plugins.vim-easy-align')
+      -- start interactive EasyAlign in visual mode (e.g. vipga)
+      vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
+      -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
+      vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
+
+      vim.api.nvim_set_keymap('v', '<leader><bslash>', ':EasyAlign*<bar><CR>', {})
     end,
-  })
-  use({
-    'unblevable/quick-scope',
+  },
+  {
+    'jinh0/eyeliner.nvim',
+    opts = {
+      highlight_on_key = true,
+      dim = true,
+    },
+  },
+  {
+    'karb94/neoscroll.nvim',
     config = function()
-      vim.g.qs_highlight_on_keys = { 'f', 'F', 't', 'T' }
+      require('neoscroll').setup()
     end,
-  })
-  use('machakann/vim-highlightedyank')
-  use('psliwka/vim-smoothie')
-  use({
+  },
+  {
     'milkypostman/vim-togglelist',
     config = function()
       require('plugins.vim-togglelist')
     end,
-  })
-  use({
+  },
+  {
     'qpkorr/vim-bufkill',
     config = function()
-      require('plugins.vim-bufkill')
+      vim.api.nvim_set_keymap('n', '[b', ':bprevious<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', ']b', ':bnext<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '[B', ':bfirst<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', ']B', ':blast<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>d', ':BD<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>D', ':bufdo bd<CR>', { noremap = true, silent = true })
     end,
-  })
-  use({
-    'szw/vim-maximizer',
+  },
+  {
+    'anuvyklack/windows.nvim',
+    dependencies = { 'anuvyklack/middleclass', 'anuvyklack/animation.nvim' },
     config = function()
-      vim.api.nvim_set_keymap('n', '<leader>z', ':MaximizerToggle<CR>', { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('v', '<leader>z', ':MaximizerToggle<CR>gv', { noremap = true, silent = true })
+      require('windows').setup()
+      vim.api.nvim_set_keymap('n', '<leader>z', ':WindowsMaximize<CR>', { noremap = true, silent = true })
     end,
-  })
+  },
 
   -- Git
-  use({
+  {
     'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('plugins.gitsigns')
     end,
-  })
-  use({
+  },
+  {
     'samoshkin/vim-mergetool',
     config = function()
       vim.g.mergetool_layout = 'rm' -- remote on left, optimistic merge on right
       vim.g.mergetool_prefer_revision = 'local' -- optimistically accept local changes for merge
     end,
-  })
+  },
 
   -- File specific
-  use({ 'NoahTheDuke/vim-just', ft = { 'just' }, branch = 'main' })
-  use({
+  {
     'iamcco/markdown-preview.nvim',
-    run = function()
-      vim.fn['mkdp#util#install']()
-    end,
+    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
     ft = { 'markdown' },
-    config = function()
+    build = function()
+      vim.fn['mkdp#util#install']()
       vim.api.nvim_set_keymap('n', '<leader>p', '<Plug>MarkdownPreviewToggle', { silent = true })
     end,
-  })
-  use({
-    'alvan/vim-closetag',
-    config = function()
-      require('plugins.vim-closetag')
-    end,
-  })
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require('packer').sync()
-  end
-end)
+  },
+})
