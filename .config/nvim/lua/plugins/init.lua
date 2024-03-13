@@ -65,7 +65,17 @@ require('lazy').setup({
   -- TODO: find auto foramtter plugin
 
   -- Navigation
-  -- TODO: maybe try setup telescope to compare with fzf-lua
+  -- {
+  --   'nvim-telescope/telescope.nvim',
+  --   tag = '0.1.5',
+  --   dependencies = {
+  --     { 'nvim-lua/plenary.nvim' },
+  --     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+  --   },
+  --   config = function()
+  --     require('plugins.telescope')
+  --   end,
+  -- },
   {
     'ibhagwan/fzf-lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },

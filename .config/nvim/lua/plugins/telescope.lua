@@ -1,5 +1,7 @@
+local telescope = require('telescope')
 local actions = require('telescope.actions')
-require('telescope').setup({
+
+telescope.setup({
   defaults = {
     mappings = {
       n = {
@@ -41,7 +43,7 @@ require('telescope').setup({
   },
 })
 
-require('telescope').load_extension('fzf')
+telescope.load_extension('fzf')
 
 local builtin = require('telescope.builtin')
 local opts = { noremap = true, silent = true }
