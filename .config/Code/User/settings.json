@@ -49,6 +49,7 @@
     "<C-b>": false,
     "<C-f>": false,
     "<C-h>": false,
+    "<C-p>": false,
     "<C-q>": false
   },
   "vim.smartRelativeLine": true,
