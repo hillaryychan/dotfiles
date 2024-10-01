@@ -7,7 +7,9 @@
   "editor.rulers": [80, 100, 120],
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": { "source.organizeImports": true },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
   "editor.fontSize": 13,
   "terminal.integrated.fontSize": 13,
   // Vim settings
@@ -49,7 +51,6 @@
     "<C-b>": false,
     "<C-f>": false,
     "<C-h>": false,
-    "<C-p>": false,
     "<C-q>": false
   },
   "vim.smartRelativeLine": true,
