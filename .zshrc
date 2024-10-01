@@ -148,9 +148,8 @@ export NVM_DIR="$HOME/.nvm"
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
 
-# pipx completion
-autoload -U bashcompinit
-bashcompinit
+# From `pipx completions`
+autoload -U compinit && compinit
 eval "$(register-python-argcomplete pipx)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
