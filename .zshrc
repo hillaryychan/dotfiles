@@ -136,6 +136,7 @@ bindkey ^U backward-kill-line
 export TIMEFMT=$'\n%J\ncpu\t%P\nreal\t%*Es\nuser\t%*Us\nsys\t%*Ss'
 
 # Configure fzf shell integration
+export FZF_DEFAULT_OPTS='--layout=reverse'
 source <(fzf --zsh)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
