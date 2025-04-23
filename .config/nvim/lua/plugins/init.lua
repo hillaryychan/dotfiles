@@ -112,13 +112,14 @@ require('lazy').setup({
       vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeFindFileToggle<CR>', { noremap = true })
     end,
   },
-  {
-    'utilyre/barbecue.nvim',
-    name = 'barbecue',
-    version = '*',
-    dependencies = { 'SmiteshP/nvim-navic', 'nvim-tree/nvim-web-devicons' },
-    opts = {},
-  },
+  -- TODO: archived use dropbar
+  -- {
+  --   'utilyre/barbecue.nvim',
+  --   name = 'barbecue',
+  --   version = '*',
+  --   dependencies = { 'SmiteshP/nvim-navic', 'nvim-tree/nvim-web-devicons' },
+  --   opts = {},
+  -- },
 
   -- Quality of life
   {
