@@ -34,6 +34,7 @@ require('lazy').setup({
         }
       })
       require('mini.pairs').setup()
+      require('mini.splitjoin').setup()
 
       -- appearance
       require('mini.animate').setup({
