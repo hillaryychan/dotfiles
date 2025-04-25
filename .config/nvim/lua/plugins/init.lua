@@ -27,6 +27,14 @@ require('lazy').setup({
   {
     'echasnovski/mini.nvim',
     config = function()
+      -- text editing
+      require('mini.comment').setup({
+        options = {
+          ignore_blank_line = true,
+        }
+      })
+
+      -- appearance
       require('mini.animate').setup({
         cursor = {
           enable = false,
@@ -164,13 +172,6 @@ require('lazy').setup({
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     config = true,
-  },
-  {
-    'numToStr/Comment.nvim',
-    opts = {
-      -- ignore empty/blank lines
-      ignore = '^%s*$',
-    },
   },
   {
     'kylechui/nvim-surround',
