@@ -23,6 +23,16 @@ require('lazy').setup({
     end,
   },
 
+  -- mini.nvim
+  {
+    'echasnovski/mini.nvim',
+    config = function()
+      -- in conjuction with lukas-reineke/indent-blankline.nvim
+      require('mini.indentscope').setup()
+      require('mini.trailspace').setup()
+    end,
+  },
+
   -- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
@@ -164,8 +174,10 @@ require('lazy').setup({
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
     opts = {
+      -- scope to statically show indent guides
+      -- use mini.indentscope for showing active indent levels
       scope = {
-        enabled = true,
+        enabled = false,
         show_start = false,
         show_end = false,
       },
