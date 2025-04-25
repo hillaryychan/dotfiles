@@ -73,10 +73,13 @@ require('lazy').setup({
   {
     'neovim/nvim-lspconfig',
     config = function()
-      require('plugins.nvim-lspconfig')
+      local servers = { 'jsonls', 'pyright', 'ts_ls', 'yamlls' }
+      for _, lsp in ipairs(servers) do
+        vim.lsp.enable(lsp)
+      end
     end,
   },
-  -- TODO: find auto foramtter plugin
+  -- TODO: find auto formatter plugin
 
   -- Navigation
   -- {
