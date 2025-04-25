@@ -27,6 +27,17 @@ require('lazy').setup({
   {
     'echasnovski/mini.nvim',
     config = function()
+      require('mini.animate').setup({
+        cursor = {
+          enable = false,
+        },
+        open = {
+          enable = false,
+        },
+        close = {
+          enable = false,
+        }
+      })
       -- in conjuction with lukas-reineke/indent-blankline.nvim
       require('mini.indentscope').setup()
       require('mini.trailspace').setup()
@@ -206,12 +217,6 @@ require('lazy').setup({
       highlight_on_key = true,
       dim = true,
     },
-  },
-  {
-    'karb94/neoscroll.nvim',
-    config = function()
-      require('neoscroll').setup()
-    end,
   },
   {
     'milkypostman/vim-togglelist',

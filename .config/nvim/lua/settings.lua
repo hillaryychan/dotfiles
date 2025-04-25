@@ -5,6 +5,7 @@ vim.opt.hidden = true               -- reuse same window and switch from an unsa
 vim.opt.modelines = 0               -- security
 vim.opt.visualbell = true           -- use visual bell instead of beeping when there is an error
 vim.opt.mouse = 'a'                 -- enable mouse for all modes
+vim.opt.mousescroll = 'ver:1,hor:1'
 vim.opt.clipboard = 'unnamedplus'   -- enable copy pasting between clipboard registers
 
 -- Indentation
