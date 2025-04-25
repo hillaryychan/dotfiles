@@ -28,6 +28,7 @@ require('lazy').setup({
     'echasnovski/mini.nvim',
     config = function()
       -- text editing
+      require('mini.align').setup()
       require('mini.comment').setup({
         options = {
           ignore_blank_line = true,
@@ -196,17 +197,6 @@ require('lazy').setup({
     'junegunn/vim-peekaboo',
     config = function()
       vim.g.peekaboo_window = 'vert to 40new'
-    end,
-  },
-  {
-    'junegunn/vim-easy-align',
-    config = function()
-      -- start interactive EasyAlign in visual mode (e.g. vipga)
-      vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
-      -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
-      vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
-
-      vim.api.nvim_set_keymap('v', '<leader><bslash>', ':EasyAlign*<bar><CR>', {})
     end,
   },
   {
