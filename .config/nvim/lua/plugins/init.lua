@@ -33,6 +33,7 @@ require('lazy').setup({
           ignore_blank_line = true,
         }
       })
+      require('mini.pairs').setup()
 
       -- appearance
       require('mini.animate').setup({
@@ -168,11 +169,6 @@ require('lazy').setup({
   -- },
 
   -- Quality of life
-  {
-    'windwp/nvim-autopairs',
-    event = 'InsertEnter',
-    config = true,
-  },
   {
     'kylechui/nvim-surround',
     version = '*',
