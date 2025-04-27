@@ -190,7 +190,6 @@ require('lazy').setup({
       require('nvim-surround').setup()
     end,
   },
-  { 'tpope/vim-sleuth' },
   {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
