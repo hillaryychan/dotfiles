@@ -63,6 +63,9 @@ function _G.toggle_loclist()
 end
 vim.keymap.set('n', '<leader>l', toggle_loclist, { noremap = true })
 
+-- open current buffer in new tab
+vim.api.nvim_set_keymap('n', '<leader>t', ':tabnew %<CR>', { noremap = true })
+
 -- split navigation
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w><C-j>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w><C-k>', { noremap = true })
