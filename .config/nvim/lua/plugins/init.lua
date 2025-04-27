@@ -39,6 +39,11 @@ require('lazy').setup({
 
       -- workflow
       require('mini.bracketed').setup()
+      -- * bracket navigation for tabpages (using p since t is for treesitter)
+      vim.api.nvim_set_keymap('n', '[p', ':tabprevious<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', ']p', ':tabnext<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '[P', ':tabfirst<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', ']P', ':tablast<CR>', { noremap = true, silent = true })
       require('mini.bufremove').setup()
       vim.keymap.set('n', '<leader>d', function() MiniBufremove.delete(0) end, { noremap = true })
       vim.keymap.set('n', '<leader>D', function() MiniBufremove.delete(0, true) end, { noremap = true })
