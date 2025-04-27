@@ -217,14 +217,6 @@ require('lazy').setup({
       dim = true,
     },
   },
-  {
-    'anuvyklack/windows.nvim',
-    dependencies = { 'anuvyklack/middleclass', 'anuvyklack/animation.nvim' },
-    config = function()
-      require('windows').setup()
-      vim.api.nvim_set_keymap('n', '<leader>z', ':WindowsMaximize<CR>', { noremap = true, silent = true })
-    end,
-  },
 
   -- Git
   {
