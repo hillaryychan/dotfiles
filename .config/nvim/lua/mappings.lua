@@ -31,6 +31,38 @@ end
 vim.keymap.set('', '<F12>', toggle_spellcheck, { noremap = true })
 vim.keymap.set('i', '<F12>', toggle_spellcheck, { noremap = true })
 
+-- toggle quickfix
+function _G.toggle_quickfix()
+  local windows = vim.fn.getwininfo()
+  for _, win in pairs(windows) do
+    if win["quickfix"] == 1 then
+      vim.cmd.cclose()
+      return
+    end
+  end
+  vim.cmd.copen()
+end
+vim.keymap.set('n', '<leader>q', toggle_quickfix, { noremap = true })
+
+-- toggle location list
+function _G.toggle_loclist()
+  local windows = vim.fn.getwininfo()
+  for _, win in pairs(windows) do
+    if win["loclist"] == 1 then
+      vim.cmd.lclose()
+      return
+    end
+  end
+
+  local has_loclist_items = #(vim.fn.getloclist(0)) > 0
+  if has_loclist_items then
+    vim.cmd.lopen()
+  else
+    print("No location list")
+  end
+end
+vim.keymap.set('n', '<leader>l', toggle_loclist, { noremap = true })
+
 -- split navigation
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w><C-j>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w><C-k>', { noremap = true })
