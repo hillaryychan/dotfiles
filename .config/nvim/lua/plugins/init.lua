@@ -60,8 +60,30 @@ require('lazy').setup({
           enable = false,
         }
       })
+      require('mini.icons').setup()
       -- in conjuction with lukas-reineke/indent-blankline.nvim
       require('mini.indentscope').setup()
+      require('mini.statusline').setup({
+        content = {
+          active = function()
+            local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+            local diagnostics   = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+            local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
+            local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 120 })
+            local location      = MiniStatusline.section_location({ trunc_width = 75 })
+
+            return MiniStatusline.combine_groups({
+              { hl = mode_hl,                  strings = { mode } },
+              { hl = 'MiniStatuslineDevinfo',  strings = { diagnostics } },
+              '%<', -- Mark general truncate point
+              { hl = 'MiniStatuslineFilename', strings = { filename } },
+              '%=', -- End left alignment
+              { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
+              { hl = mode_hl,                  strings = { location } },
+            })
+          end
+        },
+      })
       require('mini.trailspace').setup()
     end,
   },
@@ -142,19 +164,6 @@ require('lazy').setup({
     config = function()
       require('plugins.fzf-lua')
     end,
-  },
-  {
-    'nvim-lualine/lualine.nvim',
-    opts = {
-      options = {
-        icons_enabled = false,
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
-      },
-      sections = {
-        lualine_b = { { 'diagnostics', colored = false } },
-      },
-    },
   },
   {
     'nvim-tree/nvim-tree.lua',
