@@ -138,7 +138,7 @@ require('lazy').setup({
   {
     'neovim/nvim-lspconfig',
     config = function()
-      local servers = { 'jsonls', 'pyright', 'ts_ls', 'yamlls' }
+      local servers = { 'jsonls', 'lua_ls', 'pyright', 'ts_ls', 'yamlls' }
       for _, lsp in ipairs(servers) do
         vim.lsp.enable(lsp)
       end
