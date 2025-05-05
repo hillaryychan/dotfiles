@@ -144,7 +144,34 @@ require('lazy').setup({
       end
     end,
   },
-  -- TODO: find auto formatter plugin
+  {
+    'mhartington/formatter.nvim',
+    config = function()
+      require("formatter").setup {
+        logging = true,
+        log_level = vim.log.levels.WARN,
+        filetype = {
+          html = {
+            require("formatter.filetypes.html").prettier,
+          },
+          json = {
+            require("formatter.filetypes.json").fixjson,
+            require("formatter.filetypes.json").prettier,
+          },
+          lua = {
+            require("formatter.filetypes.lua").stylua,
+          },
+          python = {
+            require("formatter.filetypes.python").ruff,
+            require("formatter.filetypes.python").iruff,
+          },
+          yaml = {
+            require("formatter.filetypes.yaml").prettier,
+          },
+        }
+      }
+    end
+  },
 
   -- Navigation
   -- {
