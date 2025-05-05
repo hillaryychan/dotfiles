@@ -1,5 +1,3 @@
-local utils = require('utils')
-
 -- saving buffers
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>e', ':noa w<CR>', { noremap = true })
@@ -11,10 +9,14 @@ vim.api.nvim_set_keymap('v', 'jk', '<esc>', { noremap = true })
 -- clear highlighting
 vim.api.nvim_set_keymap('n', '<leader><space>', ':noh<CR>', { noremap = true })
 
+local function replace_termcodes(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
 -- center highlighted search results
 function _G.center_search()
   local cmdtype = vim.fn.getcmdtype()
-  return cmdtype:match('^[/?]$') and utils.t('<CR>zz') or utils.t('<CR>')
+  return cmdtype:match('^[/?]$') and replace_termcodes('<CR>zz') or replace_termcodes('<CR>')
 end
 vim.keymap.set('c', '<CR>', center_search, { expr = true, noremap = true })
 vim.api.nvim_set_keymap('n', 'n', 'nzz', { noremap = true })
