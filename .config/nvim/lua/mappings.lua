@@ -37,7 +37,7 @@ vim.keymap.set('i', '<F12>', toggle_spellcheck, { noremap = true })
 function _G.toggle_quickfix()
   local windows = vim.fn.getwininfo()
   for _, win in pairs(windows) do
-    if win["quickfix"] == 1 then
+    if win['quickfix'] == 1 then
       vim.cmd.cclose()
       return
     end
@@ -50,7 +50,7 @@ vim.keymap.set('n', '<leader>q', toggle_quickfix, { noremap = true })
 function _G.toggle_loclist()
   local windows = vim.fn.getwininfo()
   for _, win in pairs(windows) do
-    if win["loclist"] == 1 then
+    if win['loclist'] == 1 then
       vim.cmd.lclose()
       return
     end
@@ -60,7 +60,7 @@ function _G.toggle_loclist()
   if has_loclist_items then
     vim.cmd.lopen()
   else
-    print("No location list")
+    print('No location list')
   end
 end
 vim.keymap.set('n', '<leader>l', toggle_loclist, { noremap = true })
@@ -83,7 +83,7 @@ vim.api.nvim_set_keymap('n', '<C-h>', '<C-w><C-h>', { noremap = true })
 function _G.copy_path_name(path_type)
   return function()
     -- default to relative path
-    local path = vim.fn.expand("%:~:.")
+    local path = vim.fn.expand('%:~:.')
     if path_type == 'full' then
       path = vim.fn.expand('%:p')
     elseif path_type == 'filename' then
