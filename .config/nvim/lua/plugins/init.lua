@@ -32,7 +32,7 @@ require('lazy').setup({
       require('mini.comment').setup({
         options = {
           ignore_blank_line = true,
-        }
+        },
       })
       require('mini.pairs').setup()
       require('mini.splitjoin').setup()
@@ -45,8 +45,12 @@ require('lazy').setup({
       vim.api.nvim_set_keymap('n', '[P', ':tabfirst<CR>', { noremap = true, silent = true })
       vim.api.nvim_set_keymap('n', ']P', ':tablast<CR>', { noremap = true, silent = true })
       require('mini.bufremove').setup()
-      vim.keymap.set('n', '<leader>d', function() MiniBufremove.delete(0) end, { noremap = true })
-      vim.keymap.set('n', '<leader>D', function() MiniBufremove.delete(0, true) end, { noremap = true })
+      vim.keymap.set('n', '<leader>d', function()
+        MiniBufremove.delete(0)
+      end, { noremap = true })
+      vim.keymap.set('n', '<leader>D', function()
+        MiniBufremove.delete(0, true)
+      end, { noremap = true })
 
       -- appearance
       require('mini.animate').setup({
@@ -58,7 +62,7 @@ require('lazy').setup({
         },
         close = {
           enable = false,
-        }
+        },
       })
       require('mini.icons').setup()
       -- in conjuction with lukas-reineke/indent-blankline.nvim
@@ -67,21 +71,21 @@ require('lazy').setup({
         content = {
           active = function()
             local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
-            local diagnostics   = MiniStatusline.section_diagnostics({ trunc_width = 75 })
-            local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
-            local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 120 })
-            local location      = MiniStatusline.section_location({ trunc_width = 75 })
+            local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+            local filename = MiniStatusline.section_filename({ trunc_width = 140 })
+            local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
+            local location = MiniStatusline.section_location({ trunc_width = 75 })
 
             return MiniStatusline.combine_groups({
-              { hl = mode_hl,                  strings = { mode } },
-              { hl = 'MiniStatuslineDevinfo',  strings = { diagnostics } },
+              { hl = mode_hl, strings = { mode } },
+              { hl = 'MiniStatuslineDevinfo', strings = { diagnostics } },
               '%<', -- Mark general truncate point
               { hl = 'MiniStatuslineFilename', strings = { filename } },
               '%=', -- End left alignment
               { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
-              { hl = mode_hl,                  strings = { location } },
+              { hl = mode_hl, strings = { location } },
             })
-          end
+          end,
         },
       })
       require('mini.trailspace').setup()
@@ -113,11 +117,11 @@ require('lazy').setup({
       require('mason').setup({
         ui = {
           icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-          }
-        }
+            package_installed = '✓',
+            package_pending = '➜',
+            package_uninstalled = '✗',
+          },
+        },
       })
     end,
   },
@@ -147,30 +151,30 @@ require('lazy').setup({
   {
     'mhartington/formatter.nvim',
     config = function()
-      require("formatter").setup {
+      require('formatter').setup({
         logging = true,
         log_level = vim.log.levels.WARN,
         filetype = {
           html = {
-            require("formatter.filetypes.html").prettier,
+            require('formatter.filetypes.html').prettier,
           },
           json = {
-            require("formatter.filetypes.json").fixjson,
-            require("formatter.filetypes.json").prettier,
+            require('formatter.filetypes.json').fixjson,
+            require('formatter.filetypes.json').prettier,
           },
           lua = {
-            require("formatter.filetypes.lua").stylua,
+            require('formatter.filetypes.lua').stylua,
           },
           python = {
-            require("formatter.filetypes.python").ruff,
-            require("formatter.filetypes.python").iruff,
+            require('formatter.filetypes.python').ruff,
+            require('formatter.filetypes.python').iruff,
           },
           yaml = {
-            require("formatter.filetypes.yaml").prettier,
+            require('formatter.filetypes.yaml').prettier,
           },
-        }
-      }
-    end
+        },
+      })
+    end,
   },
 
   -- Navigation
@@ -212,14 +216,14 @@ require('lazy').setup({
     'Bekaboo/dropbar.nvim',
     dependencies = {
       { 'nvim-tree/nvim-web-devicons' },
-      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = function()
       local dropbar_api = require('dropbar.api')
       vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
       vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
       vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
-    end
+    end,
   },
 
   -- Quality of life
