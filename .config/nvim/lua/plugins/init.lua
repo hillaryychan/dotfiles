@@ -214,10 +214,7 @@ require('lazy').setup({
   },
   {
     'Bekaboo/dropbar.nvim',
-    dependencies = {
-      { 'nvim-tree/nvim-web-devicons' },
-      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       local dropbar_api = require('dropbar.api')
       vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
