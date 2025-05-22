@@ -1,4 +1,4 @@
-vim.opt_local.spellang = "en_au"
+vim.opt_local.spelllang = "en_au"
 vim.opt_local.wrap = true
 
 -- bold
