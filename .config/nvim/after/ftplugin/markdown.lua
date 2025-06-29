@@ -19,7 +19,7 @@ vim.api.nvim_set_keymap('i', '<c-q><c-b>', '> ', { noremap = true })
 -- link
 vim.api.nvim_set_keymap('i', '<c-l><c-k>', '[]()<esc>hhi', { noremap = true })
 -- image link
-vim.api.nvim_set_keymap('i', '<c-l><c-i>', '[]()<esc>hhi', { noremap = true })
+vim.api.nvim_set_keymap('i', '<c-l><c-i>', '![]()<esc>hhi', { noremap = true })
 
 vim.api.nvim_set_keymap('v', '<leader><bslash>', ':EasyAlign*<bar><enter>', { noremap = true })
 
