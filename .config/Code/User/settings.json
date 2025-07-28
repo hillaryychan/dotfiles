@@ -51,6 +51,7 @@
     "<C-b>": false,
     "<C-f>": false,
     "<C-h>": false,
+    "<C-p>": false,
     "<C-q>": false
   },
   "vim.smartRelativeLine": true,
@@ -79,5 +80,6 @@
     "*.ipynb": "jupyter.notebook.ipynb"
   },
   // C++
-  "C_Cpp.updateChannel": "Insiders"
+  "C_Cpp.updateChannel": "Insiders",
+  "editor.fontFamily": "'MesloLGS Nerd Font', 'monospace', monospace"
 }
