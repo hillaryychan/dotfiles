@@ -15,7 +15,7 @@ require('gitsigns').setup({
       if vim.wo.diff then
         vim.cmd.normal({'[H', bang = true})
       else
-        gitsigns.nav_hunk('first')
+        gs.nav_hunk('first')
       end
     end)
 
@@ -23,7 +23,7 @@ require('gitsigns').setup({
       if vim.wo.diff then
         vim.cmd.normal({'[h', bang = true})
       else
-        gitsigns.nav_hunk('prev')
+        gs.nav_hunk('prev')
       end
     end)
 
@@ -31,7 +31,7 @@ require('gitsigns').setup({
       if vim.wo.diff then
         vim.cmd.normal({']h', bang = true})
       else
-        gitsigns.nav_hunk('next')
+        gs.nav_hunk('next')
       end
     end)
 
@@ -39,7 +39,7 @@ require('gitsigns').setup({
       if vim.wo.diff then
         vim.cmd.normal({']H', bang = true})
       else
-        gitsigns.nav_hunk('last')
+        gs.nav_hunk('last')
       end
     end)
 
