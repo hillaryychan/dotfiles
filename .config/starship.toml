@@ -7,11 +7,18 @@ vimcmd_symbol = "[<](bold green)"
 tag_symbol = " tag "
 
 [git_status]
-ahead = ">"
-behind = "<"
-diverged = "<>"
-renamed = "r"
-deleted = "x"
+format = '([$ahead_behind\[ $staged$conflicted$modified$deleted$renamed$typechanged$untracked$stashed\]]($style) )'
+style = "bold green"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇣${behind_count}⇡${ahead_count} "
+conflicted = "=${count} "
+deleted = "✘${count} "
+modified = "!${count} "
+renamed = "»${count} "
+staged = "+${count} "
+stashed = "*${count} "
+untracked = "?${count} "
 
 [aws]
 symbol = "aws "
